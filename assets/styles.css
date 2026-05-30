@@ -47,23 +47,8 @@ body.splash {
   text-rendering: optimizeLegibility;
 }
 
-/* ---- Background canvases (light motes + ink trail) ---- */
-.lightfield,
-.inkfield {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* never blocks the Start button */
-}
-
-.lightfield { z-index: 0; }
-.inkfield { z-index: 1; }
-
 /* ---- Stage: centered, full-viewport composition ---- */
 .stage {
-  position: relative;
-  z-index: 2;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -75,37 +60,12 @@ body.splash {
   transition: opacity var(--dur-exit) var(--ease-out);
 }
 
-/* ---- Greeting by time of day ---- */
-.greeting {
-  margin: 0;
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-/* ---- "feito com amor por Arthur" sign-off ---- */
-.signoff {
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  right: 0;
-  bottom: max(var(--space-3), env(safe-area-inset-bottom));
-  text-align: center;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  color: var(--color-accent);
-}
-
 /* Exit transition before navigating to /home */
 .stage.is-leaving {
   opacity: 0;
 }
 
-/* ---- Wordmark (signature, "writes" itself left-to-right) ---- */
+/* ---- Wordmark (signature) ---- */
 .wordmark {
   font-family: var(--font-wordmark);
   font-weight: 400;
@@ -114,16 +74,6 @@ body.splash {
   line-height: 1.05;
   margin: 0;
   letter-spacing: 0.01em;
-
-  /* Left-to-right reveal that mimics the name being written by hand.
-     `both` fill keeps it clipped during the delay (no flash), and if a
-     browser lacks clip-path support the name simply shows — safe fallback. */
-  animation: write 1900ms var(--ease-out) 480ms both;
-}
-
-@keyframes write {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
 }
 
 /* ---- Start button (restraint-first outline variant) ---- */
@@ -182,8 +132,6 @@ body.splash {
 
 .reveal[data-reveal="1"] { animation-delay: 120ms; }
 .reveal[data-reveal="2"] { animation-delay: 270ms; }
-/* After the wordmark finishes "writing" (~480ms delay + 1900ms). */
-.reveal[data-reveal="3"] { animation-delay: 2350ms; }
 
 @keyframes reveal {
   to {
@@ -209,15 +157,6 @@ body.splash {
   .btn {
     transition: none;
   }
-
-  /* No hand-writing sweep — the signature simply appears. */
-  .wordmark {
-    animation: fade var(--dur-enter) ease forwards;
-    clip-path: none;
-  }
-
-  /* Button / sign-off should not wait on the writing animation. */
-  .reveal[data-reveal="3"] { animation-delay: 270ms; }
 }
 
 /* ============================================================
