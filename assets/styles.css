@@ -1,0 +1,198 @@
+/* ============================================================
+   Sophia Valerio — Design tokens & landing styles (Phase 1)
+   ============================================================ */
+
+:root {
+  /* Color tokens (PRD §4.2) */
+  --color-bg: #f6f2ea;        /* off-white */
+  --color-surface: #ede6d8;   /* cream / sand */
+  --color-muted: #d4c7b0;     /* warm beige */
+  --color-accent: #8e8468;    /* olive-taupe */
+  --color-secondary: #6a5c4c; /* soft brown */
+  --color-text: #3e342b;      /* espresso */
+
+  /* Typography */
+  --font-wordmark: "Parisienne", "Cormorant Garamond", cursive;
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Spacing scale (8px base) */
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-enter: 720ms;
+  --dur-hover: 200ms;
+  --dur-exit: 380ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body.splash {
+  min-height: 100dvh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Stage: centered, full-viewport composition ---- */
+.stage {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-3);
+  text-align: center;
+  transition: opacity var(--dur-exit) var(--ease-out);
+}
+
+/* Exit transition before navigating to /home */
+.stage.is-leaving {
+  opacity: 0;
+}
+
+/* ---- Wordmark (signature) ---- */
+.wordmark {
+  font-family: var(--font-wordmark);
+  font-weight: 400;
+  color: var(--color-text);
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Start button (restraint-first outline variant) ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  min-height: 48px;
+  padding: 16px 40px;
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--color-text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    color var(--dur-hover) var(--ease-out),
+    transform var(--dur-hover) var(--ease-out);
+}
+
+/* Hover affordance: fills to soft brown */
+@media (hover: hover) {
+  .btn:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-bg);
+    transform: translateY(-1px);
+  }
+}
+
+/* Keyboard focus: always visible */
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Pressed */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================
+   Entrance animation (fade + rise, staggered)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: reveal var(--dur-enter) var(--ease-out) forwards;
+}
+
+.reveal[data-reveal="1"] { animation-delay: 120ms; }
+.reveal[data-reveal="2"] { animation-delay: 270ms; }
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   Reduced motion: opacity only, no movement, instant exit
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transform: none;
+    animation: fade var(--dur-enter) ease forwards;
+  }
+
+  @keyframes fade {
+    to { opacity: 1; }
+  }
+
+  .stage,
+  .btn {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   Placeholder /home page
+   ============================================================ */
+body.home .stage {
+  gap: var(--space-3);
+}
+
+.home-title {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2.5rem, 9vw, 3.5rem);
+  margin: 0;
+  color: var(--color-text);
+}
+
+.home-note {
+  font-family: var(--font-ui);
+  color: var(--color-accent);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.home-back {
+  font-family: var(--font-ui);
+  color: var(--color-secondary);
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-muted);
+  padding-bottom: 2px;
+  transition: border-color var(--dur-hover) var(--ease-out);
+}
+
+.home-back:hover,
+.home-back:focus-visible {
+  border-color: var(--color-secondary);
+}
