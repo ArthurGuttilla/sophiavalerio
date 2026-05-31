@@ -440,71 +440,20 @@
 }
 
 /* ============================================================
-   Spotify auto-player (faixa da data, começa no 1º gesto)
-   O player real fica oculto fora da tela; mostramos só um selo discreto.
+   Spotify — player compacto e discreto da faixa da data
    ============================================================ */
 .spotifyauto {
   margin: var(--space-4) auto 0;
-  display: flex;
-  justify-content: center;
+  width: min(94vw, 420px);
 }
 .spotifyauto__player {
-  position: absolute;
-  width: 300px;
-  height: 80px;
-  left: -9999px;
-  top: -9999px;
-  pointer-events: none;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
-.spotifyauto__chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--color-muted);
-  background: rgba(246, 242, 234, 0.6);
-  cursor: pointer;
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  letter-spacing: 0.03em;
-  color: var(--color-secondary);
-  transition: all var(--dur-hover) var(--ease-out);
-}
-.spotifyauto__chip:hover { border-color: var(--color-secondary); color: var(--color-text); }
-.spotifyauto__chip:disabled { opacity: 0.5; cursor: default; }
-.spotifyauto__label { opacity: 0.9; }
-
-/* Equalizer animado (3 barrinhas) — só anima quando tocando */
-.spotifyauto__eq {
-  display: inline-flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 14px;
-}
-.spotifyauto__eq i {
-  width: 3px;
-  height: 4px;
-  background: currentColor;
-  border-radius: 2px;
-}
-.spotifyauto__chip.is-playing .spotifyauto__eq i {
-  animation: eq 0.9s ease-in-out infinite;
-}
-.spotifyauto__chip.is-playing .spotifyauto__eq i:nth-child(2) { animation-delay: 0.18s; }
-.spotifyauto__chip.is-playing .spotifyauto__eq i:nth-child(3) { animation-delay: 0.36s; }
-@keyframes eq {
-  0%, 100% { height: 4px; }
-  50% { height: 14px; }
-}
-
-/* Em telas escuras (céu/vela/oceano) */
-.exp--night .spotifyauto__chip,
-.exp--candle .spotifyauto__chip,
-.exp--ocean .spotifyauto__chip {
-  background: rgba(44, 36, 29, 0.5);
-  border-color: rgba(212, 199, 176, 0.4);
-  color: #ece4d6;
+.spotifyauto__player iframe {
+  display: block;
+  border-radius: 12px;
 }
 
 /* ============================================================
