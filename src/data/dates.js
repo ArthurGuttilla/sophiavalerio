@@ -35,8 +35,8 @@ export const dates = [
     title: "A mesma trilha sonora",
     motif: "notes",
     scene: "vinyl",
-    bgTrack: "2GqMnGQCXwrG9e4i7cznlS",
-    bgTrackLabel: "My Funny Valentine — Frank Sinatra",
+    bgYoutube: "Are-c0BLyIg",
+    bgYoutubeLabel: "My Funny Valentine — Frank Sinatra",
     summary: "Jazz, Sinatra, bossa nova — o mesmo gosto.",
     story: [
       "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",

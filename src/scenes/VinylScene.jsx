@@ -2,11 +2,11 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
 } from "../components/expParts.jsx";
-import SpotifyAuto from "../components/SpotifyAuto.jsx";
+import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
-// A spinning vinyl record above the Spotify player — the date we found
-// the same taste in music. A Spotify track (My Funny Valentine) starts on
-// the first gesture; the playlist below is always available too.
+// A spinning vinyl record — the date we found the same taste in music.
+// A YouTube track (My Funny Valentine) starts on the first gesture; the
+// playlist below is always available too.
 export default function VinylScene({ d, onBack }) {
   const rise = useRise();
   const reduce = useReducedMotion();
@@ -39,7 +39,9 @@ export default function VinylScene({ d, onBack }) {
           </motion.div>
         </motion.div>
 
-        {d.bgTrack && <SpotifyAuto trackId={d.bgTrack} label={d.bgTrackLabel} />}
+        {d.bgYoutube && (
+          <YoutubeAuto videoId={d.bgYoutube} start={d.bgYoutubeStart || 0} label={d.bgYoutubeLabel} />
+        )}
 
         <ExpStory d={d} rise={rise} />
         <ExpQuote d={d} rise={rise} delay={quoteDelay} />
