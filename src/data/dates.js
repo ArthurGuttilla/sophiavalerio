@@ -20,6 +20,7 @@ export const dates = [
     kicker: "Onde tudo começou",
     title: "O primeiro seguir",
     motif: "sparkle",
+    scene: "story",
     summary: "O dia em que você começou a me seguir.",
     story: [
       "Foi através do stories de um aluno meu que você chegou até mim. Um detalhe pequeno, quase invisível no fluxo de um dia comum — e mesmo assim foi o primeiro fio dessa história inteira.",
@@ -53,12 +54,12 @@ export const dates = [
     day: 27, month: 4, year: 2026,
     dateLabel: "27 de abril de 2026",
     kicker: "Mesmo filme favorito",
-    title: "Interstellar & Hans Zimmer",
+    title: "Interestelar & Hans Zimmer",
     motif: "stars",
     scene: "starfield",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
-      "Interstellar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
+      "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
       "Apreciamos juntos a beleza do Hans Zimmer. “Cornfield Chase” e “Time” não são só músicas; são a prova de que amor e tempo são a mesma matéria.",
     ],
     media: [
@@ -141,6 +142,7 @@ export const dates = [
     kicker: "O grande dia",
     title: "O primeiro date",
     motif: "hearts",
+    scene: "kiss",
     summary: "Cora, Café Longão e o primeiro beijo — apressado.",
     story: [
       "No Cora, no centro de São Paulo, nosso primeiro date. A gente fechou o restaurante, foi para o Café Longão do ladinho, e fechou o café também.",
@@ -193,6 +195,7 @@ export const dates = [
     kicker: "Arte e tempo",
     title: "I am the other's other",
     motif: "water",
+    scene: "ocean",
     summary: "Exposição na Casa Bradesco e o tempo que voa com você.",
     story: [
       "Café e a exposição “I am the other's other” na Casa Bradesco. Descobri que você gosta de animais aquáticos — e tive certeza de que o tempo com você passa rápido demais.",
