@@ -77,7 +77,14 @@ function buildRight() {
 }
 
 const RIGHT_SEQ = buildRight();
-const STEP = 0.3; // duração de cada nota (colcheia), em segundos
+
+// Andamento de valsa: 82 BPM em compasso 3/4. Cada nota é uma colcheia
+// (meia batida), então cabem 6 notas por compasso. A primeira batida de
+// cada compasso (a cada 6 colcheias) recebe um leve acento — o "lilt" da valsa.
+const BPM = 82;
+const BEAT = 60 / BPM;        // duração de uma batida (semínima)
+const STEP = BEAT / 2;         // colcheia
+const NOTES_PER_BAR = 6;       // 3/4 em colcheias
 
 export default function PianoScene({ d, onBack }) {
   const rise = useRise();
@@ -184,7 +191,10 @@ export default function PianoScene({ d, onBack }) {
     // as teclas correspondentes.
     RIGHT_SEQ.forEach((midi, i) => {
       const when = i * STEP;
-      voice(midi, when, STEP * 1.1, 0.2);
+      // Acento na primeira batida de cada compasso 3/4 (a cada 6 colcheias).
+      const onDownbeat = i % NOTES_PER_BAR === 0;
+      const peak = onDownbeat ? 0.24 : 0.18;
+      voice(midi, when, STEP * 1.15, peak);
       const nm = nameFromMidi(midi);
       light(nm, when * 1000, STEP * 1000 * 0.85);
       totalMs = Math.max(totalMs, (when + STEP) * 1000);
