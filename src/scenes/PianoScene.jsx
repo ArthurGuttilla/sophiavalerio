@@ -15,44 +15,82 @@ const BLACK = {
   C6: "C#6", D6: "D#6",
 };
 
+const NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const SEMITONE = { C: 0, "C#": 1, D: 2, "D#": 3, E: 4, F: 5, "F#": 6, G: 7, "G#": 8, A: 9, "A#": 10, B: 11 };
 function freq(note) {
   const m = note.match(/^([A-G]#?)(-?\d)$/);
   const midi = SEMITONE[m[1]] + (parseInt(m[2], 10) + 1) * 12;
   return 440 * Math.pow(2, (midi - 69) / 12);
 }
+function freqMidi(m) { return 440 * Math.pow(2, (m - 69) / 12); }
+function nameFromMidi(m) { return NAMES[((m % 12) + 12) % 12] + (Math.floor(m / 12) - 1); }
 
-// ── Arranjo no espírito de "Mia & Sebastian's Theme" (Justin Hurwitz):
-//    4/4, ~75 BPM, em Lá menor. A assinatura sonora é o arpejo CONTÍNUO da
-//    mão esquerda em colcheias/semicolcheias, com a melodia cantando por
-//    cima em notas longas. Não é a partitura exata (protegida), mas segue a
-//    métrica, a harmonia e o contorno que tornam o tema reconhecível.
-const BPM = 76;
+// ── Sequência EXATA da cifra "Easy Piano" de Mia & Sebastian's Theme
+//    (notas por letra, como na tablatura). Tocadas em ordem, em colcheias.
+//    As oitavas são escolhidas automaticamente para a menor distância entre
+//    notas consecutivas (contorno suave), e a mão direita repete os 4
+//    primeiros "versos" uma oitava acima, conforme a cifra.
 
-// Padrão de arpejo da mão esquerda por acorde: 8 colcheias por compasso,
-// subindo e descendo (figura "rolando" característica da peça).
-const ARP = {
-  Am:  ["A2", "E3", "A3", "C4", "E4", "C4", "A3", "E3"],
-  C:   ["C3", "G3", "C4", "E4", "G4", "E4", "C4", "G3"],
-  F:   ["F2", "C3", "F3", "A3", "C4", "A3", "F3", "C3"],
-  G:   ["G2", "D3", "G3", "B3", "D4", "B3", "G3", "D3"],
-  Em:  ["E2", "B2", "E3", "G3", "B3", "G3", "E3", "B2"],
-  Dm:  ["D3", "A3", "D4", "F4", "A4", "F4", "D4", "A3"],
-};
-
-// Melodia (mão direita): [nota, beat inicial no compasso (0..4), duração em beats]
-// Notas longas e líricas sobre os arpejos. 4 beats por compasso.
-const SONG = [
-  ["Am", [["E5", 0, 2], ["A5", 2, 1.5], ["G5", 3.5, 0.5]]],
-  ["C",  [["E5", 0, 2], ["G5", 2, 2]]],
-  ["F",  [["A5", 0, 1.5], ["G5", 1.5, 0.5], ["F5", 2, 2]]],
-  ["G",  [["E5", 0, 2], ["D5", 2, 1], ["B4", 3, 1]]],
-  ["Am", [["C5", 0, 1], ["E5", 1, 1], ["A5", 2, 2]]],
-  ["F",  [["G5", 0, 2], ["F5", 2, 1.5], ["E5", 3.5, 0.5]]],
-  ["Dm", [["F5", 0, 2], ["A5", 2, 2]]],
-  ["Em", [["B4", 0, 2], ["E5", 2, 1], ["G5", 3, 1]]],
-  ["Am", [["A5", 0, 3], ["E5", 3, 1]]],
+// Mão direita — cada array é um "verso" da cifra.
+const RIGHT_BASE = [
+  ["C#", "F#", "G#", "A", "G#", "F#", "D"],
+  ["D", "F#", "G#", "A", "G#", "F#", "C#"],
+  ["C#", "F#", "G#", "A", "G#", "F#", "D"],
+  ["B", "A", "G#", "A", "G#", "F#", "C#"],
 ];
+const RIGHT_TAIL = [
+  ["F#", "G#", "A", "D", "C#", "B", "C#"],
+  ["B", "A", "F#", "G#"],
+  ["C#", "B", "A", "B", "A", "G#", "F#"],
+  ["D", "C#", "B", "C#"],
+  ["B", "A", "F#", "G#", "C#"],
+  ["F#", "E", "D", "E", "D", "C#", "B"],
+  ["G#", "F#", "F", "D", "C#", "B", "A"],
+  ["F#", "G#", "F#", "G#", "A", "F#", "G#", "F#", "G#", "A", "F#", "G#", "F#", "G#", "A"], // (F# G# F# G# A) x3
+  ["F#", "B"],
+];
+
+// Mão esquerda — (A B E A) x4, depois os demais versos.
+const LEFT = [
+  ["A", "B", "E", "A", "A", "B", "E", "A", "A", "B", "E", "A", "A", "B", "E", "A"],
+  ["B", "E", "A", "D", "B", "E", "A"],
+  ["E", "F", "F#", "A", "C#", "B"],
+  ["E", "C#", "F#"],
+  ["D", "C#", "C", "B"],
+];
+
+// Atribui oitavas a uma sequência de classes de nota, escolhendo, para cada
+// nota, a oitava que a deixa mais perto da anterior (contorno suave).
+function assignOctaves(pcs, anchorMidi) {
+  let prev = anchorMidi;
+  return pcs.map((pc) => {
+    const base = SEMITONE[pc];
+    let best = null;
+    for (let oct = 1; oct <= 7; oct++) {
+      const midi = base + (oct + 1) * 12;
+      if (best === null || Math.abs(midi - prev) < Math.abs(best - prev)) best = midi;
+    }
+    prev = best;
+    return best;
+  });
+}
+
+// Monta a melodia da mão direita: versos base, depois os mesmos uma oitava
+// acima, depois a "cauda".
+function buildRight() {
+  const flatBase = RIGHT_BASE.flat();
+  const s1 = assignOctaves(flatBase, 62); // ancora perto de D4 (registro médio)
+  const s2 = s1.map((m) => m + 12); // "an octave higher" (oitava 5)
+  const tail = assignOctaves(RIGHT_TAIL.flat(), s2[0]); // segue na região aguda
+  return [...s1, ...s2, ...tail];
+}
+function buildLeft() {
+  return assignOctaves(LEFT.flat(), 45); // ancora perto de A2 (grave)
+}
+
+const RIGHT_SEQ = buildRight();
+const LEFT_SEQ = buildLeft();
+const STEP = 0.3; // duração de cada nota (colcheia), em segundos
 
 export default function PianoScene({ d, onBack }) {
   const rise = useRise();
@@ -96,10 +134,11 @@ export default function PianoScene({ d, onBack }) {
 
   // A single piano-like note: detuned partials, lowpass with motion,
   // and a percussive ADSR for a struck-string feel.
+  // `note` pode ser nome ("A4") ou número MIDI.
   function voice(note, when, dur, peak = 0.16) {
     const { ctx, master } = getEngine();
     const t0 = ctx.currentTime + when;
-    const f = freq(note);
+    const f = typeof note === "number" ? freqMidi(note) : freq(note);
 
     const o1 = ctx.createOscillator();
     o1.type = "triangle";
@@ -152,28 +191,24 @@ export default function PianoScene({ d, onBack }) {
     if (ctx.state === "suspended") ctx.resume();
     setPlaying(true);
 
-    const beat = 60 / BPM;
     let totalMs = 0;
 
-    SONG.forEach(([chord, melody], m) => {
-      const mStart = m * 4; // 4 beats por compasso
+    // Mão direita: toca a sequência exata da cifra, nota a nota, acendendo
+    // as teclas correspondentes.
+    RIGHT_SEQ.forEach((midi, i) => {
+      const when = i * STEP;
+      voice(midi, when, STEP * 1.1, 0.2);
+      const nm = nameFromMidi(midi);
+      light(nm, when * 1000, STEP * 1000 * 0.85);
+      totalMs = Math.max(totalMs, (when + STEP) * 1000);
+    });
 
-      // Mão esquerda: arpejo contínuo em colcheias (8 por compasso) — a
-      // figura "rolando" que é a assinatura sonora da peça.
-      const arp = ARP[chord];
-      arp.forEach((n, k) => {
-        const when = (mStart + k * 0.5) * beat;
-        voice(n, when, beat * 0.62, 0.07);
-      });
-
-      // Mão direita: melodia em notas longas (acende as teclas).
-      melody.forEach(([note, off, beats]) => {
-        const when = (mStart + off) * beat;
-        const dur = beats * beat * 0.98;
-        voice(note, when, dur, 0.2);
-        light(note, when * 1000, Math.max(220, dur * 1000 * 0.85));
-        totalMs = Math.max(totalMs, (when + dur) * 1000);
-      });
+    // Mão esquerda: tocada por baixo, esticada para durar o mesmo tempo que
+    // a melodia (acompanhamento grave, sem acender teclas).
+    const leftSpan = RIGHT_SEQ.length * STEP;
+    const leftStep = leftSpan / LEFT_SEQ.length;
+    LEFT_SEQ.forEach((midi, i) => {
+      voice(midi, i * leftStep, leftStep * 0.95, 0.08);
     });
 
     const end = setTimeout(() => setPlaying(false), totalMs + 300);
