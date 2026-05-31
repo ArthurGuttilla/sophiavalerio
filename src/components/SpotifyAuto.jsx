@@ -30,7 +30,9 @@ export default function SpotifyAuto({ trackId, label }) {
   const holderRef = useRef(null);
   const controllerRef = useRef(null);
   const startedRef = useRef(false);
+  const wantPlayRef = useRef(false); // gesto pediu play antes do controller existir?
   const [playing, setPlaying] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -46,10 +48,15 @@ export default function SpotifyAuto({ trackId, label }) {
         },
         (controller) => {
           controllerRef.current = controller;
+          setReady(true);
           controller.addListener("playback_update", (e) => {
-            // isPaused === false => tocando
             setPlaying(e?.data?.isPaused === false);
           });
+          // Se o usuário já tocou na tela antes do player ficar pronto,
+          // dispara o play assim que ele existir.
+          if (wantPlayRef.current && !reduce) {
+            try { controller.play(); } catch { /* ignore */ }
+          }
         }
       );
     });
@@ -57,13 +64,11 @@ export default function SpotifyAuto({ trackId, label }) {
     // Primeiro gesto na página inicia a faixa.
     function startOnGesture() {
       if (startedRef.current || reduce) return;
-      const c = controllerRef.current;
-      if (!c) return; // controller ainda não pronto — tenta no próximo gesto
       startedRef.current = true;
-      try {
-        c.play();
-      } catch {
-        /* ignore */
+      wantPlayRef.current = true;
+      const c = controllerRef.current;
+      if (c) {
+        try { c.play(); } catch { /* ignore */ }
       }
       detach();
     }
@@ -105,13 +110,18 @@ export default function SpotifyAuto({ trackId, label }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.4 }}
     >
-      <div className="spotifyauto__player" ref={holderRef} />
+      {/* Player do Spotify fora da tela: necessário para tocar, mas oculto. */}
+      <div className="spotifyauto__player" ref={holderRef} aria-hidden="true" />
+
       <button
-        className="spotifyauto__hint"
+        className={`spotifyauto__chip ${playing ? "is-playing" : ""}`}
         onClick={toggle}
+        disabled={!ready}
         aria-label={playing ? `Pausar ${label}` : `Tocar ${label}`}
       >
-        <span aria-hidden="true">{playing ? "♪ tocando" : "♪ toque para ouvir"}</span>
+        <span className="spotifyauto__eq" aria-hidden="true">
+          <i /><i /><i />
+        </span>
         <span className="spotifyauto__label">{label}</span>
       </button>
     </motion.div>

@@ -36,37 +36,11 @@ function googleCalUrl() {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-function icsBlobUrl() {
-  const dt = floatStamp(FIRST.y, FIRST.m, FIRST.d, FIRST.startH);
-  const dtEnd = floatStamp(FIRST.y, FIRST.m, FIRST.d, FIRST.endH);
-  const stamp = floatStamp(2026, 5, 15, 12);
-  const lines = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Sophia e Arthur//Agenda//PT-BR",
-    "CALSCALE:GREGORIAN",
-    "METHOD:PUBLISH",
-    "BEGIN:VEVENT",
-    `UID:sophia-arthur-16@feat.sophia`,
-    `DTSTAMP:${stamp}`,
-    `DTSTART;TZID=America/Sao_Paulo:${dt}`,
-    `DTEND;TZID=America/Sao_Paulo:${dtEnd}`,
-    "RRULE:FREQ=MONTHLY;BYMONTHDAY=16",
-    `SUMMARY:${EVENT_TITLE}`,
-    `DESCRIPTION:${EVENT_DETAILS}`,
-    "END:VEVENT",
-    "END:VCALENDAR",
-  ];
-  const blob = new Blob([lines.join("\r\n")], { type: "text/calendar;charset=utf-8" });
-  return URL.createObjectURL(blob);
-}
-
 export default function AgendaScene({ d, onBack }) {
   const rise = useRise();
   const quoteDelay = 0.3 + d.story.length * 0.12 + 0.1;
 
   const gcal = useMemo(googleCalUrl, []);
-  const ics = useMemo(icsBlobUrl, []);
 
   return (
     <motion.main
@@ -98,9 +72,6 @@ export default function AgendaScene({ d, onBack }) {
               rel="noopener noreferrer"
             >
               ＋ Adicionar ao Google Agenda
-            </a>
-            <a className="btn btn--ghost" href={ics} download="sophia-e-arthur.ics">
-              baixar convite (.ics)
             </a>
           </div>
           <p className="agenda__hint">

@@ -426,37 +426,71 @@
 
 /* ============================================================
    Spotify auto-player (faixa da data, começa no 1º gesto)
+   O player real fica oculto fora da tela; mostramos só um selo discreto.
    ============================================================ */
 .spotifyauto {
   margin: var(--space-4) auto 0;
-  width: min(92vw, 520px);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  justify-content: center;
 }
 .spotifyauto__player {
-  width: 100%;
-  min-height: 80px;
-  border-radius: 12px;
-  overflow: hidden;
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  left: -9999px;
+  top: -9999px;
+  pointer-events: none;
 }
-.spotifyauto__hint {
+.spotifyauto__chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-muted);
+  background: rgba(246, 242, 234, 0.6);
   cursor: pointer;
   font-family: var(--font-ui);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-  color: var(--color-accent);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  color: var(--color-secondary);
+  transition: all var(--dur-hover) var(--ease-out);
 }
-.spotifyauto__hint:hover { color: var(--color-secondary); }
-.spotifyauto__label { opacity: 0.85; }
-.exp--night .spotifyauto__hint,
-.exp--night .spotifyauto__label { color: var(--color-muted); }
+.spotifyauto__chip:hover { border-color: var(--color-secondary); color: var(--color-text); }
+.spotifyauto__chip:disabled { opacity: 0.5; cursor: default; }
+.spotifyauto__label { opacity: 0.9; }
+
+/* Equalizer animado (3 barrinhas) — só anima quando tocando */
+.spotifyauto__eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+.spotifyauto__eq i {
+  width: 3px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.spotifyauto__chip.is-playing .spotifyauto__eq i {
+  animation: eq 0.9s ease-in-out infinite;
+}
+.spotifyauto__chip.is-playing .spotifyauto__eq i:nth-child(2) { animation-delay: 0.18s; }
+.spotifyauto__chip.is-playing .spotifyauto__eq i:nth-child(3) { animation-delay: 0.36s; }
+@keyframes eq {
+  0%, 100% { height: 4px; }
+  50% { height: 14px; }
+}
+
+/* Em telas escuras (céu/vela/oceano) */
+.exp--night .spotifyauto__chip,
+.exp--candle .spotifyauto__chip,
+.exp--ocean .spotifyauto__chip {
+  background: rgba(44, 36, 29, 0.5);
+  border-color: rgba(212, 199, 176, 0.4);
+  color: #ece4d6;
+}
 
 /* ============================================================
    Agenda scene (convites em agenda — 15/05)
@@ -540,4 +574,108 @@
   font-size: 1rem;
   color: #e8c79c;
   text-align: center;
+}
+
+/* ============================================================
+   AI scene (compartilhar inteligência — 20/05)
+   ============================================================ */
+.ai {
+  margin: var(--space-6) auto 0;
+  width: min(92vw, 540px);
+  border-radius: 16px;
+  border: 1px solid var(--color-muted);
+  background: #fbf8f1;
+  box-shadow: 0 18px 44px -26px rgba(62, 52, 43, 0.6);
+  overflow: hidden;
+  text-align: left;
+}
+.ai__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-muted);
+}
+.ai__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-muted);
+}
+.ai__name {
+  margin-left: 8px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.ai__thread {
+  padding: 18px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ai__msg {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ai__role {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.ai__role--bot { color: var(--color-secondary); }
+.ai__text {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+.ai__msg--user .ai__text {
+  background: var(--color-surface);
+  padding: 12px 14px;
+  border-radius: 12px 12px 12px 4px;
+  align-self: flex-start;
+}
+.ai__msg--bot .ai__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ai__line { display: block; }
+
+/* caret piscando no prompt */
+.ai__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 2px;
+  background: var(--color-secondary);
+  vertical-align: text-bottom;
+  animation: ai-caret 1s steps(2) infinite;
+}
+@keyframes ai-caret { 50% { opacity: 0; } }
+
+/* "digitando…" do bot */
+.ai__typing {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.ai__typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-muted);
+  animation: ai-typing 1s ease-in-out infinite;
+}
+.ai__typing i:nth-child(2) { animation-delay: 0.15s; }
+.ai__typing i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes ai-typing {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-4px); opacity: 1; }
 }

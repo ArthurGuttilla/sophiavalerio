@@ -97,21 +97,10 @@ export const dates = [
       "Na SOHO House SP, nosso “pseudo-date”. Foi o dia em que te vi ao vivo pela primeira vez, e em que percebemos que aquilo poderia ser algo a mais.",
       "Você me recomendou “Em Busca de Sentido”, o primeiro de muitos livros. E foi o dia em que eu me encantei — sem volta.",
     ],
+    quote: "The salvation of man is through love and in love.",
+    quoteAfter: "Viktor Frankl, “Em Busca de Sentido” — o livro que você me deu.",
     media: [
       { type: "link", label: "Man's Search for Meaning", url: "https://www.google.com/search?q=Man%27s+Search+for+Meaning+Viktor+Frankl" },
-    ],
-  },
-  {
-    id: "de-familia",
-    day: 10, month: 5, year: 2026,
-    dateLabel: "10 de maio de 2026",
-    kicker: "Risos",
-    title: "É de família",
-    motif: "hearts",
-    summary: "Descobri que gostar de um 'novinho' é de família.",
-    story: [
-      "Foi o dia em que descobri, rindo, que gostar de um “novinho” é de família. Você é mais velha que eu — e confesso que isso me diverte.",
-      "No fim, a idade é só um detalhe técnico. O que conta é o quanto a gente se procura.",
     ],
   },
   {
@@ -166,7 +155,7 @@ export const dates = [
     summary: "Colocamos a admiração mútua como o melhor elogio.",
     story: [
       "Foi o dia em que combinamos que admiração é o melhor elogio que existe. Apesar de te achar maravilhosa, admirar você é o mais atraente de tudo — e sei que isso é algo nosso, em comum.",
-      "Eu te admiro. E descobrir que você me admira de volta foi entender que a gente não está só se gostando: está se construindo, um confiando no outro um pedaço de cada vez.",
+      "Eu te admiro. E descobrir que você me admira de volta foi entender que ali existia espaço para a construção de algo ainda mais forte — mesmo que, naquele momento, a gente ainda estivesse só começando a se conhecer.",
     ],
   },
   {
@@ -179,7 +168,7 @@ export const dates = [
     summary: "Mais um convite — e o nosso gosto por vinho seco.",
     story: [
       "Mais um convite, porque eu já não aguentava ficar sem as longas conversas olhando no fundo dos seus olhos.",
-      "Foi também o dia em que alinhamos nosso gosto por vinho seco. Coisa de quem prefere o que tem caráter ao que é fácil.",
+      "Foi também o dia em que alinhamos nosso gosto por vinho seco. Coisa de quem prefere o que tem caráter ao que é fácil. E sempre entendemos que felicidade de verdade não é fácil nem momentânea — é algo que se constrói com o tempo, como os bons vinhos.",
     ],
   },
   {
@@ -189,10 +178,12 @@ export const dates = [
     kicker: "Mentes que trocam",
     title: "Compartilhar inteligência",
     motif: "dust",
+    scene: "ai",
     summary: "Podcasts, vídeos, filmes, livros — e o Claude.",
     story: [
       "A troca se intensificou: podcasts, vídeos, filmes, livros. Virou um fluxo constante de “precisa ver isso” e “me conta o que achou”.",
       "Foi também o dia em que você viu meu workshop de Claude e passou a usá-lo no dia a dia. Adoro que a gente cresça junto, inclusive de cabeça.",
+      "Uma IA aprende com cada dado que recebe; nós aprendemos com cada conversa, cada troca, cada silêncio compartilhado. A diferença é que o nosso treino tem afeto — e o melhor modelo que já encontrei foi a forma como a sua mente conversa com a minha.",
     ],
   },
   {
