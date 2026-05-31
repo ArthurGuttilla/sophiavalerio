@@ -50,15 +50,6 @@ const RIGHT_TAIL = [
   ["F#", "B"],
 ];
 
-// Mão esquerda — (A B E A) x4, depois os demais versos.
-const LEFT = [
-  ["A", "B", "E", "A", "A", "B", "E", "A", "A", "B", "E", "A", "A", "B", "E", "A"],
-  ["B", "E", "A", "D", "B", "E", "A"],
-  ["E", "F", "F#", "A", "C#", "B"],
-  ["E", "C#", "F#"],
-  ["D", "C#", "C", "B"],
-];
-
 // Atribui oitavas a uma sequência de classes de nota, escolhendo, para cada
 // nota, a oitava que a deixa mais perto da anterior (contorno suave).
 function assignOctaves(pcs, anchorMidi) {
@@ -84,12 +75,8 @@ function buildRight() {
   const tail = assignOctaves(RIGHT_TAIL.flat(), s2[0]); // segue na região aguda
   return [...s1, ...s2, ...tail];
 }
-function buildLeft() {
-  return assignOctaves(LEFT.flat(), 45); // ancora perto de A2 (grave)
-}
 
 const RIGHT_SEQ = buildRight();
-const LEFT_SEQ = buildLeft();
 const STEP = 0.3; // duração de cada nota (colcheia), em segundos
 
 export default function PianoScene({ d, onBack }) {
@@ -193,7 +180,7 @@ export default function PianoScene({ d, onBack }) {
 
     let totalMs = 0;
 
-    // Mão direita: toca a sequência exata da cifra, nota a nota, acendendo
+    // Toca a sequência exata da cifra (mão direita), nota a nota, acendendo
     // as teclas correspondentes.
     RIGHT_SEQ.forEach((midi, i) => {
       const when = i * STEP;
@@ -201,14 +188,6 @@ export default function PianoScene({ d, onBack }) {
       const nm = nameFromMidi(midi);
       light(nm, when * 1000, STEP * 1000 * 0.85);
       totalMs = Math.max(totalMs, (when + STEP) * 1000);
-    });
-
-    // Mão esquerda: tocada por baixo, esticada para durar o mesmo tempo que
-    // a melodia (acompanhamento grave, sem acender teclas).
-    const leftSpan = RIGHT_SEQ.length * STEP;
-    const leftStep = leftSpan / LEFT_SEQ.length;
-    LEFT_SEQ.forEach((midi, i) => {
-      voice(midi, i * leftStep, leftStep * 0.95, 0.08);
     });
 
     const end = setTimeout(() => setPlaying(false), totalMs + 300);
