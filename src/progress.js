@@ -28,6 +28,15 @@ export function markSeen(id) {
   }
 }
 
+// Libera todas as datas de uma vez (easter egg do título "dias").
+export function markAllSeen() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(dates.map((d) => d.id)));
+  } catch {
+    /* ignore */
+  }
+}
+
 // A primeira data está sempre liberada. As demais exigem ter visto a anterior.
 export function isUnlocked(index, seen = getSeen()) {
   if (index <= 0) return true;

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { dates } from "../data/dates.js";
 import { secretDate } from "../data/secret.js";
-import { getSeen, isUnlocked, allSeen } from "../progress.js";
+import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
 import { PASSWORD_HASH, hashPassword } from "../config.js";
 
 const MONTHS = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
@@ -40,8 +40,7 @@ function PasswordGate({ onUnlock }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="gate__kicker">Para a Sophia</p>
-        <h1 className="gate__title">Um lugar só nosso</h1>
+        <h1 className="gate__title">Para a Sophia</h1>
         <p className="gate__hint">Digite a senha para entrar.</p>
         <input
           type="password"
@@ -64,9 +63,62 @@ function Calendar() {
   const navigate = useNavigate();
   const reduce = useReducedMotion();
 
-  // Lido uma vez na montagem — markSeen acontece na página da experiência.
+  // `tick` força re-render quando o easter egg libera tudo.
+  const [, setTick] = useState(0);
   const seen = getSeen();
   const secretUnlocked = allSeen(seen);
+
+  // Clicar em "dias" no título libera todas as datas de uma vez.
+  function unlockAll() {
+    markAllSeen();
+    setTick((t) => t + 1);
+  }
+
+  // ── Timeline horizontal: rolagem por botões, roda do mouse e arraste.
+  const trackRef = useRef(null);
+  const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
+
+  function scrollByCards(dir) {
+    const el = trackRef.current;
+    if (!el) return;
+    const amount = Math.max(280, el.clientWidth * 0.8);
+    el.scrollBy({ left: dir * amount, behavior: reduce ? "auto" : "smooth" });
+  }
+
+  function onWheel(e) {
+    const el = trackRef.current;
+    if (!el) return;
+    // Converte rolagem vertical em horizontal (mouse comum).
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      el.scrollLeft += e.deltaY;
+    }
+  }
+
+  function onPointerDown(e) {
+    const el = trackRef.current;
+    if (!el) return;
+    drag.current = { down: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
+    el.setPointerCapture?.(e.pointerId);
+  }
+  function onPointerMove(e) {
+    const el = trackRef.current;
+    if (!el || !drag.current.down) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 4) drag.current.moved = true;
+    el.scrollLeft = drag.current.startScroll - dx;
+  }
+  function onPointerUp(e) {
+    const el = trackRef.current;
+    drag.current.down = false;
+    el?.releasePointerCapture?.(e.pointerId);
+  }
+  // Evita que o "arrastar" dispare o clique de abrir a data.
+  function guardClick(fn) {
+    return () => {
+      if (drag.current.moved) return;
+      fn();
+    };
+  }
 
   const container = {
     hidden: {},
@@ -102,7 +154,22 @@ function Calendar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         >
-          A nossa história em dias
+          A nossa história em{" "}
+          <span
+            className="home__unlock"
+            role="button"
+            tabIndex={0}
+            onClick={unlockAll}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                unlockAll();
+              }
+            }}
+            title="liberar todas"
+          >
+            dias
+          </span>
         </motion.h1>
         <motion.p
           className="home__sub"
@@ -110,87 +177,113 @@ function Calendar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Cada data abre a próxima. Toque para reviver.
+          Deslize pela linha do tempo. Cada data abre a próxima.
         </motion.p>
       </header>
 
-      <motion.ul
-        className="cal"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {dates.map((d, i) => {
-          const unlocked = isUnlocked(i, seen);
-          return (
-            <motion.li key={d.id} variants={card} className="cal__item">
+      <div className="timeline">
+        <button
+          className="timeline__nav timeline__nav--prev"
+          onClick={() => scrollByCards(-1)}
+          aria-label="datas anteriores"
+        >
+          ‹
+        </button>
+
+        <motion.ul
+          className="cal"
+          ref={trackRef}
+          variants={container}
+          initial="hidden"
+          animate="show"
+          onWheel={onWheel}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+        >
+          {dates.map((d, i) => {
+            const unlocked = isUnlocked(i, seen);
+            return (
+              <motion.li key={d.id} variants={card} className="cal__item">
+                <span className="cal__node" aria-hidden="true" />
+                <button
+                  className={`datecard ${unlocked ? "" : "is-locked"}`}
+                  onClick={guardClick(() => unlocked && navigate(`/data/${d.id}`))}
+                  disabled={!unlocked}
+                  aria-disabled={!unlocked}
+                  aria-label={
+                    unlocked
+                      ? `${d.dateLabel} — ${d.title}`
+                      : `Bloqueado — veja a data anterior para liberar`
+                  }
+                >
+                  <span className="datecard__chip">
+                    <span className="datecard__day">{String(d.day).padStart(2, "0")}</span>
+                    <span className="datecard__mon">{MONTHS[d.month - 1]}</span>
+                  </span>
+                  <span className="datecard__body">
+                    <span className="datecard__kicker">{d.kicker}</span>
+                    <span className="datecard__title">
+                      {unlocked ? d.title : "Ainda trancado"}
+                    </span>
+                    <span className="datecard__summary">
+                      {unlocked ? d.summary : "Veja a data anterior para liberar esta."}
+                    </span>
+                  </span>
+                  <span className="datecard__arrow" aria-hidden="true">
+                    {unlocked ? "→" : "🔒"}
+                  </span>
+                </button>
+              </motion.li>
+            );
+          })}
+
+          {/* Data secreta — só aparece quando tudo foi visto. */}
+          <motion.li variants={card} className="cal__item">
+            <span className="cal__node cal__node--secret" aria-hidden="true" />
+            {secretUnlocked ? (
               <button
-                className={`datecard ${unlocked ? "" : "is-locked"}`}
-                onClick={() => unlocked && navigate(`/data/${d.id}`)}
-                disabled={!unlocked}
-                aria-disabled={!unlocked}
-                aria-label={
-                  unlocked
-                    ? `${d.dateLabel} — ${d.title}`
-                    : `Bloqueado — veja a data anterior para liberar`
-                }
+                className="datecard datecard--secret"
+                onClick={guardClick(() => navigate(`/data/${secretDate.id}`))}
+                aria-label={`Surpresa — ${secretDate.title}`}
               >
-                <span className="datecard__chip">
-                  <span className="datecard__day">{String(d.day).padStart(2, "0")}</span>
-                  <span className="datecard__mon">{MONTHS[d.month - 1]}</span>
+                <span className="datecard__chip datecard__chip--secret">
+                  <span className="datecard__day">♥</span>
                 </span>
                 <span className="datecard__body">
-                  <span className="datecard__kicker">{d.kicker}</span>
-                  <span className="datecard__title">
-                    {unlocked ? d.title : "Ainda trancado"}
-                  </span>
-                  <span className="datecard__summary">
-                    {unlocked ? d.summary : "Veja a data anterior para liberar esta."}
-                  </span>
+                  <span className="datecard__kicker">{secretDate.kicker}</span>
+                  <span className="datecard__title">{secretDate.title}</span>
+                  <span className="datecard__summary">{secretDate.summary}</span>
                 </span>
-                <span className="datecard__arrow" aria-hidden="true">
-                  {unlocked ? "→" : "🔒"}
-                </span>
+                <span className="datecard__arrow" aria-hidden="true">→</span>
               </button>
-            </motion.li>
-          );
-        })}
-
-        {/* Data secreta — só aparece quando tudo foi visto. */}
-        <motion.li variants={card} className="cal__item">
-          {secretUnlocked ? (
-            <button
-              className="datecard datecard--secret"
-              onClick={() => navigate(`/data/${secretDate.id}`)}
-              aria-label={`Surpresa — ${secretDate.title}`}
-            >
-              <span className="datecard__chip datecard__chip--secret">
-                <span className="datecard__day">♥</span>
-              </span>
-              <span className="datecard__body">
-                <span className="datecard__kicker">{secretDate.kicker}</span>
-                <span className="datecard__title">{secretDate.title}</span>
-                <span className="datecard__summary">{secretDate.summary}</span>
-              </span>
-              <span className="datecard__arrow" aria-hidden="true">→</span>
-            </button>
-          ) : (
-            <div className="datecard datecard--secret is-locked" aria-hidden="true">
-              <span className="datecard__chip datecard__chip--secret">
-                <span className="datecard__day">?</span>
-              </span>
-              <span className="datecard__body">
-                <span className="datecard__kicker">Surpresa</span>
-                <span className="datecard__title">Uma data secreta</span>
-                <span className="datecard__summary">
-                  Veja todas as datas para revelar.
+            ) : (
+              <div className="datecard datecard--secret is-locked" aria-hidden="true">
+                <span className="datecard__chip datecard__chip--secret">
+                  <span className="datecard__day">?</span>
                 </span>
-              </span>
-              <span className="datecard__arrow" aria-hidden="true">🔒</span>
-            </div>
-          )}
-        </motion.li>
-      </motion.ul>
+                <span className="datecard__body">
+                  <span className="datecard__kicker">Surpresa</span>
+                  <span className="datecard__title">Uma data secreta</span>
+                  <span className="datecard__summary">
+                    Veja todas as datas para revelar.
+                  </span>
+                </span>
+                <span className="datecard__arrow" aria-hidden="true">🔒</span>
+              </div>
+            )}
+          </motion.li>
+        </motion.ul>
+
+        <button
+          className="timeline__nav timeline__nav--next"
+          onClick={() => scrollByCards(1)}
+          aria-label="próximas datas"
+        >
+          ›
+        </button>
+      </div>
 
       <footer className="home__foot">
         <Link to="/" className="btn btn--ghost">voltar ao início</Link>

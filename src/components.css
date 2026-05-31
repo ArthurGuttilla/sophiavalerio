@@ -118,10 +118,62 @@
   color: var(--color-text);
   line-height: 1.05;
 }
+/* "dias" — easter egg discreto que libera todas as datas */
+.home__unlock {
+  cursor: pointer;
+  position: relative;
+  transition: color var(--dur-hover) var(--ease-out);
+}
+.home__unlock:hover { color: var(--color-accent); }
+.home__unlock:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .home__sub {
   margin: 0;
   color: var(--color-secondary);
   font-size: 1rem;
+}
+
+/* ── Horizontal timeline ───────────────────────────────────── */
+.timeline {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeline__nav {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--dur-hover) var(--ease-out);
+}
+@media (hover: hover) {
+  .timeline__nav:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-bg);
+  }
+}
+.timeline__nav:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .cal {
@@ -129,24 +181,93 @@
   z-index: 2;
   list-style: none;
   margin: 0;
-  padding: 0;
-  width: min(96vw, 680px);
+  padding: 40px 8px 16px;
+  flex: 1 1 auto;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-muted) transparent;
+  cursor: grab;
+  touch-action: pan-x;
 }
-.cal__item { margin: 0; }
+.cal:active { cursor: grabbing; }
+.cal::-webkit-scrollbar { height: 6px; }
+.cal::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 6px;
+}
+
+/* The horizontal line running through the nodes */
+.cal::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 52px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-muted) 6%,
+    var(--color-muted) 94%,
+    transparent
+  );
+  z-index: 0;
+}
+
+.cal__item {
+  margin: 0;
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(220px, 70vw, 280px);
+  scroll-snap-align: center;
+  padding-top: 22px;
+}
+
+/* The dot on the timeline above each card */
+.cal__node {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-muted);
+  z-index: 1;
+}
+.cal__node--secret {
+  background: var(--color-secondary);
+}
+.cal__item:has(.is-locked) .cal__node {
+  background: var(--color-muted);
+  box-shadow: 0 0 0 2px var(--color-surface);
+}
+
+@media (max-width: 560px) {
+  .timeline__nav { display: none; }
+  .cal { padding-left: 16px; padding-right: 16px; }
+}
 
 .datecard {
   width: 100%;
+  height: 100%;
+  min-height: 230px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-3);
-  padding: 18px 20px;
-  text-align: left;
+  text-align: center;
+  gap: 14px;
+  padding: 24px 20px;
   background: var(--color-surface);
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: 16px;
   cursor: pointer;
   font-family: var(--font-ui);
   color: var(--color-text);
@@ -158,10 +279,10 @@
 }
 @media (hover: hover) {
   .datecard:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     border-color: var(--color-muted);
     background: #f1ebde;
-    box-shadow: 0 10px 30px -18px rgba(62, 52, 43, 0.5);
+    box-shadow: 0 14px 34px -18px rgba(62, 52, 43, 0.5);
   }
   .datecard:hover .datecard__arrow { transform: translateX(4px); opacity: 1; }
 }
@@ -241,8 +362,10 @@
 .datecard__body {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  align-items: center;
+  gap: 5px;
   min-width: 0;
+  flex: 1 1 auto;
 }
 .datecard__kicker {
   font-size: 0.7rem;
@@ -252,20 +375,22 @@
 }
 .datecard__title {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--color-text);
+  line-height: 1.2;
 }
 .datecard__summary {
   font-size: 0.9rem;
   color: var(--color-secondary);
+  line-height: 1.4;
 }
 .datecard__arrow {
-  margin-left: auto;
+  margin-top: auto;
   flex: 0 0 auto;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--color-accent);
-  opacity: 0.5;
+  opacity: 0.6;
   transition: transform var(--dur-hover) var(--ease-out), opacity var(--dur-hover) var(--ease-out);
 }
 
