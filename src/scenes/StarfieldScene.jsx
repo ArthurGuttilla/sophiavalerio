@@ -4,6 +4,7 @@ import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
 } from "../components/expParts.jsx";
 import SpotifyAuto from "../components/SpotifyAuto.jsx";
+import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
 // Deep-espresso night sky: twinkling stars with subtle pointer parallax
 // and the occasional shooting star. Used for Interstellar & astrology.
@@ -142,6 +143,9 @@ export default function StarfieldScene({ d, onBack }) {
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
         {d.bgTrack && <SpotifyAuto trackId={d.bgTrack} label={d.bgTrackLabel} />}
+        {d.bgYoutube && (
+          <YoutubeAuto videoId={d.bgYoutube} start={d.bgYoutubeStart || 0} label={d.bgYoutubeLabel} />
+        )}
         <ExpQuote d={d} rise={rise} delay={quoteDelay} />
         <ExpMedia d={d} rise={rise} delay={quoteDelay + 0.15} />
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />

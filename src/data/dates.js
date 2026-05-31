@@ -60,8 +60,9 @@ export const dates = [
     title: "Interestelar & Hans Zimmer",
     motif: "stars",
     scene: "starfield",
-    bgTrack: "6pWgRkpqVfxnj3WuIcJ7WP",
-    bgTrackLabel: "Cornfield Chase — Hans Zimmer",
+    bgYoutube: "7GlsxNI4LVI",
+    bgYoutubeStart: 42,
+    bgYoutubeLabel: "Interestelar — Hans Zimmer",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
       "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
@@ -267,6 +268,8 @@ export const dates = [
     title: "Mia & Sebastian's Theme",
     motif: "notes",
     scene: "piano",
+    bgYoutube: "Wk7RrtEGDyo",
+    bgYoutubeLabel: "Mia & Sebastian's Theme — La La Land",
     summary: "Toquei no piano exatamente a música que você ouvia.",
     story: [
       "Mostrei meu antigo talento no piano e estava tocando, por uma coincidência bizarra, exatamente a música que você estava ouvindo: “Mia & Sebastian's Theme”, de La La Land.",
