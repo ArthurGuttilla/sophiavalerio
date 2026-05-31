@@ -1,0 +1,353 @@
+/* ============================================================
+   Component styles — gate, calendar, experience, motif
+   ============================================================ */
+
+/* ---- Animated backdrop ---- */
+.motif {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.motif__glyph {
+  position: absolute;
+  color: var(--color-accent);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ---- Sign-off ---- */
+.signoff {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+/* ============================================================
+   Password gate
+   ============================================================ */
+.gate {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: min(92vw, 380px);
+}
+.gate__kicker {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.gate__title {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  margin: 0;
+  color: var(--color-text);
+}
+.gate__hint {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 0.95rem;
+}
+.gate__input {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color var(--dur-hover) var(--ease-out);
+}
+.gate__input:focus { border-color: var(--color-secondary); }
+.gate__input.is-error { border-color: #a6584b; }
+.gate__error {
+  margin: 0;
+  color: #a6584b;
+  font-size: 0.9rem;
+}
+.gate__back {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.gate__back:hover { border-color: var(--color-muted); }
+
+/* ============================================================
+   Home / calendar
+   ============================================================ */
+.home {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(48px, 9vw, 96px) var(--space-3) var(--space-8);
+}
+.home__head {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 640px;
+  margin-bottom: var(--space-6);
+}
+.home__kicker {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.home__title {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin: 0.2em 0 0.3em;
+  color: var(--color-text);
+  line-height: 1.05;
+}
+.home__sub {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 1rem;
+}
+
+.cal {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: min(96vw, 680px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cal__item { margin: 0; }
+
+.datecard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 18px 20px;
+  text-align: left;
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  color: var(--color-text);
+  transition:
+    transform var(--dur-hover) var(--ease-out),
+    border-color var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out),
+    background-color var(--dur-hover) var(--ease-out);
+}
+@media (hover: hover) {
+  .datecard:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-muted);
+    background: #f1ebde;
+    box-shadow: 0 10px 30px -18px rgba(62, 52, 43, 0.5);
+  }
+  .datecard:hover .datecard__arrow { transform: translateX(4px); opacity: 1; }
+}
+.datecard:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.datecard:active { transform: scale(0.995); }
+
+.datecard__chip {
+  flex: 0 0 auto;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-muted);
+}
+.datecard__day {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-text);
+}
+.datecard__mon {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+.datecard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.datecard__kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.datecard__title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.datecard__summary {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+.datecard__arrow {
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  opacity: 0.5;
+  transition: transform var(--dur-hover) var(--ease-out), opacity var(--dur-hover) var(--ease-out);
+}
+
+.home__foot {
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* ============================================================
+   Experience page
+   ============================================================ */
+.exp {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(40px, 8vw, 80px) var(--space-3) var(--space-8);
+}
+.exp__close {
+  position: relative;
+  z-index: 3;
+  align-self: flex-start;
+  margin-bottom: var(--space-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  padding: 6px 4px;
+}
+.exp__close:hover { color: var(--color-secondary); }
+.exp__close:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 4px; }
+
+.exp__inner {
+  position: relative;
+  z-index: 2;
+  width: min(94vw, 620px);
+  text-align: center;
+}
+.exp__date {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.exp__kicker {
+  margin: 6px 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+}
+.exp__title {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2.6rem, 10vw, 4.2rem);
+  line-height: 1.05;
+  margin: 0.1em 0 0.6em;
+  color: var(--color-text);
+}
+.exp__story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 3.5vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+.exp__story p { margin: 0; }
+
+.exp__quote {
+  position: relative;
+  margin: var(--space-6) auto 0;
+  max-width: 30ch;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 4.5vw, 1.7rem);
+  line-height: 1.4;
+  color: var(--color-secondary);
+}
+.exp__quote-mark {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  line-height: 0.2;
+  margin-bottom: 0.4em;
+  color: var(--color-muted);
+}
+
+.exp__media {
+  margin-top: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.exp__spotify {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.exp__spotify iframe { display: block; border-radius: 12px; }
+
+.exp__foot {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (max-width: 480px) {
+  .datecard { gap: var(--space-2); padding: 16px; }
+  .datecard__chip { width: 50px; height: 50px; }
+  .datecard__day { font-size: 1.3rem; }
+}

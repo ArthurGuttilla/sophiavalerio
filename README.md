@@ -1,50 +1,70 @@
-# Sophia Valerio — Personal Website (Phase 1)
+# Sophia Valerio — Personal Website
 
-A minimalist, editorial personal-brand site built around the idea of authorship —
-*your content needs your signature*. Phase 1 ships the landing / splash screen.
+Site de marca pessoal minimalista e editorial. A landing apresenta a assinatura
+e um botão **Start**; a `/home` é um **calendário de datas especiais** protegido
+por senha, onde cada data abre uma experiência animada própria.
 
-See [`PRD.md`](./PRD.md) for the full product requirements.
+Veja [`PRD.md`](./PRD.md) para os requisitos da Fase 1 (landing).
 
 ## Stack
 
-Zero-dependency static site — plain HTML, CSS, and vanilla JS. No build step,
-no framework, minimal payload. Chosen for fast load and turnkey GitHub Pages hosting.
+- **Vite + React** — app SPA moderno e rápido.
+- **Framer Motion** — animações de entrada, transições de página e fundos sutis.
+- **React Router (HashRouter)** — rotas que funcionam em qualquer subpath do
+  GitHub Pages, sem 404 em deep links.
+- Sem backend: todo o conteúdo é estático. Hospedagem gratuita no GitHub Pages.
 
-## Structure
-
-```
-index.html          Landing / splash (name + Start)
-home/index.html     /home placeholder route (future scope)
-assets/styles.css   Design tokens + styles
-assets/main.js      Composed fade-out transition (progressive enhancement)
-.nojekyll           Serve files as-is on GitHub Pages
-.github/workflows/  GitHub Pages deploy workflow
-```
-
-## Local preview
-
-Any static server works, e.g.:
+## Rodar localmente
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # gera dist/
+npm run preview  # serve o build
 ```
 
-## Deploy to GitHub Pages
+## Estrutura
 
-All paths are **relative**, so the site works whether it's served from a user
-domain or a project subpath (`https://<user>.github.io/sophiavalerio/`).
+```
+index.html              Entry do Vite
+src/
+  main.jsx              Router + rotas
+  index.css             Design tokens
+  components.css        Estilos de gate, calendário e experiência
+  config.js             Senha do gate (hash) — veja abaixo
+  data/dates.js         Todas as datas e suas histórias  ← edite aqui
+  components/
+    Landing.jsx         Splash (assinatura + Start)
+    Home.jsx            Gate de senha + calendário
+    Experience.jsx      Página de cada data
+    Motif.jsx           Fundos animados (estrelas, notas, café, corações…)
+```
 
-**Option A — GitHub Actions (recommended):** the included
-`.github/workflows/deploy.yml` deploys on every push to `main`. In the repo,
-go to **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+## Senha do gate
 
-**Option B — Deploy from a branch:** **Settings → Pages → Source: Deploy from a
-branch**, pick the branch and `/ (root)`. The `.nojekyll` file ensures files are
-served as-is.
+Senha padrão: **`interestelar`**. É um cadeado leve (client-side) — afasta
+visitantes casuais e evita indexação, mas não é segurança real.
 
-## Accessibility & performance
+Para trocar, siga as instruções em [`src/config.js`](./src/config.js).
 
-- WCAG AA contrast, semantic `<h1>`, keyboard-focusable Start link with visible focus.
-- Full `prefers-reduced-motion` support (animations reduce to opacity / none).
-- Works without JavaScript — the Start link navigates directly.
+## Adicionar / editar uma data
+
+Tudo vem de [`src/data/dates.js`](./src/data/dates.js). Cada item tem título,
+história (parágrafos), frase marcante opcional, mídia (link/Spotify) e um
+`motif` para o fundo animado. Adicionar um objeto novo já cria o cartão no
+calendário e a página da experiência.
+
+## Deploy no GitHub Pages
+
+O workflow [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)
+builda e publica a cada push em `main`. No repositório:
+**Settings → Pages → Source: GitHub Actions**.
+
+O `base: './'` do Vite + HashRouter garantem que funcione tanto em domínio
+próprio quanto em subpath (`https://<user>.github.io/sophiavalerio/`).
+
+## Acessibilidade
+
+- Contraste WCAG AA, foco visível por teclado, navegação por teclado.
+- `prefers-reduced-motion` respeitado: fundos animados e movimentos são
+  desativados, mantendo apenas fades suaves.
