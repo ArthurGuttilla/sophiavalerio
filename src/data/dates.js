@@ -321,8 +321,9 @@ export const dates = [
     chat: [
       { from: "her", time: "14:35", text: "Não, mas acho que eu fiquei meio animadinha depois de ontem e por isso não consegui voltar a dormir 🫢😅😅😅" },
       { from: "her", time: "14:36", text: "Minha mãe já tava acordada e perguntou como tinha sido ontem, me acordou mais ainda" },
-      { from: "me", time: "14:38", text: "Você é um fofo! Na verdade é um prazer enorme pra mim dividir isso contigo 🤗" },
+      { from: "her", time: "14:38", text: "Você é um fofo! Na verdade é um prazer enorme pra mim dividir isso contigo 🤗" },
       { from: "her", time: "14:38", text: "Vou ser bold e abrir uma porta aqui, mas se apaixonar é bom demais!" },
+      { from: "me", time: "14:41", text: "...Coincidência ou não, as mensagens afirmavam EXATAMENTE (sério) o que vc escreveu nessa mensagem: “se apaixonar é bom demais”. Obrigado por ser “bold”, medo não leva a nenhum lugar e se arriscar normalmente traz algo bom. Obrigado, também, por “abrir a porta”, que bom que é saber com todas as palavras que tem alguém com você nessa. Do estômago para cima. E por alguém que, a cima de tudo, eu admiro tanto. Que sorte que tenho de estar sentindo que achei a “tampa doidinha” da “panela doidinha”. ❤️" },
     ],
     story: [
       "Foi o dia em que uma porta se abriu — sem cerimônia, do jeito mais verdadeiro: por mensagem, no meio da tarde.",
