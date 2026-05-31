@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
@@ -77,6 +77,24 @@ function Calendar() {
   // ── Timeline horizontal: rolagem por botões, roda do mouse e arraste.
   const trackRef = useRef(null);
   const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
+
+  const SCROLL_KEY = "sv_timeline_scroll";
+
+  // Restaura a posição da timeline ao voltar; salva continuamente.
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const saved = parseFloat(sessionStorage.getItem(SCROLL_KEY) || "0");
+    if (saved > 0) {
+      // Sem animação na restauração para parecer "continuar de onde parou".
+      el.scrollLeft = saved;
+    }
+    const onScroll = () => {
+      sessionStorage.setItem(SCROLL_KEY, String(el.scrollLeft));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   function scrollByCards(dir) {
     const el = trackRef.current;

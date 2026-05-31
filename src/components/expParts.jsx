@@ -49,7 +49,8 @@ export function ExpQuote({ d, rise, delay }) {
   return (
     <motion.blockquote className="exp__quote" {...rise(delay)}>
       <span className="exp__quote-mark" aria-hidden="true">“</span>
-      {d.quote}
+      <span className="exp__quote-text">“{d.quote}”</span>
+      {d.quoteAfter && <span className="exp__quote-after">{d.quoteAfter}</span>}
     </motion.blockquote>
   );
 }

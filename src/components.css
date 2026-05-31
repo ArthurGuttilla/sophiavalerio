@@ -489,6 +489,14 @@
   margin-bottom: 0.4em;
   color: var(--color-muted);
 }
+.exp__quote-text { display: block; }
+.exp__quote-after {
+  display: block;
+  margin-top: 0.7em;
+  font-style: normal;
+  font-size: 0.78em;
+  color: var(--color-accent);
+}
 
 .exp__media {
   margin-top: var(--space-6);

@@ -423,3 +423,136 @@
   border-color: rgba(246, 242, 234, 0.45);
   color: #eef5f4;
 }
+
+/* ============================================================
+   Background-audio toggle (música de fundo da data)
+   ============================================================ */
+.bgaudio {
+  position: fixed;
+  z-index: 5;
+  right: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-muted);
+  background: rgba(246, 242, 234, 0.86);
+  backdrop-filter: blur(6px);
+  color: var(--color-secondary);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  max-width: 70vw;
+  transition: all var(--dur-hover) var(--ease-out);
+}
+.bgaudio:hover { border-color: var(--color-secondary); color: var(--color-text); }
+.bgaudio:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.bgaudio__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+.bgaudio.is-on .bgaudio__icon { color: var(--color-secondary); }
+.bgaudio.is-muted { opacity: 0.7; }
+.bgaudio__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Em telas escuras (céu/vela/oceano), inverte para legibilidade. */
+.exp--night .bgaudio,
+.exp--candle .bgaudio,
+.exp--ocean .bgaudio {
+  background: rgba(44, 36, 29, 0.55);
+  border-color: rgba(212, 199, 176, 0.4);
+  color: #ece4d6;
+}
+.exp--night .bgaudio:hover,
+.exp--candle .bgaudio:hover,
+.exp--ocean .bgaudio:hover { color: #fff; border-color: var(--color-muted); }
+
+/* ============================================================
+   Agenda scene (convites em agenda — 15/05)
+   ============================================================ */
+.agenda {
+  margin: var(--space-6) auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+.agenda__card {
+  width: min(86vw, 320px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 26px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: 18px;
+  box-shadow: 0 16px 40px -22px rgba(62, 52, 43, 0.6);
+}
+.agenda__month {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.agenda__num {
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-text);
+}
+.agenda__title {
+  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.agenda__sub {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+.agenda__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(86vw, 320px);
+}
+.agenda__actions .btn { width: 100%; }
+.agenda__hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-accent);
+}
+
+/* ============================================================
+   Map (16/05 — Cora → Café Longão)
+   ============================================================ */
+.kiss-map {
+  margin: var(--space-6) auto 0;
+  width: min(92vw, 520px);
+}
+.kiss-map__frame {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px -22px rgba(0, 0, 0, 0.6);
+  filter: saturate(0.9) contrast(0.96);
+}
+.kiss-map__cap {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: #e8c79c;
+  text-align: center;
+}

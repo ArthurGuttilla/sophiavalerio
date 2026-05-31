@@ -35,12 +35,15 @@ export const dates = [
     title: "A mesma trilha sonora",
     motif: "notes",
     scene: "vinyl",
+    bgAudio: "media/audio/my-funny-valentine.mp3",
+    bgAudioLabel: "My Funny Valentine — Frank Sinatra",
     summary: "Jazz, Sinatra, bossa nova — o mesmo gosto.",
     story: [
       "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",
-      "Tem algo de íntimo em dividir música. A gente troca silêncios preenchidos pelas mesmas notas.",
+      "Tem algo de íntimo em dividir música.",
     ],
     quote: "julgar é inerente ao homem rs",
+    quoteAfter: "Nesse dia julguei, e gostei. Muito.",
     media: [
       {
         type: "spotify",
@@ -57,6 +60,8 @@ export const dates = [
     title: "Interestelar & Hans Zimmer",
     motif: "stars",
     scene: "starfield",
+    bgAudio: "media/audio/cornfield-chase.mp3",
+    bgAudioLabel: "Cornfield Chase — Hans Zimmer",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
       "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
@@ -105,8 +110,8 @@ export const dates = [
     motif: "hearts",
     summary: "Descobri que gostar de um 'novinho' é de família.",
     story: [
-      "Foi o dia em que descobri, rindo, que gostar de um “novinho” é de família. Você é mais velha que eu — e eu acho isso uma das coisas mais charmosas do mundo.",
-      "Tem idade que é número, e tem encontro que é fora do tempo. O nosso é do segundo tipo.",
+      "Foi o dia em que descobri, rindo, que gostar de um “novinho” é de família. Você é mais velha que eu — e confesso que isso me diverte.",
+      "No fim, a idade é só um detalhe técnico. O que conta é o quanto a gente se procura.",
     ],
   },
   {
@@ -129,6 +134,7 @@ export const dates = [
     kicker: "Detalhes que combinam",
     title: "Convites em agenda",
     motif: "dust",
+    scene: "agenda",
     summary: "Descobrimos que ambos amamos um convite na agenda.",
     story: [
       "Descobrimos que os dois amam um convite em agenda. Pode parecer pequeno, mas é exatamente nos detalhes que a gente se reconhece.",
@@ -143,10 +149,11 @@ export const dates = [
     title: "O primeiro date",
     motif: "hearts",
     scene: "kiss",
+    showMap: true,
     summary: "Cora, Café Longão e o primeiro beijo — apressado.",
     story: [
       "No Cora, no centro de São Paulo, nosso primeiro date. A gente fechou o restaurante, foi para o Café Longão do ladinho, e fechou o café também.",
-      "E então veio o primeiro beijo — apressado, meio sem jeito, perfeito do jeito que foi. O tipo de pressa que só existe quando o tempo não quer ser suficiente.",
+      "E então veio o primeiro beijo — apressado, meio sem jeito. O tipo de pressa que só existe quando o tempo não quer ser suficiente.",
     ],
   },
   {

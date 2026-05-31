@@ -87,6 +87,27 @@ export default function KissScene({ d, onBack }) {
 
         <ExpStory d={d} rise={rise} base={0.5} />
 
+        {d.showMap && (
+          <motion.figure className="kiss-map" {...rise(0.9)}>
+            <iframe
+              title="Trajeto a pé do Cora ao Café Longão"
+              className="kiss-map__frame"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={
+                "https://www.google.com/maps?output=embed&saddr=" +
+                encodeURIComponent("Cora Restaurante, Rua Bento Freitas, São Paulo") +
+                "&daddr=" +
+                encodeURIComponent("Café Longão, São Paulo") +
+                "&dirflg=w"
+              }
+            />
+            <figcaption className="kiss-map__cap">
+              do Cora ao Café Longão — pertinho, como aquela noite
+            </figcaption>
+          </motion.figure>
+        )}
+
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
       </article>
     </motion.main>

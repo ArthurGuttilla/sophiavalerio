@@ -4,6 +4,7 @@ import VinylScene from "./VinylScene.jsx";
 import StoryScene from "./StoryScene.jsx";
 import KissScene from "./KissScene.jsx";
 import OceanScene from "./OceanScene.jsx";
+import AgendaScene from "./AgendaScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -14,4 +15,5 @@ export const SCENES = {
   story: StoryScene,
   kiss: KissScene,
   ocean: OceanScene,
+  agenda: AgendaScene,
 };

@@ -6,6 +6,24 @@ Suba aqui os arquivos que serão usados nas experiências de cada data.
 
 - **Imagens** → `public/media/images/`
 - **Vídeos** → `public/media/videos/`
+- **Áudio (música de fundo)** → `public/media/audio/`
+
+## Música de fundo das datas
+
+Algumas datas tocam uma música de fundo suave. O caminho já está
+referenciado no código (`src/data/dates.js`, campo `bgAudio`). Basta
+subir o arquivo MP3 com o nome exato:
+
+| Data | Arquivo esperado | Música |
+|------|------------------|--------|
+| 25/04 | `public/media/audio/my-funny-valentine.mp3` | My Funny Valentine — Frank Sinatra |
+| 27/04 | `public/media/audio/cornfield-chase.mp3` | Cornfield Chase — Hans Zimmer |
+
+Enquanto o arquivo não existir, a página funciona normalmente — só não
+toca o som. A música começa após o primeiro toque/clique na página
+(navegadores bloqueiam autoplay), e há um botão discreto de ligar/desligar.
+
+> ⚠️ Direitos autorais: use apenas arquivos que você tem direito de usar.
 
 ## Como referenciar no código
 
