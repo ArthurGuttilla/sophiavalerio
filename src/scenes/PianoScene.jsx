@@ -22,29 +22,36 @@ function freq(note) {
   return 440 * Math.pow(2, (midi - 69) / 12);
 }
 
-// ── Arrangement: a wistful 3/4 waltz in A minor, in the spirit of
-//    "Mia & Sebastian's Theme" — rolling left-hand bass + triad, singing
-//    right-hand melody. Each measure is 3 beats.
-const BPM = 104;
-const CHORDS = {
-  Am: ["A3", "C4", "E4"], E: ["G#3", "B3", "E4"], C: ["G3", "C4", "E4"],
-  G: ["G3", "B3", "D4"], F: ["F3", "A3", "C4"], Dm: ["D3", "F3", "A3"],
-};
-const BASS = { Am: "A2", E: "E2", C: "C3", G: "G2", F: "F2", Dm: "D3" };
+// ── Arranjo no espírito de "Mia & Sebastian's Theme" (Justin Hurwitz):
+//    4/4, ~75 BPM, em Lá menor. A assinatura sonora é o arpejo CONTÍNUO da
+//    mão esquerda em colcheias/semicolcheias, com a melodia cantando por
+//    cima em notas longas. Não é a partitura exata (protegida), mas segue a
+//    métrica, a harmonia e o contorno que tornam o tema reconhecível.
+const BPM = 76;
 
-// Evocação do tema principal de "Mia & Sebastian's Theme": um arpejo de
-// valsa que sobe e desce com a melodia cantando por cima. Não é a partitura
-// exata (protegida), mas segue o contorno e o clima reconhecível da peça.
-// [chord, melody events: [note, beatOffset, beats]]
+// Padrão de arpejo da mão esquerda por acorde: 8 colcheias por compasso,
+// subindo e descendo (figura "rolando" característica da peça).
+const ARP = {
+  Am:  ["A2", "E3", "A3", "C4", "E4", "C4", "A3", "E3"],
+  C:   ["C3", "G3", "C4", "E4", "G4", "E4", "C4", "G3"],
+  F:   ["F2", "C3", "F3", "A3", "C4", "A3", "F3", "C3"],
+  G:   ["G2", "D3", "G3", "B3", "D4", "B3", "G3", "D3"],
+  Em:  ["E2", "B2", "E3", "G3", "B3", "G3", "E3", "B2"],
+  Dm:  ["D3", "A3", "D4", "F4", "A4", "F4", "D4", "A3"],
+};
+
+// Melodia (mão direita): [nota, beat inicial no compasso (0..4), duração em beats]
+// Notas longas e líricas sobre os arpejos. 4 beats por compasso.
 const SONG = [
-  ["Am", [["A4", 0, 0.5], ["C5", 0.5, 0.5], ["E5", 1, 1], ["A5", 2, 1]]],
-  ["E",  [["G#5", 0, 1.5], ["E5", 1.5, 0.5], ["B4", 2, 1]]],
-  ["F",  [["A4", 0, 0.5], ["C5", 0.5, 0.5], ["F5", 1, 1], ["A5", 2, 1]]],
-  ["C",  [["G5", 0, 1.5], ["E5", 1.5, 0.5], ["C5", 2, 1]]],
-  ["Dm", [["D5", 0, 0.5], ["F5", 0.5, 0.5], ["A5", 1, 1], ["D6", 2, 1]]],
-  ["Am", [["C6", 0, 1], ["A5", 1, 1], ["E5", 2, 1]]],
-  ["E",  [["B4", 0, 0.5], ["E5", 0.5, 0.5], ["G#5", 1, 1], ["B5", 2, 1]]],
-  ["Am", [["A5", 0, 1.5], ["E5", 1.5, 0.5], ["A4", 2, 1]]],
+  ["Am", [["E5", 0, 2], ["A5", 2, 1.5], ["G5", 3.5, 0.5]]],
+  ["C",  [["E5", 0, 2], ["G5", 2, 2]]],
+  ["F",  [["A5", 0, 1.5], ["G5", 1.5, 0.5], ["F5", 2, 2]]],
+  ["G",  [["E5", 0, 2], ["D5", 2, 1], ["B4", 3, 1]]],
+  ["Am", [["C5", 0, 1], ["E5", 1, 1], ["A5", 2, 2]]],
+  ["F",  [["G5", 0, 2], ["F5", 2, 1.5], ["E5", 3.5, 0.5]]],
+  ["Dm", [["F5", 0, 2], ["A5", 2, 2]]],
+  ["Em", [["B4", 0, 2], ["E5", 2, 1], ["G5", 3, 1]]],
+  ["Am", [["A5", 0, 3], ["E5", 3, 1]]],
 ];
 
 export default function PianoScene({ d, onBack }) {
@@ -149,22 +156,22 @@ export default function PianoScene({ d, onBack }) {
     let totalMs = 0;
 
     SONG.forEach(([chord, melody], m) => {
-      const mStart = m * 3; // measure start in beats
+      const mStart = m * 4; // 4 beats por compasso
 
-      // Left hand: bass on beat 1, triad on beats 2 and 3 (waltz "oom-pah-pah").
-      voice(BASS[chord], (mStart + 0) * beat, beat * 2.6, 0.13);
-      [1, 2].forEach((b) => {
-        CHORDS[chord].forEach((n) =>
-          voice(n, (mStart + b) * beat, beat * 0.8, 0.06)
-        );
+      // Mão esquerda: arpejo contínuo em colcheias (8 por compasso) — a
+      // figura "rolando" que é a assinatura sonora da peça.
+      const arp = ARP[chord];
+      arp.forEach((n, k) => {
+        const when = (mStart + k * 0.5) * beat;
+        voice(n, when, beat * 0.62, 0.07);
       });
 
-      // Right hand: melody (lights the keys).
+      // Mão direita: melodia em notas longas (acende as teclas).
       melody.forEach(([note, off, beats]) => {
         const when = (mStart + off) * beat;
-        const dur = beats * beat * 0.96;
+        const dur = beats * beat * 0.98;
         voice(note, when, dur, 0.2);
-        light(note, when * 1000, Math.max(200, dur * 1000 * 0.8));
+        light(note, when * 1000, Math.max(220, dur * 1000 * 0.85));
         totalMs = Math.max(totalMs, (when + dur) * 1000);
       });
     });
