@@ -98,7 +98,7 @@ export const dates = [
       "Você me recomendou “Em Busca de Sentido”, o primeiro de muitos livros. E foi o dia em que eu me encantei — sem volta.",
     ],
     quote: "The salvation of man is through love and in love.",
-    quoteAfter: "Viktor Frankl, “Em Busca de Sentido” — o livro que você me deu.",
+    quoteAfter: "- Viktor Frankl",
     media: [
       { type: "link", label: "Man's Search for Meaning", url: "https://www.google.com/search?q=Man%27s+Search+for+Meaning+Viktor+Frankl" },
     ],
