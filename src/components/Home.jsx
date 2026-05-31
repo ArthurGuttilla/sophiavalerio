@@ -97,20 +97,35 @@ function Calendar() {
   function onPointerDown(e) {
     const el = trackRef.current;
     if (!el) return;
-    drag.current = { down: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
-    el.setPointerCapture?.(e.pointerId);
+    // NÃO captura o ponteiro aqui — senão o clique não chega ao cartão.
+    drag.current = {
+      down: true,
+      startX: e.clientX,
+      startScroll: el.scrollLeft,
+      moved: false,
+      captured: false,
+      pointerId: e.pointerId,
+    };
   }
   function onPointerMove(e) {
     const el = trackRef.current;
     if (!el || !drag.current.down) return;
     const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > 4) drag.current.moved = true;
-    el.scrollLeft = drag.current.startScroll - dx;
+    if (Math.abs(dx) > 6) {
+      // Só agora, ao confirmar um arraste de verdade, captura o ponteiro.
+      if (!drag.current.captured) {
+        el.setPointerCapture?.(e.pointerId);
+        drag.current.captured = true;
+      }
+      drag.current.moved = true;
+      el.scrollLeft = drag.current.startScroll - dx;
+    }
   }
   function onPointerUp(e) {
     const el = trackRef.current;
+    if (drag.current.captured) el?.releasePointerCapture?.(e.pointerId);
     drag.current.down = false;
-    el?.releasePointerCapture?.(e.pointerId);
+    drag.current.captured = false;
   }
   // Evita que o "arrastar" dispare o clique de abrir a data.
   function guardClick(fn) {
