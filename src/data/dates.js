@@ -301,9 +301,10 @@ export const dates = [
     scene: "italian",
     summary: "Pizza da Broto, velas, vinho no Varal — e mais um beijo.",
     story: [
+      "Nos primeiros segundos, já uma surpresa: os dois vestidos igualzinhos. All black, gola alta, sobretudo bege. Coincidência demais para ter explicação.",
       "Um jantar tipicamente italiano: pizza da Broto, em Pinheiros. Olho no olho, velas na mesa, e depois um vinho no Varal Bar.",
       "E mais um beijo — sem a pressa do primeiro, dessa vez. O tipo de beijo de quem já sabe que quer ficar.",
-      "Mas a melhor sensação veio na volta: abraçadinhos no Uber, você deitada no meu colo. Achei que tinha pegado no sono — até você dizer, baixinho: “estou só aproveitando o momento”.",
+      "Mas a melhor sensação veio na volta: abraçadinhos no Uber, você deitada no meu colo. Perguntei se você estava com sono, e a resposta me trouxe paz: “estou só aproveitando o momento”.",
     ],
   },
   {
