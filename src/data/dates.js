@@ -165,8 +165,8 @@ export const dates = [
     motif: "sparkle",
     summary: "Colocamos a admiração mútua como o melhor elogio.",
     story: [
-      "Foi o dia em que combinamos que admiração é o melhor elogio que existe. Não a beleza, não a conquista — a admiração.",
-      "Eu te admiro. E descobrir que você me admira de volta foi como receber o elogio que eu nem sabia que queria.",
+      "Foi o dia em que combinamos que admiração é o melhor elogio que existe. Apesar de te achar maravilhosa, admirar você é o mais atraente de tudo — e sei que isso é algo nosso, em comum.",
+      "Eu te admiro. E descobrir que você me admira de volta foi entender que a gente não está só se gostando: está se construindo, um confiando no outro um pedaço de cada vez.",
     ],
   },
   {
