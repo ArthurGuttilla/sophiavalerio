@@ -9,6 +9,7 @@ import Home from "./components/Home.jsx";
 import Experience from "./components/Experience.jsx";
 import "./index.css";
 import "./components.css";
+import "./scenes.css";
 
 function AnimatedRoutes() {
   const location = useLocation();

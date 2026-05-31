@@ -33,6 +33,7 @@ export const dates = [
     kicker: "Descoberta",
     title: "A mesma trilha sonora",
     motif: "notes",
+    scene: "vinyl",
     summary: "Jazz, Sinatra, bossa nova — o mesmo gosto.",
     story: [
       "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",
@@ -54,6 +55,7 @@ export const dates = [
     kicker: "Mesmo filme favorito",
     title: "Interstellar & Hans Zimmer",
     motif: "stars",
+    scene: "starfield",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
       "Interstellar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
@@ -256,6 +258,7 @@ export const dates = [
     kicker: "Coincidência bizarra",
     title: "Mia & Sebastian's Theme",
     motif: "notes",
+    scene: "piano",
     summary: "Toquei no piano exatamente a música que você ouvia.",
     story: [
       "Mostrei meu antigo talento no piano e estava tocando, por uma coincidência bizarra, exatamente a música que você estava ouvindo: “Mia & Sebastian's Theme”, de La La Land.",
@@ -272,6 +275,7 @@ export const dates = [
     kicker: "Os céus",
     title: "Astrologia e estrelas",
     motif: "stars",
+    scene: "starfield",
     summary: "Nossa paixão pelos céus, estrelas e fenômenos.",
     story: [
       "Descobrimos a paixão conjunta por astrologia, estrelas e os fenômenos do céu. A gente olha para cima e se entende.",
