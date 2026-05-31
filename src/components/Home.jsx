@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { dates } from "../data/dates.js";
+import { secretDate } from "../data/secret.js";
+import { getSeen, isUnlocked, allSeen } from "../progress.js";
 import { PASSWORD_HASH, hashPassword } from "../config.js";
 
 const MONTHS = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
@@ -62,6 +64,10 @@ function Calendar() {
   const navigate = useNavigate();
   const reduce = useReducedMotion();
 
+  // Lido uma vez na montagem — markSeen acontece na página da experiência.
+  const seen = getSeen();
+  const secretUnlocked = allSeen(seen);
+
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: reduce ? 0 : 0.05, delayChildren: 0.15 } },
@@ -104,7 +110,7 @@ function Calendar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Cada data guarda uma lembrança. Toque para reviver.
+          Cada data abre a próxima. Toque para reviver.
         </motion.p>
       </header>
 
@@ -114,26 +120,76 @@ function Calendar() {
         initial="hidden"
         animate="show"
       >
-        {dates.map((d) => (
-          <motion.li key={d.id} variants={card} className="cal__item">
+        {dates.map((d, i) => {
+          const unlocked = isUnlocked(i, seen);
+          return (
+            <motion.li key={d.id} variants={card} className="cal__item">
+              <button
+                className={`datecard ${unlocked ? "" : "is-locked"}`}
+                onClick={() => unlocked && navigate(`/data/${d.id}`)}
+                disabled={!unlocked}
+                aria-disabled={!unlocked}
+                aria-label={
+                  unlocked
+                    ? `${d.dateLabel} — ${d.title}`
+                    : `Bloqueado — veja a data anterior para liberar`
+                }
+              >
+                <span className="datecard__chip">
+                  <span className="datecard__day">{String(d.day).padStart(2, "0")}</span>
+                  <span className="datecard__mon">{MONTHS[d.month - 1]}</span>
+                </span>
+                <span className="datecard__body">
+                  <span className="datecard__kicker">{d.kicker}</span>
+                  <span className="datecard__title">
+                    {unlocked ? d.title : "Ainda trancado"}
+                  </span>
+                  <span className="datecard__summary">
+                    {unlocked ? d.summary : "Veja a data anterior para liberar esta."}
+                  </span>
+                </span>
+                <span className="datecard__arrow" aria-hidden="true">
+                  {unlocked ? "→" : "🔒"}
+                </span>
+              </button>
+            </motion.li>
+          );
+        })}
+
+        {/* Data secreta — só aparece quando tudo foi visto. */}
+        <motion.li variants={card} className="cal__item">
+          {secretUnlocked ? (
             <button
-              className="datecard"
-              onClick={() => navigate(`/data/${d.id}`)}
-              aria-label={`${d.dateLabel} — ${d.title}`}
+              className="datecard datecard--secret"
+              onClick={() => navigate(`/data/${secretDate.id}`)}
+              aria-label={`Surpresa — ${secretDate.title}`}
             >
-              <span className="datecard__chip">
-                <span className="datecard__day">{String(d.day).padStart(2, "0")}</span>
-                <span className="datecard__mon">{MONTHS[d.month - 1]}</span>
+              <span className="datecard__chip datecard__chip--secret">
+                <span className="datecard__day">♥</span>
               </span>
               <span className="datecard__body">
-                <span className="datecard__kicker">{d.kicker}</span>
-                <span className="datecard__title">{d.title}</span>
-                <span className="datecard__summary">{d.summary}</span>
+                <span className="datecard__kicker">{secretDate.kicker}</span>
+                <span className="datecard__title">{secretDate.title}</span>
+                <span className="datecard__summary">{secretDate.summary}</span>
               </span>
               <span className="datecard__arrow" aria-hidden="true">→</span>
             </button>
-          </motion.li>
-        ))}
+          ) : (
+            <div className="datecard datecard--secret is-locked" aria-hidden="true">
+              <span className="datecard__chip datecard__chip--secret">
+                <span className="datecard__day">?</span>
+              </span>
+              <span className="datecard__body">
+                <span className="datecard__kicker">Surpresa</span>
+                <span className="datecard__title">Uma data secreta</span>
+                <span className="datecard__summary">
+                  Veja todas as datas para revelar.
+                </span>
+              </span>
+              <span className="datecard__arrow" aria-hidden="true">🔒</span>
+            </div>
+          )}
+        </motion.li>
       </motion.ul>
 
       <footer className="home__foot">

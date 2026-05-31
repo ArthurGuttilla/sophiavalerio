@@ -90,7 +90,7 @@ export default function StoryScene({ d, onBack }) {
           {/* header */}
           <div className="story__head">
             <span className="story__avatar" aria-hidden="true">S</span>
-            <span className="story__user">sophia.valerio</span>
+            <span className="story__user">feat.sophia</span>
             <button
               className={`story__follow ${following ? "is-following" : ""}`}
               onClick={() => setFollowing((f) => !f)}

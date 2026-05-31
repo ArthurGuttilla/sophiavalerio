@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { getDate } from "../data/dates.js";
+import { secretDate, SECRET_ID } from "../data/secret.js";
+import { canAccess, markSeen, allSeen } from "../progress.js";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
 } from "./expParts.jsx";
@@ -34,9 +37,20 @@ function DefaultExperience({ d, onBack }) {
 export default function Experience() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const d = getDate(id);
 
-  if (!d) return <Navigate to="/home" replace />;
+  // Data secreta: só acessível depois que todas as regulares foram vistas.
+  const isSecret = id === SECRET_ID;
+  const d = isSecret ? secretDate : getDate(id);
+
+  // Guarda de acesso: bloqueia deep-link para data ainda trancada.
+  const allowed = isSecret ? allSeen() : d ? canAccess(id) : false;
+
+  // Marca a data como vista (libera a próxima) ao abrir.
+  useEffect(() => {
+    if (d && allowed && !isSecret) markSeen(id);
+  }, [id, d, allowed, isSecret]);
+
+  if (!d || !allowed) return <Navigate to="/home" replace />;
 
   const onBack = () => navigate("/home");
   const Scene = d.scene && SCENES[d.scene];

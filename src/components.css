@@ -171,6 +171,47 @@
 }
 .datecard:active { transform: scale(0.995); }
 
+/* Locked card — dimmed, non-interactive */
+.datecard.is-locked {
+  cursor: default;
+  opacity: 0.55;
+  background: transparent;
+  border: 1px dashed var(--color-muted);
+}
+@media (hover: hover) {
+  .datecard.is-locked:hover {
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    border-color: var(--color-muted);
+  }
+  .datecard.is-locked:hover .datecard__arrow { transform: none; }
+}
+.datecard.is-locked .datecard__chip {
+  background: transparent;
+  border-style: dashed;
+}
+.datecard.is-locked .datecard__title { color: var(--color-accent); }
+
+/* Secret card — softly highlighted once unlocked */
+.datecard--secret {
+  background: linear-gradient(135deg, var(--color-surface), #efe7d6);
+  border: 1px solid var(--color-muted);
+}
+.datecard--secret.is-locked {
+  background: transparent;
+}
+.datecard__chip--secret {
+  background: radial-gradient(circle, var(--color-muted), var(--color-accent));
+  border-color: transparent;
+  color: var(--color-text);
+}
+.datecard--secret .datecard__chip--secret .datecard__day {
+  font-family: var(--font-wordmark);
+  font-size: 1.7rem;
+  color: var(--color-text);
+}
+
 .datecard__chip {
   flex: 0 0 auto;
   width: 58px;
