@@ -341,7 +341,6 @@ function Calendar() {
       </div>
 
       <footer className="home__foot">
-        <Link to="/" className="btn btn--ghost">voltar ao início</Link>
         <p className="signoff">feito com amor por Arthur&nbsp;🤍</p>
       </footer>
     </motion.main>
