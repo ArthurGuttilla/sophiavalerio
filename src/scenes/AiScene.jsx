@@ -9,9 +9,8 @@ import {
 // compartilha. Tudo é simulado (sem chamadas de rede).
 const PROMPT = "O que a Sophia e eu temos em comum?";
 const ANSWER = [
-  "Vocês dois funcionam como boas inteligências: aprendem rápido, trocam contexto o tempo todo e ficam melhores a cada interação.",
-  "A diferença é o que move o aprendizado. Uma IA é treinada por dados; vocês, por curiosidade e afeto.",
-  "Compartilham a mesma fome de entender o mundo — e descobriram que pensar junto é mais potente do que pensar sozinho.",
+  "Uma IA é treinada por dados; vocês, por curiosidade.",
+  "Compartilham a mesma fome de entender o mundo e descobriram que pensar junto é mais potente do que pensar sozinho.",
   "No fim, a inteligência mais rara que vocês dividem não se mede em parâmetros: é a vontade de continuar aprendendo um com o outro.",
 ];
 
@@ -28,27 +27,27 @@ export default function AiScene({ d, onBack }) {
   useEffect(() => {
     if (reduce) return;
     let i = 0;
-    const speed = 55;
+    const speed = 110; // digitação mais lenta e contemplativa
     const typeNext = () => {
       i++;
       setTyped(PROMPT.slice(0, i));
       if (i < PROMPT.length) {
         timers.current.push(setTimeout(typeNext, speed));
       } else {
-        // "Enviar" e começar a responder.
+        // "Enviar" e começar a responder, linha a linha, devagar.
         timers.current.push(
           setTimeout(() => {
             setSent(true);
             ANSWER.forEach((_, idx) => {
               timers.current.push(
-                setTimeout(() => setVisibleLines(idx + 1), 700 + idx * 1100)
+                setTimeout(() => setVisibleLines(idx + 1), 1100 + idx * 2200)
               );
             });
-          }, 500)
+          }, 700)
         );
       }
     };
-    timers.current.push(setTimeout(typeNext, 700));
+    timers.current.push(setTimeout(typeNext, 800));
     return () => timers.current.forEach(clearTimeout);
   }, [reduce]);
 
@@ -64,7 +63,9 @@ export default function AiScene({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
 
-        <motion.div className="ai" {...rise(0.3)}>
+        <ExpStory d={d} rise={rise} />
+
+        <motion.div className="ai" {...rise(0.3 + d.story.length * 0.12)}>
           <div className="ai__bar" aria-hidden="true">
             <span className="ai__dot" /><span className="ai__dot" /><span className="ai__dot" />
             <span className="ai__name">Claude</span>
@@ -91,7 +92,7 @@ export default function AiScene({ d, onBack }) {
                       className="ai__line"
                       initial={{ opacity: 0, y: 6 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.6 }}
                     >
                       {line}
                     </motion.span>
@@ -107,7 +108,6 @@ export default function AiScene({ d, onBack }) {
           </div>
         </motion.div>
 
-        <ExpStory d={d} rise={rise} base={0.5} />
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
       </article>
     </motion.main>
