@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { dates } from "../data/dates.js";
@@ -53,7 +53,6 @@ function PasswordGate({ onUnlock }) {
         />
         {error && <p className="gate__error">Não é essa. Tenta de novo 🤍</p>}
         <button type="submit" className="btn">Entrar</button>
-        <Link to="/" className="gate__back">voltar</Link>
       </motion.form>
     </motion.main>
   );

@@ -67,6 +67,19 @@ a { color: inherit; }
   letter-spacing: 0.01em;
 }
 
+/* Landing — toque para começar */
+.stage--enter { cursor: pointer; }
+.stage--enter:focus-visible { outline: none; }
+.enter-hint {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  user-select: none;
+}
+
+
 /* Buttons (restraint-first outline) */
 .btn {
   display: inline-flex;

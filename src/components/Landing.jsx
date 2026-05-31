@@ -19,29 +19,40 @@ export default function Landing() {
 
   return (
     <motion.main
-      className="stage"
+      className="stage stage--enter"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
+      onClick={() => navigate("/home")}
+      role="button"
+      tabIndex={0}
+      aria-label="Toque para começar"
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          navigate("/home");
+        }
+      }}
     >
       <Motif variant="dust" />
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-4)" }}
+        style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--space-6)" }}
       >
         <motion.h1 variants={item} className="wordmark">
           Sophia Valerio
         </motion.h1>
-        <motion.button
+        <motion.span
           variants={item}
-          className="btn"
-          onClick={() => navigate("/home")}
+          className="enter-hint"
+          animate={reduce ? {} : { opacity: [0.4, 1, 0.4] }}
+          transition={reduce ? {} : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         >
-          Start
-        </motion.button>
+          toque para começar
+        </motion.span>
       </motion.div>
     </motion.main>
   );
