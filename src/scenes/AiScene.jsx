@@ -63,9 +63,7 @@ export default function AiScene({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
 
-        <ExpStory d={d} rise={rise} />
-
-        <motion.div className="ai" {...rise(0.3 + d.story.length * 0.12)}>
+        <motion.div className="ai" {...rise(0.3)}>
           <div className="ai__bar" aria-hidden="true">
             <span className="ai__dot" /><span className="ai__dot" /><span className="ai__dot" />
             <span className="ai__name">Claude</span>
@@ -107,6 +105,8 @@ export default function AiScene({ d, onBack }) {
             )}
           </div>
         </motion.div>
+
+        <ExpStory d={d} rise={rise} base={0.5} />
 
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
       </article>
