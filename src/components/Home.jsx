@@ -81,19 +81,41 @@ function Calendar() {
   const SCROLL_KEY = "sv_timeline_scroll";
 
   // Restaura a posição da timeline ao voltar; salva continuamente.
+  // A restauração só vale depois que o layout dos cards estabiliza — por isso
+  // tentamos em vários frames até o scrollLeft "fixar" no valor salvo.
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
     const saved = parseFloat(sessionStorage.getItem(SCROLL_KEY) || "0");
-    if (saved > 0) {
-      // Sem animação na restauração para parecer "continuar de onde parou".
-      el.scrollLeft = saved;
+    let restoring = saved > 0;
+    let frames = 0;
+    let raf;
+
+    function restore() {
+      if (!restoring) return;
+      // Clampa ao máximo atual; se o conteúdo ainda não cresceu, tenta de novo.
+      const max = el.scrollWidth - el.clientWidth;
+      el.scrollLeft = Math.min(saved, max);
+      frames++;
+      // Para quando alcançar a posição (ou após ~30 frames de tentativa).
+      if (Math.abs(el.scrollLeft - saved) <= 1 || frames > 30) {
+        restoring = false;
+        return;
+      }
+      raf = requestAnimationFrame(restore);
     }
+    raf = requestAnimationFrame(restore);
+
     const onScroll = () => {
+      // Não salva enquanto ainda estamos restaurando (evita corrida).
+      if (restoring) return;
       sessionStorage.setItem(SCROLL_KEY, String(el.scrollLeft));
     };
     el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   function scrollByCards(dir) {

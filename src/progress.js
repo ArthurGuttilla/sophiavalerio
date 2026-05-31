@@ -1,15 +1,16 @@
 // ─────────────────────────────────────────────────────────────
 //  Progressão das datas
 //  Cada data só é liberada depois que a anterior é vista.
-//  O progresso fica salvo no localStorage (persiste entre sessões).
+//  Usa sessionStorage: a cada NOVA sessão tudo volta travado, liberando
+//  uma a uma novamente.
 // ─────────────────────────────────────────────────────────────
 import { dates } from "./data/dates.js";
 
-const KEY = "sv_seen"; // lista de ids de datas já vistas
+const KEY = "sv_seen"; // lista de ids de datas já vistas (na sessão)
 
 export function getSeen() {
   try {
-    const raw = localStorage.getItem(KEY);
+    const raw = sessionStorage.getItem(KEY);
     return raw ? JSON.parse(raw) : [];
   } catch {
     return [];
@@ -21,7 +22,7 @@ export function markSeen(id) {
   if (!seen.includes(id)) {
     seen.push(id);
     try {
-      localStorage.setItem(KEY, JSON.stringify(seen));
+      sessionStorage.setItem(KEY, JSON.stringify(seen));
     } catch {
       /* ignore */
     }
@@ -31,7 +32,7 @@ export function markSeen(id) {
 // Libera todas as datas de uma vez (easter egg do título "dias").
 export function markAllSeen() {
   try {
-    localStorage.setItem(KEY, JSON.stringify(dates.map((d) => d.id)));
+    sessionStorage.setItem(KEY, JSON.stringify(dates.map((d) => d.id)));
   } catch {
     /* ignore */
   }

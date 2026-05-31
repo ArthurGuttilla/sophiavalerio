@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
 } from "../components/expParts.jsx";
-import BgAudio from "../components/BgAudio.jsx";
+import SpotifyAuto from "../components/SpotifyAuto.jsx";
 
 // Deep-espresso night sky: twinkling stars with subtle pointer parallax
 // and the occasional shooting star. Used for Interstellar & astrology.
@@ -138,10 +138,10 @@ export default function StarfieldScene({ d, onBack }) {
     >
       {!reduce && <Sky />}
       <ExpBack onClick={onBack} />
-      {d.bgAudio && <BgAudio src={d.bgAudio} label={d.bgAudioLabel} />}
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
+        {d.bgTrack && <SpotifyAuto trackId={d.bgTrack} label={d.bgTrackLabel} />}
         <ExpQuote d={d} rise={rise} delay={quoteDelay} />
         <ExpMedia d={d} rise={rise} delay={quoteDelay + 0.15} />
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />

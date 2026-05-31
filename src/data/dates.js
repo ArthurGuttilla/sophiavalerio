@@ -35,8 +35,8 @@ export const dates = [
     title: "A mesma trilha sonora",
     motif: "notes",
     scene: "vinyl",
-    bgAudio: "media/audio/my-funny-valentine.mp3",
-    bgAudioLabel: "My Funny Valentine — Frank Sinatra",
+    bgTrack: "2GqMnGQCXwrG9e4i7cznlS",
+    bgTrackLabel: "My Funny Valentine — Frank Sinatra",
     summary: "Jazz, Sinatra, bossa nova — o mesmo gosto.",
     story: [
       "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",
@@ -60,8 +60,8 @@ export const dates = [
     title: "Interestelar & Hans Zimmer",
     motif: "stars",
     scene: "starfield",
-    bgAudio: "media/audio/cornfield-chase.mp3",
-    bgAudioLabel: "Cornfield Chase — Hans Zimmer",
+    bgTrack: "6pWgRkpqVfxnj3WuIcJ7WP",
+    bgTrackLabel: "Cornfield Chase — Hans Zimmer",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
       "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
