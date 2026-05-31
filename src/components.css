@@ -525,3 +525,56 @@
   .datecard__chip { width: 50px; height: 50px; }
   .datecard__day { font-size: 1.3rem; }
 }
+
+/* ============================================================
+   MOBILE-FIRST — otimizações para telas pequenas e toque
+   ============================================================ */
+
+/* Evita rolagem horizontal acidental e respeita a área segura (notch). */
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+
+/* Todo conteúdo de mídia nunca estoura a largura. */
+img, video, iframe, canvas { max-width: 100%; }
+
+/* Alvos de toque confortáveis (mín. ~44px) para os controles principais. */
+@media (pointer: coarse) {
+  .btn { min-height: 48px; }
+  .btn--ghost { min-height: 44px; }
+  .timeline__nav { width: 48px; height: 48px; }
+  .exp__close { padding: 10px 8px; min-height: 44px; display: inline-flex; align-items: center; }
+  .datecard__arrow { font-size: 1.3rem; }
+}
+
+/* Telas pequenas (≤640px) — densidade e espaçamentos reduzidos. */
+@media (max-width: 640px) {
+  :root {
+    --space-6: 36px;
+    --space-8: 48px;
+  }
+  .exp { padding: clamp(28px, 7vw, 48px) 18px var(--space-8); }
+  .exp__inner { width: 100%; }
+  .home { padding: clamp(36px, 8vw, 64px) 16px var(--space-8); }
+
+  /* Cartões da timeline um pouco mais largos para leitura confortável. */
+  .cal__item { width: clamp(230px, 82vw, 280px); }
+  .cal { gap: 16px; }
+
+  /* Header da home com menos respiro. */
+  .home__head { margin-bottom: var(--space-4); }
+
+  /* Citações e história com largura plena. */
+  .exp__quote { max-width: 92%; }
+}
+
+/* Telas bem estreitas (≤380px) — ajustes finos. */
+@media (max-width: 380px) {
+  .exp__title { font-size: clamp(2.2rem, 11vw, 2.8rem); }
+  .home__title { font-size: clamp(2.2rem, 10vw, 3rem); }
+  .datecard { min-height: 200px; padding: 18px 14px; }
+}
+
+/* Em paisagem de celular (pouca altura), encolhe alturas fixas de cena. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .exp, .home { min-height: auto; }
+}

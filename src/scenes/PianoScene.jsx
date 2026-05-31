@@ -229,23 +229,25 @@ export default function PianoScene({ d, onBack }) {
         <ExpStory d={d} rise={rise} />
 
         <motion.div className="piano" {...rise(0.3 + d.story.length * 0.12)}>
-          <div className="piano__keys" role="group" aria-label="piano">
-            {WHITE.map((note) => (
-              <div className="piano__wkeywrap" key={note}>
-                <button
-                  className={`piano__wkey ${active[note] ? "is-on" : ""}`}
-                  onClick={() => tap(note)}
-                  aria-label={note}
-                />
-                {BLACK[note] && (
+          <div className="piano__scroller">
+            <div className="piano__keys" role="group" aria-label="piano">
+              {WHITE.map((note) => (
+                <div className="piano__wkeywrap" key={note}>
                   <button
-                    className={`piano__bkey ${active[BLACK[note]] ? "is-on" : ""}`}
-                    onClick={(e) => { e.stopPropagation(); tap(BLACK[note]); }}
-                    aria-label={BLACK[note]}
+                    className={`piano__wkey ${active[note] ? "is-on" : ""}`}
+                    onClick={() => tap(note)}
+                    aria-label={note}
                   />
-                )}
-              </div>
-            ))}
+                  {BLACK[note] && (
+                    <button
+                      className={`piano__bkey ${active[BLACK[note]] ? "is-on" : ""}`}
+                      onClick={(e) => { e.stopPropagation(); tap(BLACK[note]); }}
+                      aria-label={BLACK[note]}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
           <button className="btn btn--ghost piano__play" onClick={playMelody} disabled={playing}>
             {playing ? "tocando…" : "▶ tocar nosso tema"}

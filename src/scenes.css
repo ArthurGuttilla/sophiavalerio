@@ -44,15 +44,30 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-3);
+  width: 100%;
+  max-width: 100%;
+}
+/* Trilho rolável: em telas estreitas o teclado desliza na horizontal. */
+.piano__scroller {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 6px;
 }
 .piano__keys {
   position: relative;
   display: flex;
   gap: 2px;
   padding: 10px 10px 0;
+  margin: 0 auto;
   background: var(--color-secondary);
   border-radius: 8px;
   box-shadow: 0 14px 36px -20px rgba(62, 52, 43, 0.7);
+  flex: 0 0 auto;
 }
 .piano__wkeywrap { position: relative; }
 .piano__wkey {
@@ -885,3 +900,37 @@
   padding-left: 4px;
 }
 .exp__video-ph-text { font-size: 0.92rem; font-style: italic; }
+
+/* ============================================================
+   MOBILE-FIRST — ajustes por cena
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Story (Instagram): encolhe a altura do palco. */
+  .story { width: min(94vw, 360px); }
+  .story__stage { height: clamp(240px, 56vw, 300px); }
+
+  /* Chat / AI: largura plena. */
+  .chat, .ai, .spotifyauto { width: min(96vw, 440px); }
+  .chat__thread { max-height: min(60vh, 420px); }
+
+  /* Mapa e vídeo: alturas proporcionais. */
+  .kiss-map { width: min(96vw, 520px); }
+  .kiss-map__frame { height: clamp(200px, 50vw, 280px); }
+  .exp__video, .exp__video-el { width: min(96vw, 520px); }
+  .exp__video-ph { height: clamp(180px, 45vw, 220px); }
+
+  /* Jogo: tabuleiro proporcional e corações maiores p/ tocar. */
+  .game { width: min(96vw, 460px); }
+  .game__board { height: clamp(280px, 70vw, 320px); }
+  .game__heart { font-size: 2.4rem; padding: 8px; }
+
+  /* Agenda: largura plena. */
+  .agenda__card, .agenda__actions { width: min(92vw, 320px); }
+
+  /* Vinil menor para não dominar a tela. */
+  .vinyl__disc { width: clamp(160px, 50vw, 220px); height: clamp(160px, 50vw, 220px); }
+
+  /* Piano: teclas um pouco maiores no toque e rola na horizontal. */
+  .piano__wkey { width: clamp(30px, 9vw, 40px); height: clamp(120px, 30vw, 150px); }
+  .piano__bkey { width: calc(clamp(30px, 9vw, 40px) * 0.62); right: calc(clamp(30px, 9vw, 40px) / -2.6); }
+}
