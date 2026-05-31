@@ -268,8 +268,6 @@ export const dates = [
     title: "Mia & Sebastian's Theme",
     motif: "notes",
     scene: "piano",
-    bgYoutube: "Wk7RrtEGDyo",
-    bgYoutubeLabel: "Mia & Sebastian's Theme — La La Land",
     summary: "Toquei no piano exatamente a música que você ouvia.",
     story: [
       "Mostrei meu antigo talento no piano e estava tocando, por uma coincidência bizarra, exatamente a música que você estava ouvindo: “Mia & Sebastian's Theme”, de La La Land.",

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
 } from "../components/expParts.jsx";
-import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
 // Visible keyboard: C4..D6 so all melody notes can light up.
 const WHITE = [
@@ -228,10 +227,6 @@ export default function PianoScene({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
-
-        {d.bgYoutube && (
-          <YoutubeAuto videoId={d.bgYoutube} start={d.bgYoutubeStart || 0} label={d.bgYoutubeLabel} />
-        )}
 
         <motion.div className="piano" {...rise(0.3 + d.story.length * 0.12)}>
           <div className="piano__scroller">
