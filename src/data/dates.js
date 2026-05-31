@@ -23,7 +23,7 @@ export const dates = [
     scene: "story",
     summary: "O dia em que você começou a me seguir.",
     story: [
-      "Foi através do stories de um aluno meu que você chegou até mim. Um detalhe pequeno, quase invisível no fluxo de um dia comum — e mesmo assim foi o primeiro fio dessa história inteira.",
+      "Foi através do stories de um aluno meu que você chegou até mim. Um detalhe pequeno, quase invisível no fluxo de um dia comum — e foi assim que a gente se conheceu.",
       "Penso nisso e me parece improvável demais para ser acaso. Você apertou um botão e, sem saber, abriu uma porta.",
     ],
   },

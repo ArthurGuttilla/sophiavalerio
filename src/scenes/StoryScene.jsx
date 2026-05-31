@@ -6,9 +6,9 @@ import { useRise, ExpBack, ExpFoot } from "../components/expParts.jsx";
 // frames, a profile header with the "seguir" button that flips to "seguindo".
 const FRAMES = [
   {
-    tag: "@arthur",
+    tag: "@arthurguttilla",
     big: "um stories\nqualquer",
-    small: "Era só mais um post no feed de um aluno meu.",
+    small: "Um aluno meu.",
   },
   {
     tag: "o acaso",
@@ -17,8 +17,8 @@ const FRAMES = [
   },
   {
     tag: "06 de abril",
-    big: "você\ntocou\nseguir",
-    small: "E um fio invisível ligou as nossas vidas.",
+    big: "você\nme\nseguiu",
+    small: "E foi assim que a gente se conheceu.",
   },
   {
     tag: "depois disso",
@@ -26,7 +26,7 @@ const FRAMES = [
     small: "Esse foi o primeiro capítulo de nós.",
   },
 ];
-const FRAME_MS = 3200;
+const FRAME_MS = 4800;
 
 export default function StoryScene({ d, onBack }) {
   const rise = useRise();

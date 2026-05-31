@@ -110,7 +110,7 @@ export function ExpFoot({ rise, delay, onBack }) {
   return (
     <motion.div className="exp__foot" {...rise(delay)}>
       <button className="btn btn--ghost" onClick={onBack}>voltar às datas</button>
-      <p className="signoff">para você, com amor 🤍</p>
+      <p className="signoff">para Sophia, com amor</p>
     </motion.div>
   );
 }
