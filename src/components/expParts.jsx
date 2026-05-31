@@ -88,6 +88,24 @@ export function ExpMedia({ d, rise, delay }) {
   );
 }
 
+export function ExpVideo({ d, rise, delay }) {
+  // Vídeo real (quando o arquivo existir) ou um placeholder elegante.
+  if (!d.video && !d.videoPlaceholder) return null;
+  const src = d.video ? `${import.meta.env.BASE_URL}${d.video}` : null;
+  return (
+    <motion.div className="exp__video" {...rise(delay)}>
+      {src ? (
+        <video className="exp__video-el" src={src} controls playsInline preload="metadata" />
+      ) : (
+        <div className="exp__video-ph">
+          <span className="exp__video-ph-icon" aria-hidden="true">▶</span>
+          <span className="exp__video-ph-text">{d.videoPlaceholder}</span>
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
 export function ExpFoot({ rise, delay, onBack }) {
   return (
     <motion.div className="exp__foot" {...rise(delay)}>

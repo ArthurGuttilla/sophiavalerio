@@ -207,6 +207,10 @@ export const dates = [
     kicker: "Paz",
     title: "O vídeo da paz",
     motif: "dust",
+    // Para incluir o vídeo no futuro: coloque o arquivo em
+    // public/media/videos/ e troque o caminho abaixo (ex.: "media/videos/paz.mp4").
+    video: null,
+    videoPlaceholder: "o vídeo que você me mandou vai morar aqui",
     summary: "Um vídeo seu que me trouxe uma paz rara.",
     story: [
       "Você me mandou um vídeo seu que, acho, foi um dos que me trouxe a maior sensação de paz que eu já senti.",
@@ -220,9 +224,10 @@ export const dates = [
     kicker: "Profundidade",
     title: "Jejum, jogos e a morte",
     motif: "stars",
+    scene: "game",
     summary: "Jejum, jogos de tabuleiro e conversas sobre a morte.",
     story: [
-      "Descobrimos que o jejum faz parte da rotina dos dois, que amamos jogos de tabuleiro e — talvez o mais raro — que gostamos de conversar fundo sobre a morte.",
+      "Descobrimos que o jejum faz parte da rotina dos dois, que amamos jogos de tabuleiro e conversas reflexivas e filosóficas sobre a morte.",
       "Falar da finitude com alguém é, no fundo, falar do quanto a vida importa. Poucas pessoas aguentam essa conversa. Você abraça.",
     ],
   },
@@ -233,6 +238,7 @@ export const dates = [
     kicker: "Cuidado",
     title: "Vida natural",
     motif: "dust",
+    scene: "market",
     summary: "Vida saudável e o desafio de cozinhar um pro outro.",
     story: [
       "Descobrimos que valorizamos muito uma vida saudável, orgânica e natural. E nos desafiamos a cozinhar um para o outro.",
@@ -246,10 +252,11 @@ export const dates = [
     kicker: "Ritual",
     title: "Café, ainda mais fundo",
     motif: "coffee",
+    scene: "coffee",
     summary: "Nossa paixão por café ficou ainda mais profunda.",
     story: [
       "Nossa paixão por café ficou ainda mais profunda. Virou ritual, linguagem, desculpa boa para mais um encontro.",
-      "Tem amor que se mede em xícaras. O nosso transborda.",
+      "Tem coisas que a gente aprende a apreciar devagar, no tempo certo. Com você, o simples vira ritual — e o ritual vira vontade de repetir.",
     ],
   },
   {
@@ -291,10 +298,33 @@ export const dates = [
     kicker: "Velas e vinho",
     title: "Jantar italiano",
     motif: "hearts",
+    scene: "italian",
     summary: "Pizza da Broto, velas, vinho no Varal — e mais um beijo.",
     story: [
       "Um jantar tipicamente italiano: pizza da Broto, em Pinheiros. Olho no olho, velas na mesa, e depois um vinho no Varal Bar.",
       "E mais um beijo — sem a pressa do primeiro, dessa vez. O tipo de beijo de quem já sabe que quer ficar.",
+      "Mas a melhor sensação veio na volta: abraçadinhos no Uber, você deitada no meu colo. Achei que tinha pegado no sono — até você dizer, baixinho: “estou só aproveitando o momento”.",
+    ],
+  },
+  {
+    id: "declaracao",
+    day: 30, month: 5, year: 2026,
+    dateLabel: "30 de maio de 2026",
+    kicker: "A porta que se abriu",
+    title: "A declaração",
+    motif: "hearts",
+    scene: "chat",
+    summary: "Por mensagem, ela abriu uma porta: se apaixonar é bom demais.",
+    // Conversa exibida na cena de chat (in/out = recebida/enviada).
+    chat: [
+      { from: "her", time: "14:35", text: "Não, mas acho que eu fiquei meio animadinha depois de ontem e por isso não consegui voltar a dormir 🫢😅😅😅" },
+      { from: "her", time: "14:36", text: "Minha mãe já tava acordada e perguntou como tinha sido ontem, me acordou mais ainda" },
+      { from: "me", time: "14:38", text: "Você é um fofo! Na verdade é um prazer enorme pra mim dividir isso contigo 🤗" },
+      { from: "her", time: "14:38", text: "Vou ser bold e abrir uma porta aqui, mas se apaixonar é bom demais!" },
+    ],
+    story: [
+      "Foi o dia em que uma porta se abriu — sem cerimônia, do jeito mais verdadeiro: por mensagem, no meio da tarde.",
+      "“Se apaixonar é bom demais.” Eu li, reli, e sorri sozinho. Porque era exatamente o que eu também estava sentindo.",
     ],
   },
 ];

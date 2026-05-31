@@ -6,7 +6,7 @@ import { getDate } from "../data/dates.js";
 import { secretDate, SECRET_ID } from "../data/secret.js";
 import { canAccess, markSeen, allSeen } from "../progress.js";
 import {
-  useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpVideo, ExpFoot,
 } from "./expParts.jsx";
 import { SCENES } from "../scenes/index.jsx";
 
@@ -26,6 +26,7 @@ function DefaultExperience({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
+        <ExpVideo d={d} rise={rise} delay={quoteDelay + 0.05} />
         <ExpQuote d={d} rise={rise} delay={quoteDelay} />
         <ExpMedia d={d} rise={rise} delay={quoteDelay + 0.15} />
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />

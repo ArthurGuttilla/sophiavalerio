@@ -679,3 +679,209 @@
   0%, 100% { transform: translateY(0); opacity: 0.5; }
   50% { transform: translateY(-4px); opacity: 1; }
 }
+
+/* ============================================================
+   Chat scene (declaração — 30/05)
+   ============================================================ */
+.chat {
+  margin: var(--space-6) auto 0;
+  width: min(92vw, 440px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-muted);
+  box-shadow: 0 18px 44px -26px rgba(62, 52, 43, 0.6);
+  background: #ece5d8;
+}
+.chat__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--color-secondary);
+  color: var(--color-bg);
+}
+.chat__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, var(--color-muted), var(--color-accent));
+  color: var(--color-text);
+  font-family: var(--font-wordmark);
+  font-size: 1.2rem;
+}
+.chat__who { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
+.chat__name { font-size: 0.92rem; font-weight: 500; }
+.chat__status { font-size: 0.72rem; opacity: 0.8; }
+.chat__thread {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,0.4), transparent 40%),
+    #e6dccb;
+}
+.chat__msg {
+  max-width: 78%;
+  padding: 9px 12px 18px;
+  border-radius: 12px;
+  position: relative;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+.chat__msg--her {
+  align-self: flex-start;
+  background: #fffdf8;
+  border-top-left-radius: 4px;
+}
+.chat__msg--me {
+  align-self: flex-end;
+  background: #d6ecc8;
+  border-top-right-radius: 4px;
+}
+.chat__text { display: block; }
+.chat__time {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 0.66rem;
+  color: var(--color-accent);
+}
+.chat__msg--typing { padding: 14px 16px; }
+.chat__dots { display: inline-flex; gap: 4px; }
+.chat__dots i {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--color-muted);
+  animation: chat-typing 1s ease-in-out infinite;
+}
+.chat__dots i:nth-child(2) { animation-delay: 0.15s; }
+.chat__dots i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes chat-typing {
+  0%,100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ============================================================
+   Game scene (joguinho — 24/05)
+   ============================================================ */
+.game { margin: var(--space-6) auto 0; width: min(92vw, 460px); }
+.game__hud {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+.game__board {
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  border: 1px solid var(--color-muted);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(212,199,176,0.3), transparent 60%),
+    var(--color-surface);
+  overflow: hidden;
+}
+.game__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  font-family: var(--font-ui);
+  color: var(--color-secondary);
+}
+.game__heart {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 4px;
+}
+.game__result {
+  font-family: var(--font-wordmark);
+  font-size: 2.2rem;
+  color: var(--color-text);
+  margin: 0;
+}
+.game__quip { margin: 0; font-size: 0.95rem; color: var(--color-secondary); max-width: 26ch; }
+
+/* ============================================================
+   Ambient scenes (market 25 / coffee 26 / italian 29)
+   ============================================================ */
+.amb__field { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.amb__float { position: absolute; line-height: 1; user-select: none; }
+.amb__stage {
+  margin: var(--space-4) auto var(--space-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.amb__icon { font-size: 3.4rem; line-height: 1; }
+.amb__cap { display: flex; flex-direction: column; gap: 4px; }
+.amb__cap-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.amb__cap-sub { font-size: 0.92rem; opacity: 0.85; }
+
+.amb--market { background: linear-gradient(180deg, #eef1e6 0%, #e2e8d3 60%, #d6e0c4 100%); }
+.amb--coffee { background: linear-gradient(180deg, #efe7da 0%, #d8c5ab 60%, #b59a78 100%); color: var(--color-text); }
+.amb--italian {
+  background: radial-gradient(120% 90% at 50% 15%, #6a4a3a 0%, #3a2820 60%, #281a14 100%);
+  color: var(--color-bg);
+}
+.amb--italian .exp__close { color: var(--color-muted); }
+.amb--italian .exp__close:hover { color: var(--color-bg); }
+.amb--italian .exp__date { color: var(--color-muted); }
+.amb--italian .exp__kicker { color: #e8c79c; }
+.amb--italian .exp__title,
+.amb--italian .amb__cap-title { color: var(--color-bg); }
+.amb--italian .exp__story { color: #ece4d6; }
+.amb--italian .signoff { color: var(--color-muted); }
+.amb--italian .btn--ghost { border-color: rgba(232,199,156,0.4); color: #f0e4d2; }
+
+/* ============================================================
+   Video placeholder (23/05)
+   ============================================================ */
+.exp__video { margin: var(--space-4) auto 0; width: min(92vw, 520px); }
+.exp__video-el { width: 100%; border-radius: 14px; display: block; }
+.exp__video-ph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 220px;
+  border-radius: 14px;
+  border: 1px dashed var(--color-muted);
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+.exp__video-ph-icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+  font-size: 1.4rem;
+  padding-left: 4px;
+}
+.exp__video-ph-text { font-size: 0.92rem; font-style: italic; }

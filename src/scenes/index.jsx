@@ -6,6 +6,9 @@ import KissScene from "./KissScene.jsx";
 import OceanScene from "./OceanScene.jsx";
 import AgendaScene from "./AgendaScene.jsx";
 import AiScene from "./AiScene.jsx";
+import ChatScene from "./ChatScene.jsx";
+import GameScene from "./GameScene.jsx";
+import AmbientScene from "./AmbientScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -18,4 +21,9 @@ export const SCENES = {
   ocean: OceanScene,
   agenda: AgendaScene,
   ai: AiScene,
+  chat: ChatScene,
+  game: GameScene,
+  market: (props) => <AmbientScene {...props} preset="market" />,
+  coffee: (props) => <AmbientScene {...props} preset="coffee" />,
+  italian: (props) => <AmbientScene {...props} preset="italian" />,
 };
