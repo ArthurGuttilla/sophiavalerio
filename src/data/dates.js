@@ -330,6 +330,20 @@ export const dates = [
       "“Se apaixonar é bom demais.” Eu li, reli, e sorri sozinho. Porque era exatamente o que eu também estava sentindo.",
     ],
   },
+  {
+    id: "convite-para-entrar",
+    day: 1, month: 6, year: 2026,
+    dateLabel: "01 de junho de 2026",
+    kicker: "O convite aceito",
+    title: "Entrar, com calma",
+    motif: "hearts",
+    summary: "Jantar, conversa profunda e o primeiro presente.",
+    story: [
+      "Um jantar gostoso e uma conversa profunda — não dos temas mais fáceis. Foi um momento de entender que, depois de abrir uma porta, ainda é preciso receber o convite e se sentir confortável para entrar.",
+      "E eu estava confortável. Mesmo sem conhecer o território tão bem — porque, no fim, é muito mais sobre a companhia do que sobre o caminho.",
+      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Pequeno em tamanho, enorme em intenção.",
+    ],
+  },
 ];
 
 export function getDate(id) {
