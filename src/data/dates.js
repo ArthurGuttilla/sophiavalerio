@@ -341,7 +341,7 @@ export const dates = [
     story: [
       "Um jantar gostoso e uma conversa profunda — não dos temas mais fáceis. Foi um momento de entender que, depois de abrir uma porta, ainda é preciso receber o convite e se sentir confortável para entrar.",
       "E eu estava confortável. Mesmo sem conhecer o território tão bem — porque, no fim, é muito mais sobre a companhia do que sobre o caminho.",
-      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Pequeno em tamanho, enorme em intenção.",
+      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Um presente para me aproximar de algo tão importante para você.",
     ],
   },
 ];
