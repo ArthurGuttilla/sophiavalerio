@@ -5,26 +5,62 @@ import {
 } from "../components/expParts.jsx";
 import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
-// Dia 05/06 — a listinha: um checklist que se marca sozinho, item a item,
-// e um disco "Falling in Love" gravado para você.
+// Dia 05/06 — a listinha: cada item se marca conforme você rola até ele,
+// devagar, e também dá para tocar para marcar/desmarcar. Um disco
+// "Falling in Love" gravado para você acompanha.
 export default function ChecklistScene({ d, onBack }) {
   const rise = useRise();
   const reduce = useReducedMotion();
   const items = d.checklist || [];
 
-  const [checked, setChecked] = useState(reduce ? items.length : 0);
+  // Conjunto de índices marcados.
+  const [checked, setChecked] = useState(() =>
+    reduce ? new Set(items.map((_, i) => i)) : new Set()
+  );
+  const itemRefs = useRef([]);
   const timers = useRef([]);
 
+  // Marca cada item ao entrar na viewport (acompanhando o scroll), com um
+  // pequeno atraso para parecer que está sendo "preenchido" devagar.
   useEffect(() => {
-    if (reduce) return;
-    items.forEach((_, i) => {
-      timers.current.push(setTimeout(() => setChecked(i + 1), 900 + i * 650));
-    });
-    return () => timers.current.forEach(clearTimeout);
+    if (reduce || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const idx = Number(entry.target.dataset.idx);
+            const t = setTimeout(() => {
+              setChecked((prev) => {
+                if (prev.has(idx)) return prev;
+                const next = new Set(prev);
+                next.add(idx);
+                return next;
+              });
+            }, 450);
+            timers.current.push(t);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.85, rootMargin: "0px 0px -10% 0px" }
+    );
+    itemRefs.current.forEach((el) => el && io.observe(el));
+    return () => {
+      io.disconnect();
+      timers.current.forEach(clearTimeout);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduce]);
 
-  const allDone = checked >= items.length;
+  function toggle(i) {
+    setChecked((prev) => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
+  }
+
+  const allDone = checked.size >= items.length;
 
   return (
     <motion.main
@@ -66,20 +102,33 @@ export default function ChecklistScene({ d, onBack }) {
           <p className="checklist__title">{d.checklistTitle}</p>
           <ul className="checklist__list">
             {items.map((item, i) => {
-              const on = i < checked;
+              const on = checked.has(i);
               return (
-                <li key={i} className={`checklist__item ${on ? "is-on" : ""}`}>
-                  <span className="checklist__box" aria-hidden="true">
-                    <motion.span
-                      className="checklist__tick"
-                      initial={false}
-                      animate={{ scale: on ? 1 : 0, opacity: on ? 1 : 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                      ✓
-                    </motion.span>
-                  </span>
-                  <span className="checklist__label">{item}</span>
+                <li
+                  key={i}
+                  data-idx={i}
+                  ref={(el) => (itemRefs.current[i] = el)}
+                  className={`checklist__item ${on ? "is-on" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="checklist__btn"
+                    onClick={() => toggle(i)}
+                    aria-pressed={on}
+                    aria-label={item}
+                  >
+                    <span className="checklist__box" aria-hidden="true">
+                      <motion.span
+                        className="checklist__tick"
+                        initial={false}
+                        animate={{ scale: on ? 1 : 0, opacity: on ? 1 : 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        ✓
+                      </motion.span>
+                    </span>
+                    <span className="checklist__label">{item}</span>
+                  </button>
                 </li>
               );
             })}
