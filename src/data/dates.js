@@ -243,6 +243,7 @@ export const dates = [
     summary: "Vida saudável e o desafio de cozinhar um pro outro.",
     story: [
       "Descobrimos que valorizamos muito uma vida saudável, orgânica e natural. E nos desafiamos a cozinhar um para o outro.",
+      "De tanto falarmos em ser naturais, você deixou escapar o seu primeiro errinho — ou melhor, acerto: confessou que viciou em chá de gengibre, a ponto de andar transpirando perfume de gengibre. Achei o detalhe mais charmoso do mundo.",
       "Cozinhar para alguém é um cuidado que se come. Mal posso esperar pela sua cozinha — e por te cozinhar a minha.",
     ],
   },
@@ -341,7 +342,23 @@ export const dates = [
     story: [
       "Um jantar gostoso e uma conversa profunda — não dos temas mais fáceis. Foi um momento de entender que, depois de abrir uma porta, ainda é preciso receber o convite e se sentir confortável para entrar.",
       "E eu estava confortável. Mesmo sem conhecer o território tão bem — porque, no fim, é muito mais sobre a companhia do que sobre o caminho.",
-      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Um presente para me aproximar de algo tão importante para você.",
+      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Um presente para me aproximar de algo tão importante para você e para a nossa construção — e o convite para que você me guie na entrada desse mundo. Foi quando descobri que você é uma cristã cool.",
+    ],
+  },
+  {
+    id: "hiato",
+    day: 3, month: 6, year: 2026,
+    dateLabel: "03 de junho de 2026",
+    kicker: "A distância",
+    title: "Decolando, pousei",
+    motif: "stars",
+    summary: "O começo de um hiato — e a mensagem que mudou o sentido de voar.",
+    story: [
+      "O começo de um hiato: a maior distância desde o primeiro dia em que te vi. Duas viagens seguidas, 12 noites longe, sem poder olhar nos seus olhos pessoalmente.",
+      "O que mais me marcou foi você acompanhando o meu voo. Com certeza os últimos anos foram os que mais peguei avião na vida — quase todos, sozinho.",
+      "Um dia eu li que um bom resumo das pessoas ao seu lado é analisar para quem você manda “decolando” e “pousei”. Óbvio que a preocupação dos meus pais é ótima, e a dos amigos quando sabem do voo também. Mas pais são pais — faltava algo. Você não sabe o quanto essa mensagem significa para mim. Que conquista minha.",
+      "Foi também o dia em que compartilhamos, entre nós e com nossos amigos mais próximos, o quanto estava bom dividir tudo com você. Eles achavam incrível a gente finalmente ter encontrado alguém tão da nossa cara, do nosso nível — e a gente reforçou que tem segredos que são só nossos.",
+      "Ah, e foi o dia em que a sua mãe comprou um queijo vegano pra você. kkkkk",
     ],
   },
 ];
