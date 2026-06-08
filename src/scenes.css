@@ -921,3 +921,80 @@
   border-color: rgba(212, 199, 176, 0.4);
   color: #ece4d6;
 }
+
+/* ============================================================
+   Promise scene (04/06) — voice note + temperaments
+   ============================================================ */
+.voicenote {
+  margin: var(--space-4) auto 0;
+  width: min(94vw, 440px);
+}
+.voicenote__player { width: 100%; display: block; }
+.voicenote__ph {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px dashed var(--color-muted);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+.voicenote__icon { font-size: 1.3rem; font-style: normal; }
+.voicenote__text { line-height: 1.35; }
+
+.temper {
+  margin: var(--space-6) auto 0;
+  width: min(96vw, 560px);
+}
+.temper__title {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 var(--space-3);
+}
+.temper__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.temper__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--color-muted);
+  background: var(--color-surface);
+}
+.temper__card--sanguineo { background: linear-gradient(160deg, #fbf1df, #f3e2c4); }
+.temper__card--fleumatico { background: linear-gradient(160deg, #e7eef0, #d2e2e6); }
+.temper__card--colerico { background: linear-gradient(160deg, #f6e3db, #efcabc); }
+.temper__card--melancolico { background: linear-gradient(160deg, #e9e6ef, #d6cfe2); }
+.temper__emoji { font-size: 2rem; line-height: 1; }
+.temper__name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.temper__desc { font-size: 0.85rem; color: var(--color-secondary); line-height: 1.35; }
+.temper__note {
+  margin: var(--space-4) auto 0;
+  max-width: 46ch;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+@media (max-width: 380px) {
+  .temper__grid { grid-template-columns: 1fr; }
+}

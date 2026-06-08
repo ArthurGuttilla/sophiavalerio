@@ -361,6 +361,43 @@ export const dates = [
       "Ah, e foi o dia em que a sua mãe comprou um queijo vegano pra você. kkkkk",
     ],
   },
+  {
+    id: "fazer-dar-certo",
+    day: 4, month: 6, year: 2026,
+    dateLabel: "04 de junho de 2026",
+    kicker: "A escolha",
+    title: "Fazer dar certo",
+    motif: "hearts",
+    scene: "promise",
+    summary: "A decisão de construir, temperamentos e uma promessa.",
+    // Conversa do dia (her = ela, à esquerda; me = eu, à direita).
+    chat: [
+      { from: "her", time: "00:07", text: "Melhor a gente dar certo hein, todo mundo já tá sabendo 😅 hoje lá no the flame mais gente soube e eu não consigo esconder minha aurea kkkkkkkkk fica na cara" },
+      { from: "me", time: "00:14", text: "Muito muito feliz que sua aurea e sua cara refletem o quanto está sendo gostoso essa conexao. Obvio que sempre tem um fator de torcer, de ter esperança, de sentir algo diferente, de ser uma aposta, entao melhor mesmo que dê certo! Mas tirando isso que não está 100% no nosso controle, eu quero que voce saiba que a decisão que escolhi tomar nessas ultimas semanas é e será *fazer* dar certo. E quando a gente escolhe, percebemos que é uma responsabilidade nossa. E eu acredito ser muito firme e levar muito a serio as minhas escolhas e responsabilidades. Então vai dar. Diariamente. Da forma legal que esta. Eu gosto de apostar no que acredito, mas gosto mais ainda de construir o que quero. E caraca como eu quero construir com vc. Sei que dá um baita frio na barriga, tbm estou, mas vai dar certo. Não se preocupa." },
+      { from: "her", time: "00:21", text: "😬 então tá bom! Que delícia “ouvir” isso, você pode falar de novo quando estivermos olho no olho, só pra eu ouvir na sua voz mesmo hahahaha. Confesso que recentemente me dei conta que um certo medinho comecou a aparecer pensando na possibilidade de “não dar certo”, porque agora tenho algo muito especial a perder se não der. Maaaas, já que aparentemente nós dois tomamos uma decisão de *fazer* dar certo, com as informações de hoje não vejo mais como isso poderia, de alguma forma, acabar. 🥰" },
+      { from: "me", time: "00:26", text: "Tbm bateu esse medo de deixar algo tao especial dar errado. Dai lembrei que é uma escolha que depende 50% de mim. Entao eu faço minha parte, vc a sua e esse medo passa" },
+    ],
+    // Áudio: você pediu para gravar sua voz recitando as palavras. Suba o
+    // arquivo em public/media/audio/ e troque `audio` pelo caminho
+    // (ex.: "media/audio/fazer-dar-certo.mp3"). Enquanto null, mostra placeholder.
+    audio: null,
+    audioLabel: "minha voz, como você pediu — para ouvir olho no olho",
+    // Os quatro temperamentos (cena bespoke).
+    temperaments: [
+      { key: "sanguineo", emoji: "☀️", name: "Sanguíneo", desc: "Caloroso, espontâneo, sociável." },
+      { key: "fleumatico", emoji: "🌊", name: "Fleumático", desc: "Calmo, equilibrado, constante." },
+      { key: "colerico", emoji: "🔥", name: "Colérico", desc: "Determinado, intenso, movido a metas." },
+      { key: "melancolico", emoji: "🌙", name: "Melancólico", desc: "Profundo, ordenado, reflexivo." },
+    ],
+    temperamentNote:
+      "Eu sou fleumático, com um toque de sanguíneo de vez em quando. Você é uma complementaridade entre colérico e melancólico: nunca foi indecisa, sempre muito determinada e intensa — mas sem a energia de longo prazo de um colérico nato; e, como melancólica, ama as coisas ordenadas e se aprofundar no conhecimento.",
+    story: [
+      "Logo nos primeiros minutos do dia, sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te confortar com a verdade — a de que escolhi *fazer* dar certo, todo dia.",
+      "Tivemos também uma conversa profunda sobre os nossos temperamentos — entender como a gente funciona, e como se encaixa.",
+      "E fiz uma promessa nova: não durmo sem te dar boa noite.",
+      "Ah, e oficializamos o Close Friends do Insta. Bem genz, do jeito que a gente é.",
+    ],
+  },
 ];
 
 export function getDate(id) {
