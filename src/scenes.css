@@ -1118,11 +1118,22 @@
   gap: var(--space-4);
 }
 .anniv__num {
-  font-family: var(--font-wordmark);
-  font-size: clamp(5rem, 26vw, 9rem);
-  line-height: 0.9;
+  width: clamp(110px, 34vw, 150px);
+  height: clamp(110px, 34vw, 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-muted);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 253, 248, 0.7), transparent 70%),
+    var(--color-surface);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.8rem, 12vw, 4rem);
+  letter-spacing: 0.04em;
   color: var(--color-secondary);
-  text-shadow: 0 10px 40px rgba(106, 92, 76, 0.25);
+  box-shadow: 0 14px 40px -22px rgba(106, 92, 76, 0.5);
 }
 .anniv__list {
   list-style: none;
