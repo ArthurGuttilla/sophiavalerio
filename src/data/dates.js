@@ -431,6 +431,29 @@ export const dates = [
       "E foi o dia em que conversamos sobre como a decisão mais importante da vida é com quem você se relaciona — é basicamente uma sociedade, em todos os pontos da vida. Aí eu te disse, abertamente: quero que você seja a minha sócia em tudo.",
     ],
   },
+  {
+    id: "dia-seis",
+    day: 6, month: 6, year: 2026,
+    dateLabel: "06 de junho de 2026",
+    kicker: "O nosso número",
+    title: "Algo com o dia 06",
+    motif: "hearts",
+    scene: "anniversary",
+    summary: "Dois meses desde o primeiro 'oi'; um mês desde o primeiro olhar.",
+    // Marcos do dia 6 — destacados na cena.
+    milestones: [
+      { when: "há 2 meses", what: "conversamos pela primeira vez" },
+      { when: "há 1 mês", what: "a primeira vez que te vi" },
+      { when: "hoje", what: "um dia 06 que precisava ser marcante" },
+    ],
+    story: [
+      "Tem algo com esse dia 06. Há dois meses, a gente conversava pela primeira vez. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante — mesmo com a distância.",
+      "Sinceramente, não sei se parecia menos tempo, de tanto que a gente já tinha conversado online, ou se parecia mais, de tantos assuntos e dates em sequência. Só sei que parecia certo.",
+      "Falamos muito sobre fé, e você trouxe muito sobre Deus. O meu desejo era traduzir a minha fé para algo que se aproximasse da sua. Falamos também de como a média é baixa, de como somos exigentes — e de como, com paciência e mantendo o padrão, ainda assim a gente se achou.",
+      "Falamos de Matrix: como o filme bebe de referências religiosas e como ele virou um pilar pra eu começar a entender um pouco mais da sua religião e das suas crenças.",
+      "O dia 06 não foi explicitamente marcante pra fora. Mas foi, e muito, por dentro: foi o dia em que, mais do que nunca, eu quis te chamar de namorada.",
+    ],
+  },
 ];
 
 export function getDate(id) {
