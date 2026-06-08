@@ -354,11 +354,11 @@ export const dates = [
     motif: "stars",
     summary: "O começo de um hiato — e a mensagem que mudou o sentido de voar.",
     story: [
-      "O começo de um hiato: a maior distância desde o primeiro dia em que te vi. Duas viagens seguidas, 12 noites longe, sem poder olhar nos seus olhos pessoalmente.",
-      "O que mais me marcou foi você acompanhando o meu voo. Com certeza os últimos anos foram os que mais peguei avião na vida — quase todos, sozinho.",
-      "Um dia eu li que um bom resumo das pessoas ao seu lado é analisar para quem você manda “decolando” e “pousei”. Óbvio que a preocupação dos meus pais é ótima, e a dos amigos quando sabem do voo também. Mas pais são pais — faltava algo. Você não sabe o quanto essa mensagem significa para mim. Que conquista minha.",
-      "Foi também o dia em que compartilhamos, entre nós e com nossos amigos mais próximos, o quanto estava bom dividir tudo com você. Eles achavam incrível a gente finalmente ter encontrado alguém tão da nossa cara, do nosso nível — e a gente reforçou que tem segredos que são só nossos.",
-      "Ah, e foi o dia em que a sua mãe comprou um queijo vegano pra você. kkkkk",
+      "O começo de um hiato — a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
+      "Mas o que ficou foi você acompanhando o meu voo. Os últimos anos foram os que mais voei na vida, quase sempre sozinho.",
+      "Li uma vez que dá pra resumir as pessoas ao seu lado por quem você avisa “decolando” e “pousei”. A preocupação dos meus pais é preciosa, a dos amigos também — mas faltava alguém. Você não imagina o que essa sua mensagem significou pra mim. Que conquista a minha.",
+      "Foi também o dia em que abrimos isso com os amigos mais próximos: o quanto estava bom dividir a vida com você. Eles acharam incrível a gente ter finalmente encontrado alguém tão do nosso tamanho — e, entre nós, reforçamos que há segredos que continuam sendo só nossos.",
+      "Ah, e teve o melhor detalhe do dia: a sua mãe comprou um queijo vegano pra você. kkkkk",
     ],
   },
   {
@@ -392,10 +392,10 @@ export const dates = [
     temperamentNote:
       "Eu sou fleumático, com um toque de sanguíneo de vez em quando. Você é uma complementaridade entre colérico e melancólico: nunca foi indecisa, sempre muito determinada e intensa — mas sem a energia de longo prazo de um colérico nato; e, como melancólica, ama as coisas ordenadas e se aprofundar no conhecimento.",
     story: [
-      "Logo nos primeiros minutos do dia, sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te confortar com a verdade — a de que escolhi *fazer* dar certo, todo dia.",
-      "Tivemos também uma conversa profunda sobre os nossos temperamentos — entender como a gente funciona, e como se encaixa.",
-      "E fiz uma promessa nova: não durmo sem te dar boa noite.",
-      "Ah, e oficializamos o Close Friends do Insta. Bem genz, do jeito que a gente é.",
+      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar com a única verdade que importava — a de que escolhi fazer dar certo, todo dia.",
+      "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
+      "E nasceu uma promessa nova, dessas que eu pretendo cumprir sempre: não durmo sem te dar boa noite.",
+      "No fim, oficializamos o Close Friends do Insta — do nosso jeito, bem geração que a gente é.",
     ],
   },
   {
@@ -427,10 +427,10 @@ export const dates = [
     // Disco gravado na loja de vinil.
     record: { title: "Falling in Love", subtitle: "Romance, com Sinatra — gravado pra você" },
     story: [
-      "Te mandei: “foi muito doido a vontade que eu sentia de querer compartilhar esses sentimentos com você, não só por texto”.",
-      "Foi a minha vez de te dar o primeiro presente: um café especial de Minas Gerais e um moedor. E, no mesmo mercado, fui brega: pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te enviar — a música era “Falling in Love”.",
-      "Foi a primeira vez que você me chamou de sexy, por eu resolver tudo com as minhas próprias mãos: montar móveis, cozinhar.",
-      "E foi o dia em que conversamos sobre como a decisão mais importante da vida é com quem você se relaciona — é basicamente uma sociedade, em todos os pontos da vida. Aí eu te disse, abertamente: quero que você seja a minha sócia em tudo.",
+      "Te escrevi do jeito mais honesto que consegui: era impressionante a vontade de dividir tudo isso com você não só por texto.",
+      "Chegou a minha vez de dar o primeiro presente: um café especial de Minas e um moedor. E, no mesmo mercado, me permiti ser brega — pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te mandar. A música era “Falling in Love”.",
+      "Foi também a primeira vez que você me chamou de sexy — por eu resolver as coisas com as próprias mãos: montar um móvel, cozinhar.",
+      "E conversamos sobre o que talvez seja a decisão mais importante da vida: com quem você caminha. No fundo, é uma sociedade — em todos os planos. Foi quando eu te disse, sem rodeios: quero você como a minha sócia em tudo.",
     ],
   },
   {
@@ -441,7 +441,7 @@ export const dates = [
     title: "Algo com o dia 06",
     motif: "hearts",
     scene: "anniversary",
-    summary: "Dois meses desde o primeiro 'oi'; um mês desde o primeiro olhar.",
+    summary: "Dois meses desde o primeiro “oi”; um mês desde o primeiro olhar.",
     // Marcos do dia 6 — destacados na cena.
     milestones: [
       { when: "há 2 meses", what: "conversamos pela primeira vez" },
@@ -449,11 +449,11 @@ export const dates = [
       { when: "hoje", what: "um dia 06 que precisava ser marcante" },
     ],
     story: [
-      "Tem algo com esse dia 06. Há dois meses, a gente conversava pela primeira vez. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante — mesmo com a distância.",
-      "Sinceramente, não sei se parecia menos tempo, de tanto que a gente já tinha conversado online, ou se parecia mais, de tantos assuntos e dates em sequência. Só sei que parecia certo.",
-      "Falamos muito sobre fé, e você trouxe muito sobre Deus. O meu desejo era traduzir a minha fé para algo que se aproximasse da sua. Falamos também de como a média é baixa, de como somos exigentes — e de como, com paciência e mantendo o padrão, ainda assim a gente se achou.",
-      "Falamos de Matrix: como o filme bebe de referências religiosas e como ele virou um pilar pra eu começar a entender um pouco mais da sua religião e das suas crenças.",
-      "O dia 06 não foi explicitamente marcante pra fora. Mas foi, e muito, por dentro: foi o dia em que, mais do que nunca, eu quis te chamar de namorada.",
+      "Tem alguma coisa com esse dia 06. Há dois meses, a gente trocava as primeiras palavras. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante — mesmo com a distância no meio.",
+      "Sinceramente, não sei se parecia pouco tempo, de tanto que a gente já tinha conversado online, ou muito, de tantos assuntos e encontros emendados. Só sei que parecia certo.",
+      "Falamos muito sobre fé, e você me trouxe tanto de Deus. O que eu mais queria era traduzir a minha fé para algo que chegasse perto da sua. Falamos também de como a média por aí é baixa, de como nós dois somos exigentes — e de como, com paciência e sem abrir mão do padrão, a gente ainda assim se encontrou.",
+      "Falamos de Matrix: das referências religiosas que o filme carrega e de como ele virou uma porta pra eu entender um pouco mais das suas crenças.",
+      "Por fora, o 06 não teve nada de espetacular. Por dentro, teve tudo: foi o dia em que, mais do que nunca, eu quis te chamar de namorada.",
     ],
   },
 ];
