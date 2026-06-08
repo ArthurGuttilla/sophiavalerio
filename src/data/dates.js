@@ -406,6 +406,8 @@ export const dates = [
     title: "Minha sócia em tudo",
     motif: "coffee",
     scene: "checklist",
+    bgYoutube: "MJ9b5Mas1Fk",
+    bgYoutubeLabel: "Falling in Love — Frank Sinatra",
     summary: "Meu primeiro presente, um disco gravado e a lista que você cumpriu.",
     // Itens da minha listinha — a cena marca um a um.
     checklist: [

@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
 } from "../components/expParts.jsx";
+import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
 // Dia 05/06 — a listinha: um checklist que se marca sozinho, item a item,
 // e um disco "Falling in Love" gravado para você.
@@ -36,6 +37,10 @@ export default function ChecklistScene({ d, onBack }) {
       <ExpBack onClick={onBack} />
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
+
+        {d.bgYoutube && (
+          <YoutubeAuto videoId={d.bgYoutube} start={d.bgYoutubeStart || 0} label={d.bgYoutubeLabel} />
+        )}
 
         {/* Disco gravado */}
         {d.record && (
