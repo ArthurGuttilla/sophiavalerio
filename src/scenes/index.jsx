@@ -10,6 +10,7 @@ import ChatScene from "./ChatScene.jsx";
 import GameScene from "./GameScene.jsx";
 import AmbientScene from "./AmbientScene.jsx";
 import PromiseScene from "./PromiseScene.jsx";
+import ChecklistScene from "./ChecklistScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -24,6 +25,7 @@ export const SCENES = {
   ai: AiScene,
   chat: ChatScene,
   promise: PromiseScene,
+  checklist: ChecklistScene,
   game: GameScene,
   market: (props) => <AmbientScene {...props} preset="market" />,
   coffee: (props) => <AmbientScene {...props} preset="coffee" />,

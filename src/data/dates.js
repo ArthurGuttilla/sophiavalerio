@@ -398,6 +398,39 @@ export const dates = [
       "Ah, e oficializamos o Close Friends do Insta. Bem genz, do jeito que a gente é.",
     ],
   },
+  {
+    id: "minha-vez",
+    day: 5, month: 6, year: 2026,
+    dateLabel: "05 de junho de 2026",
+    kicker: "A listinha",
+    title: "Minha sócia em tudo",
+    motif: "coffee",
+    scene: "checklist",
+    summary: "Meu primeiro presente, um disco gravado e a lista que você cumpriu.",
+    // Itens da minha listinha — a cena marca um a um.
+    checklist: [
+      "Inteligente",
+      "Ambiciosa",
+      "Linda",
+      "Valoriza uma vida saudável",
+      "Uma mulher que se valoriza",
+      "Apaixonada, sem joguinho de comunicação",
+      "Tranquila de rolês, mas sem extremos",
+      "Flexível para os eventos importantes",
+      "Madura — individualmente e como casal",
+      "Respeitosa com as minhas diferenças",
+      "Nada estereotipada: única",
+    ],
+    checklistTitle: "Não é fácil me apaixonar de verdade. Você pediu pra ver a lista:",
+    // Disco gravado na loja de vinil.
+    record: { title: "Falling in Love", subtitle: "Romance, com Sinatra — gravado pra você" },
+    story: [
+      "Te mandei: “foi muito doido a vontade que eu sentia de querer compartilhar esses sentimentos com você, não só por texto”.",
+      "Foi a minha vez de te dar o primeiro presente: um café especial de Minas Gerais e um moedor. E, no mesmo mercado, fui brega: pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te enviar — a música era “Falling in Love”.",
+      "Foi a primeira vez que você me chamou de sexy, por eu resolver tudo com as minhas próprias mãos: montar móveis, cozinhar.",
+      "E foi o dia em que conversamos sobre como a decisão mais importante da vida é com quem você se relaciona — é basicamente uma sociedade, em todos os pontos da vida. Aí eu te disse, abertamente: quero que você seja a minha sócia em tudo.",
+    ],
+  },
 ];
 
 export function getDate(id) {
