@@ -194,21 +194,13 @@ function Calendar() {
       <Motif variant="sparkle" />
 
       <header className="home__head">
-        <motion.p
-          className="home__kicker"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Datas especiais
-        </motion.p>
         <motion.h1
           className="home__title"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         >
-          A nossa história em{" "}
+          A construção nos{" "}
           <span
             className="home__unlock"
             role="button"
@@ -222,7 +214,7 @@ function Calendar() {
             }}
             title="liberar todas"
           >
-            dias
+            detalhes
           </span>
         </motion.h1>
         <motion.p
@@ -231,7 +223,7 @@ function Calendar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Deslize pela linha do tempo. Cada data abre a próxima.
+          Deslize pela linha do tempo nas datas da nossa história
         </motion.p>
       </header>
 
