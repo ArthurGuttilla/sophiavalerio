@@ -194,6 +194,14 @@ function Calendar() {
       <Motif variant="sparkle" />
 
       <header className="home__head">
+        <motion.p
+          className="home__kicker"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Diário do coração
+        </motion.p>
         <motion.h1
           className="home__title"
           initial={{ opacity: 0, y: 10 }}
