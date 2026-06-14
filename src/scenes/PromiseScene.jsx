@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpFoot,
 } from "../components/expParts.jsx";
 
 // Dia 04/06 — a decisão de "fazer dar certo": conversa que aparece aos
@@ -97,37 +97,46 @@ export default function PromiseScene({ d, onBack }) {
           )}
         </motion.div>
 
-        {/* Temperamentos */}
-        {temps.length > 0 && (
-          <motion.div className="temper" {...rise(0.55)}>
-            <p className="temper__title">Os quatro temperamentos</p>
-            <div className="temper__grid">
-              {temps.map((t, i) => (
-                <motion.div
-                  key={t.key}
-                  className={`temper__card temper__card--${t.key}`}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: reduce ? 0 : 0.6 + i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <motion.span
-                    className="temper__emoji"
-                    animate={reduce ? {} : { y: [0, -5, 0] }}
-                    transition={{ duration: 3 + i * 0.4, repeat: Infinity, ease: "easeInOut" }}
-                    aria-hidden="true"
-                  >
-                    {t.emoji}
-                  </motion.span>
-                  <span className="temper__name">{t.name}</span>
-                  <span className="temper__desc">{t.desc}</span>
-                </motion.div>
-              ))}
-            </div>
-            {d.temperamentNote && <p className="temper__note">{d.temperamentNote}</p>}
-          </motion.div>
-        )}
+        {/* História, com os temperamentos logo após o parágrafo que os cita. */}
+        <div className="exp__story">
+          {(d.story || []).map((p, i) => {
+            const isTemperPara = /temperamento/i.test(p);
+            return (
+              <motion.div key={i} {...rise(0.55 + i * 0.12)}>
+                <p>{p}</p>
+                {isTemperPara && temps.length > 0 && (
+                  <div className="temper">
+                    <p className="temper__title">Os quatro temperamentos</p>
+                    <div className="temper__grid">
+                      {temps.map((t, k) => (
+                        <motion.div
+                          key={t.key}
+                          className={`temper__card temper__card--${t.key}`}
+                          initial={{ opacity: 0, y: 14 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: reduce ? 0 : 0.2 + k * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                          <motion.span
+                            className="temper__emoji"
+                            animate={reduce ? {} : { y: [0, -5, 0] }}
+                            transition={{ duration: 3 + k * 0.4, repeat: Infinity, ease: "easeInOut" }}
+                            aria-hidden="true"
+                          >
+                            {t.emoji}
+                          </motion.span>
+                          <span className="temper__name">{t.name}</span>
+                          <span className="temper__desc">{t.desc}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    {d.temperamentNote && <p className="temper__note">{d.temperamentNote}</p>}
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
 
-        <ExpStory d={d} rise={rise} base={0.65} />
         <ExpFoot rise={rise} delay={0.9} onBack={onBack} />
       </article>
     </motion.main>

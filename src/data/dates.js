@@ -395,7 +395,7 @@ export const dates = [
       "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar: estava escolhendo fazer dar certo, todo dia.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
       "E nasceu uma promessa nova, dessas que eu pretendo cumprir sempre: não durmo sem te dar boa noite.",
-      "No fim, oficializamos o Close Friends do Insta, do nosso jeito, bem geração que a gente é.",
+      "No fim, oficializamos o Close Friends do Insta, do jeito bem geração Z que a gente é.",
     ],
   },
   {
