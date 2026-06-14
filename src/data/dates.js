@@ -455,6 +455,32 @@ export const dates = [
       "Por fora, o 06 não teve nada de espetacular. Por dentro, teve. De longe, em BH, no meio de Inhotim, te desejava por perto. Mais do que nunca, eu quis gritar ao mundo sobre você, pensar em planos, juntos. Só imaginava, junto com o Bru e a Luli, “imagina a Sophia aqui conosco”.",
     ],
   },
+  {
+    id: "oracao-atendida",
+    day: 7, month: 6, year: 2026,
+    dateLabel: "07 de junho de 2026",
+    kicker: "A oração atendida",
+    title: "Deus me leva a sério",
+    motif: "hearts",
+    scene: "chat",
+    summary: "Você orou por alguém que comesse bem. Deus levou a sério.",
+    chat: [
+      { from: "her", time: "18:36", text: "Eu me irrito com paladar infantil e teimosia de comer bem 😂" },
+      { from: "her", time: "18:37", text: "Me irrito tanto que orei muito pra Deus me dar um homem que comia bem (entre mts outras coisas)" },
+      { from: "her", time: "18:37", text: "Não to nem brincando" },
+      { from: "her", time: "18:37", text: "E aparentemente Deus me leva muito a sério 😍🫶🏻" },
+      { from: "me", time: "18:41", text: "orou tanto e ele levou mto a sério, vc so nao esperava um vegano HAHAHHAHAH" },
+      { from: "her", time: "19:05", text: "Cavalheiro" },
+      { from: "her", time: "19:05", text: "Firme" },
+      { from: "her", time: "19:05", text: "Educado" },
+      { from: "her", time: "19:05", text: "Beija bem" },
+      { from: "her", time: "19:05", text: "Cheiroso" },
+      { from: "her", time: "19:05", text: "Esquece" },
+      { from: "her", time: "19:06", text: "Bom gosto musical, faltou" },
+      { from: "me", time: "19:34", text: "Me deixando todo vermelho aqui, mulher 🥰" },
+    ],
+    story: [],
+  },
 ];
 
 export function getDate(id) {
