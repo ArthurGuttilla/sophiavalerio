@@ -506,6 +506,21 @@ export const dates = [
     ],
     reaction: "Eu tenho a parceira mais incrível do mundoooooooooo 🥰😍😘❤️🫶🏻💙🤍🤎🖤",
   },
+  {
+    id: "convite-viagem",
+    day: 10, month: 6, year: 2026,
+    dateLabel: "10 de junho de 2026",
+    kicker: "Próximo passo",
+    title: "O convite virou viagem",
+    motif: "stars",
+    summary: "Um próximo passo natural: a nossa primeira viagem.",
+    story: [
+      "Meu convite agora é uma viagem. A nossa. Um próximo passo natural, que precisava ser dado.",
+      "Confesso que ouvi frases que me trouxeram alguma insegurança: “Homem normalmente fala uma coisa e faz outra 😂, então eu prefiro ouvir e ver com o tempo” e “estamos nos conhecendo, então é meu papel fazer essas perguntas para saber melhor quem é você hoje”. Eu já sentia que te conhecia, mas você estava certa: a gente ainda precisava se conhecer um pouco mais. E eu sentia que a viagem seria justamente uma forma de conexão ainda maior.",
+      "No fim, foi um dia de nos incentivarmos e nos admirarmos com muitas palavras de afirmação. Te contei do meu sucesso no evento e profetizei o seu, porque eu sei que é real.",
+    ],
+    quote: "Zeramos na vida: nós somos nossos fãs número 1",
+  },
 ];
 
 export function getDate(id) {
