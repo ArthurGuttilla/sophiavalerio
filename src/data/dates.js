@@ -428,7 +428,7 @@ export const dates = [
     record: { title: "Falling in Love", subtitle: "Romance, com Sinatra, gravado pra você" },
     story: [
       "Te escrevi do jeito mais honesto que consegui: era impressionante a vontade de dividir tudo isso que estava vivendo com você, não só por texto.",
-      "Chegou a minha vez de dar o primeiro presente: um café especial de Minas e um moedor. E, no mesmo mercado, me permiti ser brega, pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te mandar. A música era “Falling in Love”.",
+      "Chegou a minha vez de pensar no primeiro presente: um café especial de Minas e um moedor. E, no mesmo mercado, me permiti ser brega, pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te mandar. A música era “Falling in Love With Love”.",
       "Foi também a primeira vez que você me chamou de sexy, por eu resolver as coisas com as próprias mãos: montar um móvel, cozinhar.",
       "E conversamos sobre o que talvez seja a decisão mais importante da vida: com quem você caminha. No fundo, é uma sociedade, em todos os planos. Foi quando eu te disse, sem rodeios: quero você como a minha sócia em tudo.",
     ],
