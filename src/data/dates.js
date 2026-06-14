@@ -96,9 +96,6 @@ export const dates = [
     ],
     quote: "The salvation of man is through love and in love.",
     quoteAfter: "- Viktor Frankl",
-    media: [
-      { type: "link", label: "Man's Search for Meaning", url: "https://www.google.com/search?q=Man%27s+Search+for+Meaning+Viktor+Frankl" },
-    ],
   },
   {
     id: "convite-oficial",
