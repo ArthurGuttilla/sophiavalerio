@@ -419,7 +419,6 @@ export const dates = [
       "Uma mulher que se valoriza",
       "Apaixonada, sem joguinho de comunicação",
       "Tranquila de rolês, mas sem extremos",
-      "Flexível para os eventos importantes",
       "Madura, individualmente e como casal",
       "Respeitosa com as minhas diferenças",
       "Nada estereotipada: única",
