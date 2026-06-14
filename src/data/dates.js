@@ -287,9 +287,10 @@ export const dates = [
     summary: "Nossa paixão pelos céus, estrelas e fenômenos.",
     story: [
       "Descobrimos a paixão conjunta por astrologia, estrelas e os fenômenos do céu. A gente olha para cima e se entende.",
-      "E você me marcou com uma frase que eu guardo até hoje.",
+      "E você me marcou com uma frase que eu guardei com carinho.",
     ],
     quote: "se arrumar com calma porque eu quero ficar bem cheirosa pra você",
+    quoteAfter: "Que sejam infinitas as tardes em que você se perfuma, sem pressa, esperando por mim.",
   },
   {
     id: "jantar-italiano",
