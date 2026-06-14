@@ -206,7 +206,7 @@ export const dates = [
     day: 23, month: 5, year: 2026,
     dateLabel: "23 de maio de 2026",
     kicker: "Paz",
-    title: "O vídeo da paz",
+    title: "Paz em um vídeo",
     motif: "dust",
     // Para incluir o vídeo no futuro: coloque o arquivo em
     // public/media/videos/ e troque o caminho abaixo (ex.: "media/videos/paz.mp4").
@@ -214,7 +214,8 @@ export const dates = [
     videoPlaceholder: "o vídeo que você me mandou vai morar aqui",
     summary: "Um vídeo seu que me trouxe uma paz rara.",
     story: [
-      "Você me mandou um vídeo seu que, acho, foi um dos que me trouxe a maior sensação de paz que eu já senti.",
+      "Você me mandou um vídeo seu. Foi um vídeo que me trouxe uma sensação de paz tão grande que eu estranhei. Ali entendi que era um sentimento mais do que pontual.",
+      "No meio de um fim de semana agitado, cheio de aniversários importantes, você acalmou. Aniversário de um dos meus melhores amigos, de uma das minhas melhores amigas e da minha mãe. E, em todos, eu falei de você. Com paz.",
       "Tem gente que agita; você acalma. E descobrir isso foi entender que a sua presença é também um lugar de descanso.",
     ],
   },
