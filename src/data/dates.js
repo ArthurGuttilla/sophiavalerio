@@ -390,7 +390,7 @@ export const dates = [
       { key: "melancolico", emoji: "🌙", name: "Melancólico", desc: "Profundo, ordenado, reflexivo." },
     ],
     temperamentNote:
-      "Eu sou de águas calmas, fleumático, com uma fagulha de sanguíneo que escapa de vez em quando. Você vive no encontro do fogo com a profundidade: tem a determinação intensa do colérico, sem nunca conhecer a indecisão, mas guarda a chama para o que importa; e tem a alma melancólica de quem ama a ordem das coisas e mergulhar fundo no conhecimento. Onde eu acalmo, você acende. É assim que a gente se completa.",
+      "Eu sou de águas calmas, fleumático, com uma fagulha de sanguíneo. Você vive no encontro entre a determinação intensa do colérico, sem nunca conhecer a indecisão, e tem a alma melancólica de quem ama a ordem das coisas. Onde eu acalmo, você acende. É assim que a gente se completa.",
     story: [
       "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar: estava escolhendo fazer dar certo, todo dia.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",

@@ -946,8 +946,9 @@
 .voicenote__text { line-height: 1.35; }
 
 .temper {
-  margin: var(--space-6) auto 0;
+  margin: var(--space-6) auto;
   width: min(96vw, 560px);
+  text-align: center;
 }
 .temper__title {
   text-align: center;
@@ -988,7 +989,7 @@
 .temper__note {
   margin: var(--space-4) auto 0;
   max-width: 46ch;
-  text-align: center;
+  text-align: center !important;
   font-family: var(--font-serif);
   font-size: 1.05rem;
   line-height: 1.6;
