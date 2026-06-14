@@ -327,7 +327,7 @@ export const dates = [
       { from: "me", time: "14:41", text: "...Coincidência ou não, as mensagens afirmavam EXATAMENTE (sério) o que vc escreveu nessa mensagem: “se apaixonar é bom demais”. Obrigado por ser “bold”, medo não leva a nenhum lugar e se arriscar normalmente traz algo bom. Obrigado, também, por “abrir a porta”, que bom que é saber com todas as palavras que tem alguém com você nessa. Do estômago para cima. E por alguém que, a cima de tudo, eu admiro tanto. Que sorte que tenho de estar sentindo que achei a “tampa doidinha” da “panela doidinha”. ❤️" },
     ],
     story: [
-      "Foi o dia em que uma porta se abriu, sem cerimônia, do jeito mais verdadeiro: por mensagem, no meio da tarde.",
+      "Foi o dia em que uma porta se abriu, sem cerimônia, de um jeito verdadeiro.",
       "“Se apaixonar é bom demais.” Eu li, reli, e sorri sozinho. Porque era exatamente o que eu também estava sentindo.",
     ],
   },
