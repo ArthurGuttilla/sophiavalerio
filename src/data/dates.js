@@ -68,10 +68,6 @@ export const dates = [
       "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
       "Apreciamos juntos a beleza do Hans Zimmer. “Cornfield Chase” e “Time” não são só músicas; são a prova de que amor e tempo são a mesma matéria.",
     ],
-    media: [
-      { type: "link", label: "Cornfield Chase", url: "https://www.youtube.com/results?search_query=hans+zimmer+cornfield+chase" },
-      { type: "link", label: "Time", url: "https://www.youtube.com/results?search_query=hans+zimmer+time+interstellar" },
-    ],
   },
   {
     id: "primeiro-convite-cafe",
