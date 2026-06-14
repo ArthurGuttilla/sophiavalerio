@@ -136,6 +136,7 @@ export const dates = [
     summary: "Cora, Café Longão e o primeiro beijo — apressado.",
     story: [
       "No Cora, no centro de São Paulo, nosso primeiro date. A gente fechou o restaurante, foi para o Café Longão do ladinho, e fechou o café também.",
+      "Falamos sobre futuro, filosofamos sobre quase tudo, e eu vi de perto a dedicação que você põe no seu TCC. Assunto não faltou — nunca falta.",
       "E então veio o primeiro beijo — apressado, meio sem jeito. O tipo de pressa que só existe quando o tempo não quer ser suficiente.",
     ],
   },
