@@ -452,7 +452,6 @@ export const dates = [
       "Tem alguma coisa com esse dia 06. Há dois meses, a gente trocava as primeiras palavras. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante, mesmo com a distância no meio.",
       "Sinceramente, não sei se parecia pouco tempo, de tanto que a gente já tinha conversado online, ou muito, de tantos assuntos e encontros emendados. Só sei que parecia certo.",
       "Falamos muito sobre fé, e você me trouxe tanto de Deus. O que eu mais queria era traduzir a minha fé para algo que chegasse perto da sua. Falamos também de como a média por aí é baixa, de como nós dois somos exigentes, e de como, com paciência e sem abrir mão do padrão, a gente ainda assim se encontrou.",
-      "Falamos de Matrix: das referências religiosas que o filme carrega e de como ele virou uma porta pra eu entender um pouco mais das suas crenças.",
       "Por fora, o 06 não teve nada de espetacular. Por dentro, teve tudo: foi o dia em que, mais do que nunca, eu quis te chamar de namorada.",
     ],
   },
