@@ -390,7 +390,7 @@ export const dates = [
       { key: "melancolico", emoji: "🌙", name: "Melancólico", desc: "Profundo, ordenado, reflexivo." },
     ],
     temperamentNote:
-      "Eu sou fleumático, com um toque de sanguíneo de vez em quando. Você é uma complementaridade entre colérico e melancólico: nunca foi indecisa, sempre muito determinada e intensa, mas sem a energia de longo prazo de um colérico nato; e, como melancólica, ama as coisas ordenadas e se aprofundar no conhecimento.",
+      "Eu sou de águas calmas, fleumático, com uma fagulha de sanguíneo que escapa de vez em quando. Você vive no encontro do fogo com a profundidade: tem a determinação intensa do colérico, sem nunca conhecer a indecisão, mas guarda a chama para o que importa; e tem a alma melancólica de quem ama a ordem das coisas e mergulhar fundo no conhecimento. Onde eu acalmo, você acende. É assim que a gente se completa.",
     story: [
       "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar com a única verdade que importava, a de que escolhi fazer dar certo, todo dia.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
