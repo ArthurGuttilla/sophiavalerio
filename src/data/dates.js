@@ -392,7 +392,7 @@ export const dates = [
     temperamentNote:
       "Eu sou de águas calmas, fleumático, com uma fagulha de sanguíneo que escapa de vez em quando. Você vive no encontro do fogo com a profundidade: tem a determinação intensa do colérico, sem nunca conhecer a indecisão, mas guarda a chama para o que importa; e tem a alma melancólica de quem ama a ordem das coisas e mergulhar fundo no conhecimento. Onde eu acalmo, você acende. É assim que a gente se completa.",
     story: [
-      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar com a única verdade que importava, a de que escolhi fazer dar certo, todo dia.",
+      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar: estava escolhendo fazer dar certo, todo dia.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
       "E nasceu uma promessa nova, dessas que eu pretendo cumprir sempre: não durmo sem te dar boa noite.",
       "No fim, oficializamos o Close Friends do Insta, do nosso jeito, bem geração que a gente é.",
