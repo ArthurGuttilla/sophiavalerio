@@ -36,29 +36,32 @@ export default function AnniversaryScene({ d, onBack }) {
         <ExpHeader d={d} rise={rise} />
 
         <motion.div className="anniv" {...rise(0.3)}>
-          <motion.div
-            className="anniv__num"
-            initial={{ opacity: 0, scale: reduce ? 1 : 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            aria-hidden="true"
-          >
-            06
-          </motion.div>
-
           <ul className="anniv__list">
-            {milestones.map((m, i) => (
-              <motion.li
-                key={i}
-                className="anniv__item"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: i < shown ? 1 : 0, y: i < shown ? 0 : 10 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span className="anniv__when">{m.when}</span>
-                <span className="anniv__what">{m.what}</span>
-              </motion.li>
-            ))}
+            {milestones.map((m, i) => {
+              const on = i < shown;
+              return (
+                <motion.li
+                  key={i}
+                  className="anniv__item"
+                  initial={{ opacity: 0, y: reduce ? 0 : 24, scale: reduce ? 1 : 0.92 }}
+                  animate={{
+                    opacity: on ? 1 : 0,
+                    y: on ? 0 : 24,
+                    scale: on ? 1 : 0.92,
+                  }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <motion.span
+                    className="anniv__pulse"
+                    aria-hidden="true"
+                    animate={reduce ? {} : { scale: [1, 1.18, 1], opacity: [0.5, 0.9, 0.5] }}
+                    transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                  />
+                  <span className="anniv__when">{m.when}</span>
+                  <span className="anniv__what">{m.what}</span>
+                </motion.li>
+              );
+            })}
           </ul>
         </motion.div>
 
