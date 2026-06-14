@@ -275,9 +275,6 @@ export const dates = [
       "Mostrei meu antigo talento no piano e estava tocando, por uma coincidência bizarra, exatamente a música que você estava ouvindo: “Mia & Sebastian's Theme”, de La La Land.",
       "Tem coincidências que parecem roteiro. Essa foi a nossa cena de filme.",
     ],
-    media: [
-      { type: "link", label: "Mia & Sebastian's Theme", url: "https://www.youtube.com/results?search_query=mia+and+sebastian%27s+theme+la+la+land" },
-    ],
   },
   {
     id: "astrologia",

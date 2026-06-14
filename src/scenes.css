@@ -1191,3 +1191,13 @@
 }
 .exp__photo-icon { font-size: 1.6rem; }
 .exp__photo-text { font-size: 0.92rem; font-style: italic; opacity: 0.92; }
+
+/* Instrução acima do piano */
+.piano__hint {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-align: center;
+}

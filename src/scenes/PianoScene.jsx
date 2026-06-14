@@ -229,6 +229,7 @@ export default function PianoScene({ d, onBack }) {
         <ExpStory d={d} rise={rise} />
 
         <motion.div className="piano" {...rise(0.3 + d.story.length * 0.12)}>
+          <p className="piano__hint">Toque nas teclas: o piano é seu para brincar.</p>
           <div className="piano__scroller">
             <div className="piano__keys" role="group" aria-label="piano">
               {WHITE.map((note) => (
@@ -250,7 +251,7 @@ export default function PianoScene({ d, onBack }) {
             </div>
           </div>
           <button className="btn btn--ghost piano__play" onClick={playMelody} disabled={playing}>
-            {playing ? "tocando…" : "▶ tocar nosso tema"}
+            {playing ? "tocando…" : "▶ tocar o tema do dia"}
           </button>
           <AnimatePresence>
             {playing && (
