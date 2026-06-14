@@ -245,7 +245,7 @@ export const dates = [
     story: [
       "Descobrimos que valorizamos muito uma vida saudável, orgânica e natural. E nos desafiamos a cozinhar um para o outro.",
       "De tanto falarmos em ser naturais, você deixou escapar o seu primeiro errinho, ou melhor, acerto: confessou que viciou em chá de gengibre, a ponto de andar transpirando perfume de gengibre. Achei o detalhe mais charmoso do mundo.",
-      "Cozinhar para alguém é um cuidado que se come. Mal posso esperar pela sua cozinha, e por te cozinhar a minha.",
+      "Cozinhar para alguém é minha forma de mostrar cuidado preferida. Mal posso esperar pela sua cozinha, e por te cozinhar a minha.",
     ],
   },
   {
