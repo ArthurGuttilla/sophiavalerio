@@ -189,9 +189,15 @@ export const dates = [
     title: "I am the other's other",
     motif: "water",
     scene: "ocean",
+    // Primeira foto que tirei dela. Suba em public/media/images/ e troque
+    // `photo` pelo caminho (ex.: "media/images/21-05.jpg").
+    photo: null,
+    photoPlaceholder: "a primeira foto que tirei de você",
     summary: "Exposição na Casa Bradesco e o tempo que voa com você.",
     story: [
-      "Café e a exposição “I am the other's other” na Casa Bradesco. Descobri que você gosta de animais aquáticos, e tive certeza de que o tempo com você passa rápido demais.",
+      "Café e a exposição “I am the other's other”, da Es Devlin, na Casa Bradesco. A ideia central ficou comigo: o “eu” só existe quando aceita que é, inevitavelmente, o reflexo do outro, daqueles com quem convive. Existimos através de quem nos vê, nos lê e nos reflete. Foi ali que comecei a tentar me enxergar pelos seus olhos, para além dos espelhos e das redes.",
+      "Foi também o dia em que descobri o seu gosto por animais aquáticos e, melhor ainda, em que vi a sua assinatura.",
+      "E foi a primeira vez que tirei uma foto sua. Ficou péssima, tremida, mas era um momento que eu precisava registrar.",
       "Você ainda me conquistou de outro jeito: descobrir seus certificados no Google e na AWS, onde eu já trabalhei. Beleza e mente, no mesmo lugar.",
     ],
   },

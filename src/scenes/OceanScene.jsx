@@ -126,6 +126,25 @@ export default function OceanScene({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
+
+        {(d.photo || d.photoPlaceholder) && (
+          <motion.figure className="exp__photo" {...rise(0.5)}>
+            {d.photo ? (
+              <img
+                className="exp__photo-img"
+                src={`${import.meta.env.BASE_URL}${d.photo}`}
+                alt={d.photoPlaceholder || ""}
+                loading="lazy"
+              />
+            ) : (
+              <div className="exp__photo-ph">
+                <span className="exp__photo-icon" aria-hidden="true">📷</span>
+                <span className="exp__photo-text">{d.photoPlaceholder}</span>
+              </div>
+            )}
+          </motion.figure>
+        )}
+
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
       </article>
     </motion.main>
