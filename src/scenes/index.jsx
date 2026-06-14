@@ -12,6 +12,7 @@ import AmbientScene from "./AmbientScene.jsx";
 import PromiseScene from "./PromiseScene.jsx";
 import ChecklistScene from "./ChecklistScene.jsx";
 import AnniversaryScene from "./AnniversaryScene.jsx";
+import ReunionScene from "./ReunionScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -28,6 +29,7 @@ export const SCENES = {
   promise: PromiseScene,
   checklist: ChecklistScene,
   anniversary: AnniversaryScene,
+  reunion: ReunionScene,
   game: GameScene,
   market: (props) => <AmbientScene {...props} preset="market" />,
   coffee: (props) => <AmbientScene {...props} preset="coffee" />,

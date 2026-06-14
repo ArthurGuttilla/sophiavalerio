@@ -481,6 +481,31 @@ export const dates = [
     ],
     story: [],
   },
+  {
+    id: "reencontro",
+    day: 8, month: 6, year: 2026,
+    dateLabel: "08 de junho de 2026",
+    kicker: "O reencontro",
+    title: "Pousei, e era você",
+    motif: "hearts",
+    scene: "reunion",
+    summary: "A volta da viagem terminou diferente do roteiro. Terminou em você.",
+    chat: [
+      { from: "her", text: "Essa saudade aí a gente só mata presencialmente mesmo. Mas é bom sentir falta :)" },
+      { from: "me", text: "No final, eu comecei a achar boa a distância dessa viagem. Foi importante sentir alguns sentimentos, em outras condições, entender como reagimos… sentir falta também é combustível." },
+    ],
+    // Foto do reencontro. Suba em public/media/images/ e troque `photo`.
+    photo: null,
+    photoPlaceholder: "o nosso reencontro vai morar aqui",
+    photoBefore: 2, // a foto entra antes deste parágrafo
+    story: [
+      "Mal sabia como terminaria o dia.",
+      "O que seria um roteiro de CNF > CGH > casa > 4h de sono > CGH > SDU acabou ganhando uma alteração.",
+      "Você não só acompanhava o meu voo e ouvia o meu “Pousei”, como me recebeu com todo o carinho do mundo (e uma marmita com abacate).",
+      "Countdown resetado. Voltamos ao zero. Energia recarregada. Coração feliz.",
+    ],
+    reaction: "Eu tenho a parceira mais incrível do mundoooooooooo 🥰😍😘❤️🫶🏻💙🤍🤎🖤",
+  },
 ];
 
 export function getDate(id) {
