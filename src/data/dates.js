@@ -463,7 +463,7 @@ export const dates = [
     title: "Deus me leva a sério",
     motif: "hearts",
     scene: "chat",
-    summary: "Você orou por alguém que comesse bem. Deus levou a sério.",
+    summary: "Você orou por alguém do seu jeitinho. Deus levou a sério.",
     chat: [
       { from: "her", time: "18:36", text: "Eu me irrito com paladar infantil e teimosia de comer bem 😂" },
       { from: "her", time: "18:37", text: "Me irrito tanto que orei muito pra Deus me dar um homem que comia bem (entre mts outras coisas)" },
