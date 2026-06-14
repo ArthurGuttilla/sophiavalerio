@@ -11,7 +11,7 @@ const PRESETS = {
     cls: "amb--market",
     floats: ["🥬", "🍅", "🥕", "🌿", "🫑", "🥦", "🍋", "🌽"],
     centerpiece: ["🧺", "Feira da manhã"],
-    caption: "do orgânico ao caseiro — comida feita com cuidado",
+    caption: "do orgânico ao caseiro, comida feita com cuidado",
   },
   coffee: {
     cls: "amb--coffee",

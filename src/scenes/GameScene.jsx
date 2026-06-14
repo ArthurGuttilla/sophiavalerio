@@ -113,7 +113,7 @@ export default function GameScene({ d, onBack }) {
 
             {state === "playing" && reduce && (
               <div className="game__overlay">
-                <p>Animações reduzidas — toque para somar.</p>
+                <p>Animações reduzidas. Toque para somar.</p>
                 <button className="btn" onClick={() => setScore((s) => s + 1)}>❤️ +1</button>
                 <button className="btn btn--ghost" onClick={() => setState("done")}>terminar</button>
               </div>
@@ -127,7 +127,7 @@ export default function GameScene({ d, onBack }) {
                 <p className="game__quip">
                   {score >= 10
                     ? "Reflexos de quem não deixa o amor escapar."
-                    : "O que importa é que a gente continua jogando — junto."}
+                    : "O que importa é que a gente continua jogando, junto."}
                 </p>
                 <button className="btn btn--ghost" onClick={start}>de novo</button>
               </div>

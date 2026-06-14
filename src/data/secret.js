@@ -17,7 +17,7 @@ export const secretDate = {
   // scene: defina aqui quando for criar a experiência bespoke da secreta.
   summary: "Você desbloqueou tudo. Tem mais uma coisa…",
   story: [
-    "Você chegou até aqui — viu cada um dos nossos dias.",
+    "Você chegou até aqui, viu cada um dos nossos dias.",
     "Esta página está guardada para algo especial que ainda vou preparar. Em breve. 🤍",
   ],
 };

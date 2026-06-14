@@ -23,7 +23,7 @@ export const dates = [
     scene: "story",
     summary: "O dia em que você começou a me seguir.",
     story: [
-      "Foi através do stories de um aluno meu que você chegou até mim. Um detalhe pequeno, quase invisível no fluxo de um dia comum — e foi assim que a gente se conheceu.",
+      "Foi através do stories de um aluno meu que você chegou até mim. Um detalhe pequeno, quase invisível no fluxo de um dia comum, e foi assim que a gente se conheceu.",
       "Penso nisso e me parece improvável demais para ser acaso. Você apertou um botão e, sem saber, abriu uma porta.",
     ],
   },
@@ -36,8 +36,8 @@ export const dates = [
     motif: "notes",
     scene: "vinyl",
     bgYoutube: "Are-c0BLyIg",
-    bgYoutubeLabel: "My Funny Valentine — Frank Sinatra",
-    summary: "Jazz, Sinatra, bossa nova — o mesmo gosto.",
+    bgYoutubeLabel: "My Funny Valentine, Frank Sinatra",
+    summary: "Jazz, Sinatra, bossa nova, o mesmo gosto.",
     story: [
       "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",
       "Tem algo de íntimo em dividir música.",
@@ -62,10 +62,10 @@ export const dates = [
     scene: "starfield",
     bgYoutube: "7GlsxNI4LVI",
     bgYoutubeStart: 42,
-    bgYoutubeLabel: "Interestelar — Hans Zimmer",
+    bgYoutubeLabel: "Interestelar, Hans Zimmer",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
-      "Interestelar — o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
+      "Interestelar, o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",
       "Apreciamos juntos a beleza do Hans Zimmer. “Cornfield Chase” e “Time” não são só músicas; são a prova de que amor e tempo são a mesma matéria.",
     ],
   },
@@ -78,7 +78,7 @@ export const dates = [
     motif: "coffee",
     summary: "O primeiro convite para um primeiro café.",
     story: [
-      "O primeiro convite. Um café — simples, despretensioso e, ainda assim, o tipo de pergunta que muda o rumo das coisas.",
+      "O primeiro convite. Um café, simples, despretensioso e, ainda assim, o tipo de pergunta que muda o rumo das coisas.",
       "Eu não sabia para onde aquilo ia. Só sabia que queria mais um pouco da sua companhia.",
     ],
   },
@@ -89,10 +89,10 @@ export const dates = [
     kicker: "Nos conhecemos",
     title: "O café na SOHO House",
     motif: "sparkle",
-    summary: "Nosso 'pseudo-date' — te vi pela primeira vez ao vivo.",
+    summary: "Nosso 'pseudo-date', te vi pela primeira vez ao vivo.",
     story: [
       "Na SOHO House SP, nosso “pseudo-date”. Foi o dia em que te vi ao vivo pela primeira vez, e em que percebemos que aquilo poderia ser algo a mais.",
-      "Você me recomendou “Em Busca de Sentido”, o primeiro de muitos livros. E foi o dia em que eu me encantei — sem volta.",
+      "Você me recomendou “Em Busca de Sentido”, o primeiro de muitos livros. E foi o dia em que eu me encantei, sem volta.",
     ],
     quote: "The salvation of man is through love and in love.",
     quoteAfter: "- Viktor Frankl",
@@ -133,11 +133,11 @@ export const dates = [
     motif: "hearts",
     scene: "kiss",
     showMap: true,
-    summary: "Cora, Café Longão e o primeiro beijo — apressado.",
+    summary: "Cora, Café Longão e o primeiro beijo, apressado.",
     story: [
       "No Cora, no centro de São Paulo, nosso primeiro date. A gente fechou o restaurante, foi para o Café Longão do ladinho, e fechou o café também.",
-      "Falamos sobre futuro, filosofamos sobre quase tudo, e eu vi de perto a dedicação que você põe no seu TCC. Assunto não faltou — nunca falta.",
-      "E então veio o primeiro beijo — apressado, meio sem jeito. O tipo de pressa que só existe quando o tempo não quer ser suficiente.",
+      "Falamos sobre futuro, filosofamos sobre quase tudo, e eu vi de perto a dedicação que você põe no seu TCC. Assunto não faltou, nunca falta.",
+      "E então veio o primeiro beijo, apressado, meio sem jeito. O tipo de pressa que só existe quando o tempo não quer ser suficiente.",
     ],
   },
   {
@@ -149,8 +149,8 @@ export const dates = [
     motif: "sparkle",
     summary: "Colocamos a admiração mútua como o melhor elogio.",
     story: [
-      "Foi o dia em que combinamos que admiração é o melhor elogio que existe. Apesar de te achar maravilhosa, admirar você é o mais atraente de tudo — e sei que isso é algo nosso, em comum.",
-      "Eu te admiro. E descobrir que você me admira de volta foi entender que ali existia espaço para a construção de algo ainda mais forte — mesmo que, naquele momento, a gente ainda estivesse só começando a se conhecer.",
+      "Foi o dia em que combinamos que admiração é o melhor elogio que existe. Apesar de te achar maravilhosa, admirar você é o mais atraente de tudo, e sei que isso é algo nosso, em comum.",
+      "Eu te admiro. E descobrir que você me admira de volta foi entender que ali existia espaço para a construção de algo ainda mais forte, mesmo que, naquele momento, a gente ainda estivesse só começando a se conhecer.",
     ],
   },
   {
@@ -160,10 +160,10 @@ export const dates = [
     kicker: "Saudade",
     title: "Conversas olho no olho",
     motif: "dust",
-    summary: "Mais um convite — e o nosso gosto por vinho seco.",
+    summary: "Mais um convite, e o nosso gosto por vinho seco.",
     story: [
       "Mais um convite, porque eu já não aguentava ficar sem as longas conversas olhando no fundo dos seus olhos.",
-      "Foi também o dia em que alinhamos nosso gosto por vinho seco. Coisa de quem prefere o que tem caráter ao que é fácil. E sempre entendemos que felicidade de verdade não é fácil nem momentânea — é algo que se constrói com o tempo, como os bons vinhos.",
+      "Foi também o dia em que alinhamos nosso gosto por vinho seco. Coisa de quem prefere o que tem caráter ao que é fácil. E sempre entendemos que felicidade de verdade não é fácil nem momentânea, é algo que se constrói com o tempo, como os bons vinhos.",
     ],
   },
   {
@@ -174,11 +174,11 @@ export const dates = [
     title: "Compartilhar inteligência",
     motif: "dust",
     scene: "ai",
-    summary: "Podcasts, vídeos, filmes, livros — e o Claude.",
+    summary: "Podcasts, vídeos, filmes, livros, e o Claude.",
     story: [
       "A troca se intensificou: podcasts, vídeos, filmes, livros. Virou um fluxo constante de “precisa ver isso” e “me conta o que achou”.",
       "Foi também o dia em que você viu meu workshop de Claude e passou a usá-lo no dia a dia. Adoro que a gente cresça junto, inclusive de cabeça.",
-      "Uma IA aprende com cada dado que recebe; nós aprendemos com cada conversa, cada troca, cada silêncio compartilhado. A diferença é que o nosso treino tem afeto — e o melhor modelo que já encontrei foi a forma como a sua mente conversa com a minha.",
+      "Uma IA aprende com cada dado que recebe; nós aprendemos com cada conversa, cada troca, cada silêncio compartilhado. A diferença é que o nosso treino tem afeto, e o melhor modelo que já encontrei foi a forma como a sua mente conversa com a minha.",
     ],
   },
   {
@@ -191,7 +191,7 @@ export const dates = [
     scene: "ocean",
     summary: "Exposição na Casa Bradesco e o tempo que voa com você.",
     story: [
-      "Café e a exposição “I am the other's other” na Casa Bradesco. Descobri que você gosta de animais aquáticos — e tive certeza de que o tempo com você passa rápido demais.",
+      "Café e a exposição “I am the other's other” na Casa Bradesco. Descobri que você gosta de animais aquáticos, e tive certeza de que o tempo com você passa rápido demais.",
       "Você ainda me conquistou de outro jeito: descobrir seus certificados no Google e na AWS, onde eu já trabalhei. Beleza e mente, no mesmo lugar.",
     ],
   },
@@ -237,8 +237,8 @@ export const dates = [
     summary: "Vida saudável e o desafio de cozinhar um pro outro.",
     story: [
       "Descobrimos que valorizamos muito uma vida saudável, orgânica e natural. E nos desafiamos a cozinhar um para o outro.",
-      "De tanto falarmos em ser naturais, você deixou escapar o seu primeiro errinho — ou melhor, acerto: confessou que viciou em chá de gengibre, a ponto de andar transpirando perfume de gengibre. Achei o detalhe mais charmoso do mundo.",
-      "Cozinhar para alguém é um cuidado que se come. Mal posso esperar pela sua cozinha — e por te cozinhar a minha.",
+      "De tanto falarmos em ser naturais, você deixou escapar o seu primeiro errinho, ou melhor, acerto: confessou que viciou em chá de gengibre, a ponto de andar transpirando perfume de gengibre. Achei o detalhe mais charmoso do mundo.",
+      "Cozinhar para alguém é um cuidado que se come. Mal posso esperar pela sua cozinha, e por te cozinhar a minha.",
     ],
   },
   {
@@ -252,7 +252,7 @@ export const dates = [
     summary: "Nossa paixão por café ficou ainda mais profunda.",
     story: [
       "Nossa paixão por café ficou ainda mais profunda. Virou ritual, linguagem, desculpa boa para mais um encontro.",
-      "Tem coisas que a gente aprende a apreciar devagar, no tempo certo. Com você, o simples vira ritual — e o ritual vira vontade de repetir.",
+      "Tem coisas que a gente aprende a apreciar devagar, no tempo certo. Com você, o simples vira ritual, e o ritual vira vontade de repetir.",
     ],
   },
   {
@@ -295,11 +295,11 @@ export const dates = [
     title: "Jantar italiano",
     motif: "hearts",
     scene: "italian",
-    summary: "Pizza da Broto, velas, vinho no Varal — e mais um beijo.",
+    summary: "Pizza da Broto, velas, vinho no Varal, e mais um beijo.",
     story: [
       "Nos primeiros segundos, já uma surpresa: os dois vestidos igualzinhos. All black, gola alta, sobretudo bege. Coincidência demais para ter explicação.",
       "Um jantar tipicamente italiano: pizza da Broto, em Pinheiros. Olho no olho, velas na mesa, e depois um vinho no Varal Bar.",
-      "E mais um beijo — sem a pressa do primeiro, dessa vez. O tipo de beijo de quem já sabe que quer ficar.",
+      "E mais um beijo, sem a pressa do primeiro, dessa vez. O tipo de beijo de quem já sabe que quer ficar.",
       "Mas a melhor sensação veio na volta: abraçadinhos no Uber, você deitada no meu colo. Perguntei se você estava com sono, e a resposta me trouxe paz: “estou só aproveitando o momento”.",
     ],
   },
@@ -321,7 +321,7 @@ export const dates = [
       { from: "me", time: "14:41", text: "...Coincidência ou não, as mensagens afirmavam EXATAMENTE (sério) o que vc escreveu nessa mensagem: “se apaixonar é bom demais”. Obrigado por ser “bold”, medo não leva a nenhum lugar e se arriscar normalmente traz algo bom. Obrigado, também, por “abrir a porta”, que bom que é saber com todas as palavras que tem alguém com você nessa. Do estômago para cima. E por alguém que, a cima de tudo, eu admiro tanto. Que sorte que tenho de estar sentindo que achei a “tampa doidinha” da “panela doidinha”. ❤️" },
     ],
     story: [
-      "Foi o dia em que uma porta se abriu — sem cerimônia, do jeito mais verdadeiro: por mensagem, no meio da tarde.",
+      "Foi o dia em que uma porta se abriu, sem cerimônia, do jeito mais verdadeiro: por mensagem, no meio da tarde.",
       "“Se apaixonar é bom demais.” Eu li, reli, e sorri sozinho. Porque era exatamente o que eu também estava sentindo.",
     ],
   },
@@ -334,9 +334,9 @@ export const dates = [
     motif: "hearts",
     summary: "Jantar, conversa profunda e o primeiro presente.",
     story: [
-      "Um jantar gostoso e uma conversa profunda — não dos temas mais fáceis. Foi um momento de entender que, depois de abrir uma porta, ainda é preciso receber o convite e se sentir confortável para entrar.",
-      "E eu estava confortável. Mesmo sem conhecer o território tão bem — porque, no fim, é muito mais sobre a companhia do que sobre o caminho.",
-      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Um presente para me aproximar de algo tão importante para você e para a nossa construção — e o convite para que você me guie na entrada desse mundo. Foi quando descobri que você é uma cristã cool.",
+      "Um jantar gostoso e uma conversa profunda, não dos temas mais fáceis. Foi um momento de entender que, depois de abrir uma porta, ainda é preciso receber o convite e se sentir confortável para entrar.",
+      "E eu estava confortável. Mesmo sem conhecer o território tão bem, porque, no fim, é muito mais sobre a companhia do que sobre o caminho.",
+      "Foi também o dia do primeiro presente: uma bíblia e uma cartinha. Um presente para me aproximar de algo tão importante para você e para a nossa construção, e o convite para que você me guie na entrada desse mundo. Foi quando descobri que você é uma cristã cool.",
     ],
   },
   {
@@ -346,12 +346,12 @@ export const dates = [
     kicker: "A distância",
     title: "Decolando, pousei",
     motif: "stars",
-    summary: "O começo de um hiato — e a mensagem que mudou o sentido de voar.",
+    summary: "O começo de um hiato, e a mensagem que mudou o sentido de voar.",
     story: [
-      "O começo de um hiato — a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
+      "O começo de um hiato, a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
       "Mas o que ficou foi você acompanhando o meu voo. Os últimos anos foram os que mais voei na vida, quase sempre sozinho.",
-      "Li uma vez que dá pra resumir as pessoas ao seu lado por quem você avisa “decolando” e “pousei”. A preocupação dos meus pais é preciosa, a dos amigos também — mas faltava alguém. Você não imagina o que essa sua mensagem significou pra mim. Que conquista a minha.",
-      "Foi também o dia em que abrimos isso com os amigos mais próximos: o quanto estava bom dividir a vida com você. Eles acharam incrível a gente ter finalmente encontrado alguém tão do nosso tamanho — e, entre nós, reforçamos que há segredos que continuam sendo só nossos.",
+      "Li uma vez que dá pra resumir as pessoas ao seu lado por quem você avisa “decolando” e “pousei”. A preocupação dos meus pais é preciosa, a dos amigos também, mas faltava alguém. Você não imagina o que essa sua mensagem significou pra mim. Que conquista a minha.",
+      "Foi também o dia em que abrimos isso com os amigos mais próximos: o quanto estava bom dividir a vida com você. Eles acharam incrível a gente ter finalmente encontrado alguém tão do nosso tamanho, e, entre nós, reforçamos que há segredos que continuam sendo só nossos.",
       "Ah, e teve o melhor detalhe do dia: a sua mãe comprou um queijo vegano pra você. kkkkk",
     ],
   },
@@ -375,7 +375,7 @@ export const dates = [
     // arquivo em public/media/audio/ e troque `audio` pelo caminho
     // (ex.: "media/audio/fazer-dar-certo.mp3"). Enquanto null, mostra placeholder.
     audio: null,
-    audioLabel: "minha voz, como você pediu — para ouvir olho no olho",
+    audioLabel: "minha voz, como você pediu, para ouvir olho no olho",
     // Os quatro temperamentos (cena bespoke).
     temperaments: [
       { key: "sanguineo", emoji: "☀️", name: "Sanguíneo", desc: "Caloroso, espontâneo, sociável." },
@@ -384,12 +384,12 @@ export const dates = [
       { key: "melancolico", emoji: "🌙", name: "Melancólico", desc: "Profundo, ordenado, reflexivo." },
     ],
     temperamentNote:
-      "Eu sou fleumático, com um toque de sanguíneo de vez em quando. Você é uma complementaridade entre colérico e melancólico: nunca foi indecisa, sempre muito determinada e intensa — mas sem a energia de longo prazo de um colérico nato; e, como melancólica, ama as coisas ordenadas e se aprofundar no conhecimento.",
+      "Eu sou fleumático, com um toque de sanguíneo de vez em quando. Você é uma complementaridade entre colérico e melancólico: nunca foi indecisa, sempre muito determinada e intensa, mas sem a energia de longo prazo de um colérico nato; e, como melancólica, ama as coisas ordenadas e se aprofundar no conhecimento.",
     story: [
-      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar com a única verdade que importava — a de que escolhi fazer dar certo, todo dia.",
+      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar com a única verdade que importava, a de que escolhi fazer dar certo, todo dia.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
       "E nasceu uma promessa nova, dessas que eu pretendo cumprir sempre: não durmo sem te dar boa noite.",
-      "No fim, oficializamos o Close Friends do Insta — do nosso jeito, bem geração que a gente é.",
+      "No fim, oficializamos o Close Friends do Insta, do nosso jeito, bem geração que a gente é.",
     ],
   },
   {
@@ -401,7 +401,7 @@ export const dates = [
     motif: "coffee",
     scene: "checklist",
     bgYoutube: "MJ9b5Mas1Fk",
-    bgYoutubeLabel: "Falling in Love — Frank Sinatra",
+    bgYoutubeLabel: "Falling in Love, Frank Sinatra",
     summary: "Meu primeiro presente, um disco gravado e a lista que você cumpriu.",
     // Itens da minha listinha — a cena marca um a um.
     checklist: [
@@ -413,18 +413,18 @@ export const dates = [
       "Apaixonada, sem joguinho de comunicação",
       "Tranquila de rolês, mas sem extremos",
       "Flexível para os eventos importantes",
-      "Madura — individualmente e como casal",
+      "Madura, individualmente e como casal",
       "Respeitosa com as minhas diferenças",
       "Nada estereotipada: única",
     ],
     checklistTitle: "Não é fácil me apaixonar de verdade. Você pediu pra ver a lista:",
     // Disco gravado na loja de vinil.
-    record: { title: "Falling in Love", subtitle: "Romance, com Sinatra — gravado pra você" },
+    record: { title: "Falling in Love", subtitle: "Romance, com Sinatra, gravado pra você" },
     story: [
       "Te escrevi do jeito mais honesto que consegui: era impressionante a vontade de dividir tudo isso com você não só por texto.",
-      "Chegou a minha vez de dar o primeiro presente: um café especial de Minas e um moedor. E, no mesmo mercado, me permiti ser brega — pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te mandar. A música era “Falling in Love”.",
-      "Foi também a primeira vez que você me chamou de sexy — por eu resolver as coisas com as próprias mãos: montar um móvel, cozinhar.",
-      "E conversamos sobre o que talvez seja a decisão mais importante da vida: com quem você caminha. No fundo, é uma sociedade — em todos os planos. Foi quando eu te disse, sem rodeios: quero você como a minha sócia em tudo.",
+      "Chegou a minha vez de dar o primeiro presente: um café especial de Minas e um moedor. E, no mesmo mercado, me permiti ser brega, pedi pro moço da loja de vinil colocar um “Romance, com Sinatra” pra eu gravar e te mandar. A música era “Falling in Love”.",
+      "Foi também a primeira vez que você me chamou de sexy, por eu resolver as coisas com as próprias mãos: montar um móvel, cozinhar.",
+      "E conversamos sobre o que talvez seja a decisão mais importante da vida: com quem você caminha. No fundo, é uma sociedade, em todos os planos. Foi quando eu te disse, sem rodeios: quero você como a minha sócia em tudo.",
     ],
   },
   {
@@ -443,9 +443,9 @@ export const dates = [
       { when: "hoje", what: "um dia 06 que precisava ser marcante" },
     ],
     story: [
-      "Tem alguma coisa com esse dia 06. Há dois meses, a gente trocava as primeiras palavras. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante — mesmo com a distância no meio.",
+      "Tem alguma coisa com esse dia 06. Há dois meses, a gente trocava as primeiras palavras. Há um mês, eu te via pela primeira vez. Esse 06 precisava ser marcante, mesmo com a distância no meio.",
       "Sinceramente, não sei se parecia pouco tempo, de tanto que a gente já tinha conversado online, ou muito, de tantos assuntos e encontros emendados. Só sei que parecia certo.",
-      "Falamos muito sobre fé, e você me trouxe tanto de Deus. O que eu mais queria era traduzir a minha fé para algo que chegasse perto da sua. Falamos também de como a média por aí é baixa, de como nós dois somos exigentes — e de como, com paciência e sem abrir mão do padrão, a gente ainda assim se encontrou.",
+      "Falamos muito sobre fé, e você me trouxe tanto de Deus. O que eu mais queria era traduzir a minha fé para algo que chegasse perto da sua. Falamos também de como a média por aí é baixa, de como nós dois somos exigentes, e de como, com paciência e sem abrir mão do padrão, a gente ainda assim se encontrou.",
       "Falamos de Matrix: das referências religiosas que o filme carrega e de como ele virou uma porta pra eu entender um pouco mais das suas crenças.",
       "Por fora, o 06 não teve nada de espetacular. Por dentro, teve tudo: foi o dia em que, mais do que nunca, eu quis te chamar de namorada.",
     ],

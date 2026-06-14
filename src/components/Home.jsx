@@ -268,8 +268,8 @@ function Calendar() {
                   aria-disabled={!unlocked}
                   aria-label={
                     unlocked
-                      ? `${d.dateLabel} — ${d.title}`
-                      : `Bloqueado — veja a data anterior para liberar`
+                      ? `${d.dateLabel}, ${d.title}`
+                      : `Bloqueado, veja a data anterior para liberar`
                   }
                 >
                   <span className="datecard__chip">
@@ -300,7 +300,7 @@ function Calendar() {
               <button
                 className="datecard datecard--secret"
                 onClick={guardClick(() => navigate(`/data/${secretDate.id}`))}
-                aria-label={`Surpresa — ${secretDate.title}`}
+                aria-label={`Surpresa, ${secretDate.title}`}
               >
                 <span className="datecard__chip datecard__chip--secret">
                   <span className="datecard__day">♥</span>

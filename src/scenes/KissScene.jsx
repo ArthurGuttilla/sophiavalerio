@@ -103,7 +103,7 @@ export default function KissScene({ d, onBack }) {
               }
             />
             <figcaption className="kiss-map__cap">
-              do Cora ao Café Longão — pertinho, como aquela noite
+              do Cora ao Café Longão, pertinho como aquela noite
             </figcaption>
           </motion.figure>
         )}
