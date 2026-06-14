@@ -4,10 +4,10 @@ import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpFoot,
 } from "../components/expParts.jsx";
 
-// "Convites em agenda" — cria um convite recorrente no Google Calendar
-// para todo dia 16 de cada mês: "Sophia e Arthur ❤️".
+// "Convites em agenda" — cria um convite anual no Google Calendar para
+// todo 16 de maio (dia do nosso primeiro beijo): "Sophia e Arthur ❤️".
 const EVENT_TITLE = "Sophia e Arthur ❤️";
-const EVENT_DETAILS = "Todo dia 16 é nosso. Um lembrete mensal de nós. 🤍";
+const EVENT_DETAILS = "Um lembrete do dia de nosso primeiro beijo. 🤍";
 
 // Primeira ocorrência: 16/05/2026, das 20:00 às 21:00 (horário local).
 const FIRST = { y: 2026, m: 5, d: 16, startH: 20, endH: 21 };
@@ -30,7 +30,7 @@ function googleCalUrl() {
     text: EVENT_TITLE,
     details: EVENT_DETAILS,
     dates: `${start}/${end}`,
-    recur: "RRULE:FREQ=MONTHLY;BYMONTHDAY=16",
+    recur: "RRULE:FREQ=YEARLY",
     ctz: "America/Sao_Paulo",
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
@@ -58,10 +58,10 @@ export default function AgendaScene({ d, onBack }) {
         {/* Cartão de convite */}
         <motion.div className="agenda" {...rise(0.3 + d.story.length * 0.12)}>
           <div className="agenda__card">
-            <span className="agenda__month">todo dia 16</span>
+            <span className="agenda__month">todo 16 de maio</span>
             <span className="agenda__num">16</span>
             <span className="agenda__title">{EVENT_TITLE}</span>
-            <span className="agenda__sub">um lembrete mensal de nós</span>
+            <span className="agenda__sub">um lembrete do dia de nosso primeiro beijo 🤍</span>
           </div>
 
           <div className="agenda__actions">
@@ -75,7 +75,7 @@ export default function AgendaScene({ d, onBack }) {
             </a>
           </div>
           <p className="agenda__hint">
-            O convite repete todo mês, no dia 16, às 20h.
+            O convite repete todo ano, no dia 16 de maio, às 20h.
           </p>
         </motion.div>
 
