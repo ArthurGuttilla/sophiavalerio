@@ -357,8 +357,8 @@ export const dates = [
       "O começo de um hiato, a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
       "Mas o que ficou foi você acompanhando o meu voo. Os últimos anos foram os que mais voei na vida, quase sempre sozinho.",
       "Li uma vez que dá pra resumir as pessoas ao seu lado por quem você avisa “decolando” e “pousei”. A preocupação dos meus pais é preciosa, a dos amigos também, mas faltava alguém. Você não imagina o que essa sua mensagem significou pra mim. Que conquista a minha.",
-      "Foi também o dia em que abrimos isso com os amigos mais próximos: o quanto estava bom dividir a vida com você. Eles acharam incrível a gente ter finalmente encontrado alguém tão do nosso tamanho, e, entre nós, reforçamos que há segredos que continuam sendo só nossos.",
-      "Ah, e teve o melhor detalhe do dia: a sua mãe comprou um queijo vegano pra você. kkkkk",
+      "Foi também o dia em que mostramos como estávamos comunicando sobre o outro com os amigos mais próximos, sobre o quanto estava bom dividir momentos com você. Tanto os seus quanto os meus sinalizaram: finalmente encontramos alguém do nosso nível de exigência. Entre nós, reforçamos que há segredos que continuam sendo só nossos.",
+      "Ah, e teve o melhor detalhe do dia: a sua mãe comprou um queijo vegano pra você.",
     ],
   },
   {
