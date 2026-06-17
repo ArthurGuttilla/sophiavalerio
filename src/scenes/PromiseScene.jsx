@@ -19,33 +19,57 @@ export default function PromiseScene({ d, onBack }) {
   const [shown, setShown] = useState(reduce ? msgs.length : 0);
   const [typing, setTyping] = useState(false);
   const [audioFailed, setAudioFailed] = useState(false);
-  const timers = useRef([]);
   const threadRef = useRef(null);
+  const audioElRef = useRef(null);
+  const gateRef = useRef(null); // continua a conversa quando o áudio termina
 
+  const audioSrc = d.audio && !audioFailed ? `${import.meta.env.BASE_URL}${d.audio}` : null;
+
+  // Revela as mensagens em sequência. Ao chegar na minha mensagem de áudio,
+  // pausa e só continua quando o áudio terminar (via gateRef).
   useEffect(() => {
     if (reduce) return;
-    let t = 700;
-    msgs.forEach((_, i) => {
-      timers.current.push(setTimeout(() => setTyping(true), t));
-      t += 1200;
-      timers.current.push(
-        setTimeout(() => {
+    let cancelled = false;
+    const timers = [];
+    const push = (fn, ms) => {
+      const id = setTimeout(() => { if (!cancelled) fn(); }, ms);
+      timers.push(id);
+    };
+    function step(i) {
+      if (cancelled || i >= msgs.length) return;
+      push(() => {
+        setTyping(true);
+        push(() => {
           setTyping(false);
           setShown(i + 1);
-        }, t)
-      );
-      t += 700;
-    });
-    return () => timers.current.forEach(clearTimeout);
+          if (i === firstMeIdx && d.audio) {
+            // espera o áudio acabar; gateRef é acionado no onEnded
+            gateRef.current = () => { gateRef.current = null; step(i + 1); };
+          } else {
+            push(() => step(i + 1), 700);
+          }
+        }, 1200);
+      }, i === 0 ? 700 : 200);
+    }
+    step(0);
+    return () => { cancelled = true; gateRef.current = null; timers.forEach(clearTimeout); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduce]);
+
+  // Autoplay da mensagem de áudio assim que ela aparece.
+  useEffect(() => {
+    if (reduce || !audioSrc) return;
+    if (shown === firstMeIdx + 1 && audioElRef.current) {
+      const p = audioElRef.current.play();
+      if (p && p.catch) p.catch(() => { /* autoplay bloqueado: ela toca manualmente */ });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [shown]);
 
   useEffect(() => {
     const el = threadRef.current;
     if (el) el.scrollTop = el.scrollHeight;
   }, [shown, typing]);
-
-  const audioSrc = d.audio && !audioFailed ? `${import.meta.env.BASE_URL}${d.audio}` : null;
 
   return (
     <motion.main
@@ -82,11 +106,13 @@ export default function PromiseScene({ d, onBack }) {
                   {isFirstMe ? (
                     audioSrc ? (
                       <audio
+                        ref={audioElRef}
                         className="chat__audio"
                         src={audioSrc}
                         controls
-                        preload="metadata"
-                        onError={() => setAudioFailed(true)}
+                        preload="auto"
+                        onEnded={() => { if (gateRef.current) gateRef.current(); }}
+                        onError={() => { setAudioFailed(true); if (gateRef.current) gateRef.current(); }}
                       />
                     ) : (
                       <span className="chat__voiceph">
