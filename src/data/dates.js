@@ -416,6 +416,7 @@ export const dates = [
       "Ambiciosa",
       "Linda",
       "Valoriza uma vida saudável",
+      { text: "Ser vegana/vegetariana", met: false },
       "Uma mulher que se valoriza",
       "Apaixonada, sem joguinho de comunicação",
       "Tranquila de rolês, mas sem extremos",

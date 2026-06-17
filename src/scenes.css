@@ -1275,3 +1275,10 @@
 .chat__msg--audio { max-width: 92%; padding: 8px; }
 .chat__audio { width: 240px; max-width: 100%; height: 40px; display: block; }
 .chat__voiceph { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--color-secondary); padding: 6px 4px; }
+
+/* Item não cumprido da listinha (X vermelho) */
+.checklist__btn--static { cursor: default; }
+.checklist__item.is-unmet { border-color: rgba(166, 88, 75, 0.35); background: rgba(166, 88, 75, 0.06); }
+.checklist__item.is-unmet .checklist__box { background: #a6584b; border-color: #a6584b; }
+.checklist__cross { color: var(--color-bg); font-size: 0.9rem; line-height: 1; }
+.checklist__item.is-unmet .checklist__label { color: var(--color-secondary); }

@@ -11,17 +11,19 @@ import YoutubeAuto from "../components/YoutubeAuto.jsx";
 export default function ChecklistScene({ d, onBack }) {
   const rise = useRise();
   const reduce = useReducedMotion();
-  const items = d.checklist || [];
+  // Normaliza: item pode ser string (cumprido) ou { text, met:false } (não).
+  const items = (d.checklist || []).map((it) =>
+    typeof it === "string" ? { text: it, met: true } : { text: it.text, met: it.met !== false }
+  );
 
-  // Conjunto de índices marcados.
+  // Conjunto de índices marcados (apenas itens cumpridos entram).
   const [checked, setChecked] = useState(() =>
-    reduce ? new Set(items.map((_, i) => i)) : new Set()
+    reduce ? new Set(items.map((it, i) => (it.met ? i : -1)).filter((i) => i >= 0)) : new Set()
   );
   const itemRefs = useRef([]);
   const timers = useRef([]);
 
-  // Marca cada item ao entrar na viewport (acompanhando o scroll), com um
-  // pequeno atraso para parecer que está sendo "preenchido" devagar.
+  // Marca cada item cumprido ao entrar na viewport (acompanhando o scroll).
   useEffect(() => {
     if (reduce || typeof IntersectionObserver === "undefined") return;
     const io = new IntersectionObserver(
@@ -60,7 +62,8 @@ export default function ChecklistScene({ d, onBack }) {
     });
   }
 
-  const allDone = checked.size >= items.length;
+  // "Pronto" quando todos os itens cumpridos foram marcados.
+  const allDone = items.every((it, i) => !it.met || checked.has(i));
 
   return (
     <motion.main
@@ -102,6 +105,19 @@ export default function ChecklistScene({ d, onBack }) {
           <p className="checklist__title">{d.checklistTitle}</p>
           <ul className="checklist__list">
             {items.map((item, i) => {
+              // Item não cumprido: X vermelho fixo, sem interação.
+              if (!item.met) {
+                return (
+                  <li key={i} className="checklist__item is-unmet">
+                    <div className="checklist__btn checklist__btn--static">
+                      <span className="checklist__box" aria-hidden="true">
+                        <span className="checklist__cross">✕</span>
+                      </span>
+                      <span className="checklist__label">{item.text}</span>
+                    </div>
+                  </li>
+                );
+              }
               const on = checked.has(i);
               return (
                 <li
@@ -115,7 +131,7 @@ export default function ChecklistScene({ d, onBack }) {
                     className="checklist__btn"
                     onClick={() => toggle(i)}
                     aria-pressed={on}
-                    aria-label={item}
+                    aria-label={item.text}
                   >
                     <span className="checklist__box" aria-hidden="true">
                       <motion.span
@@ -127,7 +143,7 @@ export default function ChecklistScene({ d, onBack }) {
                         ✓
                       </motion.span>
                     </span>
-                    <span className="checklist__label">{item}</span>
+                    <span className="checklist__label">{item.text}</span>
                   </button>
                 </li>
               );
@@ -139,7 +155,7 @@ export default function ChecklistScene({ d, onBack }) {
             animate={{ opacity: allDone ? 1 : 0, y: allDone ? 0 : 6 }}
             transition={{ duration: 0.5 }}
           >
-            Todos os itens. Cada um deles. Você. 🤍
+            Quase tudo. E o que faltou? A gente nem liga. Você. 🤍
           </motion.p>
         </motion.div>
 
