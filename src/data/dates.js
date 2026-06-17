@@ -503,7 +503,7 @@ export const dates = [
       "Mal sabia como terminaria o dia.",
       "O que seria um roteiro de CNF > CGH > casa > 4h de sono > CGH > SDU acabou ganhando uma alteração.",
       "Você não só acompanhava o meu voo e ouvia o meu “Pousei”, como me recebeu com todo o carinho do mundo (e uma marmita com abacate).",
-      "Countdown resetado. Voltamos ao zero. Energia recarregada. Coração feliz.",
+      "Countdown resetado. Voltamos ao zero. Energia recarregada. Coração feliz. Partiu Rio de Janeiro!",
     ],
     reaction: "Eu tenho a parceira mais incrível do mundoooooooooo 🥰😍😘❤️🫶🏻💙🤍🤎🖤",
   },
