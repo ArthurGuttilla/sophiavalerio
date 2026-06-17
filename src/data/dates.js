@@ -380,7 +380,7 @@ export const dates = [
     // Áudio: você pediu para gravar sua voz recitando as palavras. Suba o
     // arquivo em public/media/audio/ e troque `audio` pelo caminho
     // (ex.: "media/audio/fazer-dar-certo.mp3"). Enquanto null, mostra placeholder.
-    audio: "media/audio/2026-06-04-minha-voz.mp3",
+    audio: "media/audio/2026-06-04-minha-voz.m4a",
     audioLabel: "minha voz, como você pediu, para ouvir olho no olho",
     // Os quatro temperamentos (cena bespoke).
     temperaments: [
