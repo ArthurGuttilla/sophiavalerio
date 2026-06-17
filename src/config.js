@@ -2,7 +2,7 @@
 //  Configuração do gate de senha (client-side)
 // ─────────────────────────────────────────────────────────────
 //
-//  A SENHA PADRÃO é:  interestelar
+//  A SENHA é:  pinguim
 //
 //  Para trocar a senha:
 //   1. Escolha a nova senha.
@@ -14,7 +14,7 @@
 //  Observação: isto é um cadeado leve — afasta visitantes casuais e
 //  evita indexação, mas não é segurança real (o conteúdo está no código).
 //
-export const PASSWORD_HASH = 651681113; // "interestelar"
+export const PASSWORD_HASH = 2161301054; // "pinguim"
 
 // Algoritmo de hash (FNV-1a) — precisa bater com o usado acima.
 export function hashPassword(str) {
