@@ -540,7 +540,7 @@ export const dates = [
     id: "dia-dos-namorados",
     day: 12, month: 6, year: 2026,
     dateLabel: "12 de junho de 2026",
-    kicker: "Dia dos Namorados",
+    kicker: "No mesmo barco",
     title: "A surpresa fui eu",
     motif: "hearts",
     summary: "Adiantei o voo. A prioridade, agora, era você.",
