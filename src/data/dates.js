@@ -210,7 +210,7 @@ export const dates = [
     motif: "dust",
     // Para incluir o vídeo no futuro: coloque o arquivo em
     // public/media/videos/ e troque o caminho abaixo (ex.: "media/videos/paz.mp4").
-    video: "media/videos/2026-05-23-video-da-paz.mp4",
+    video: "media/videos/2026-05-23-video-da-paz.mp4?v=2",
     videoPlaceholder: "o vídeo que você me mandou vai morar aqui",
     summary: "Um vídeo seu que me trouxe uma paz rara.",
     story: [
