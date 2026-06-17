@@ -1432,3 +1432,84 @@
 .junina__flag--3 { border-top-color: #6a5c4c; }
 .junina__floats { position: absolute; inset: 0; }
 .junina__float { position: absolute; bottom: 0; font-size: 1.6rem; }
+
+/* ============================================================
+   Secret scene (20/06) — o pedido
+   ============================================================ */
+.secret { text-align: center; }
+.secret__intro {
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 4vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--color-text);
+  max-width: 32ch;
+  margin: 0 auto var(--space-6);
+}
+.secret__stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 40vh;
+  justify-content: center;
+}
+.secret__box {
+  background: none; border: none; cursor: pointer;
+  font-size: clamp(4.5rem, 24vw, 7rem); line-height: 1;
+  filter: drop-shadow(0 16px 26px rgba(62,52,43,0.45));
+  -webkit-tap-highlight-color: transparent;
+}
+.secret__box:active { transform: scale(0.95); }
+.secret__hint { font-size: 0.9rem; color: var(--color-accent); margin: 0; }
+.secret__bar {
+  width: min(70vw, 240px); height: 4px; border-radius: 4px;
+  background: var(--color-muted); overflow: hidden;
+}
+.secret__bar span {
+  display: block; height: 100%; background: var(--color-secondary);
+  transition: width 200ms var(--ease-out);
+}
+.secret__bouquet { font-size: clamp(5rem, 28vw, 8.5rem); line-height: 1; }
+.secret__bouquet--btn {
+  background: none; border: none; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.secret__bouquet--btn:active { transform: scale(0.94); }
+
+.secret__ask {
+  min-height: 40vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-4);
+}
+.secret__question {
+  font-family: var(--font-wordmark);
+  font-size: clamp(2rem, 9vw, 3rem);
+  color: var(--color-text); margin: 0;
+}
+.secret__buttons {
+  position: relative;
+  width: min(86vw, 360px);
+  height: 160px;
+}
+.secret__yes {
+  position: absolute; left: 8%; top: 30%;
+  min-width: 120px;
+}
+.secret__no {
+  position: absolute;
+  transition: left 180ms var(--ease-out), top 180ms var(--ease-out);
+  min-width: 100px;
+}
+
+.secret__yesbox { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); }
+.secret__couple { font-size: clamp(4rem, 22vw, 6.5rem); line-height: 1; }
+.secret__finale {
+  display: flex; flex-direction: column; gap: var(--space-3);
+  max-width: 42ch; margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+  line-height: 1.65; color: var(--color-text); text-align: left;
+}
+.secret__finale p:last-child {
+  text-align: center; font-style: italic; color: var(--color-secondary);
+}

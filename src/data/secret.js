@@ -1,23 +1,24 @@
 // ─────────────────────────────────────────────────────────────
-//  A DATA SECRETA
+//  A DATA SECRETA — 20 de junho de 2026
 //  Só é liberada depois que TODAS as datas regulares forem vistas.
-//  Conteúdo ainda é um placeholder — preencher depois.
-//  Rota: /#/data/secreta  (id reservado: "secreta")
+//  Cena interativa: chacoalhar para abrir, buquê, 6 toques, e o pedido.
+//  Rota: /#/data/secreta
 // ─────────────────────────────────────────────────────────────
 
 export const SECRET_ID = "secreta";
 
 export const secretDate = {
   id: SECRET_ID,
-  // Sem dia/mês reais por enquanto — é uma surpresa fora do calendário.
-  dateLabel: "uma data ainda por vir",
+  dateLabel: "20 de junho de 2026",
   kicker: "Surpresa",
   title: "Algo só nosso",
   motif: "hearts",
-  // scene: defina aqui quando for criar a experiência bespoke da secreta.
+  scene: "secret",
   summary: "Você desbloqueou tudo. Tem mais uma coisa…",
-  story: [
-    "Você chegou até aqui, viu cada um dos nossos dias.",
-    "Esta página está guardada para algo especial que ainda vou preparar. Em breve. 🤍",
+  intro: "Você chegou até aqui, viu cada um dos nossos dias.",
+  finale: [
+    "As palavras não possuem apenas um valor descritivo. Elas prescrevem. Não só dão contorno ao que já existe, mas definem, direcionam, criam novas realidades. Uma palavra certa faz algo ser, com um novo sentido, com uma nova dinâmica.",
+    "Não estamos há dois meses nos conhecendo. Conhecer implica optar: gosto ou não gosto. Prefiro dizer que há dois meses estamos construindo. Construir aceita a realidade e acolhe a imperfeição humana. Os dias em que eu gosto mais, os dias em que gosto menos.",
+    "Construir implica uma escolha. E eu escolho, com todos os detalhes, ser seu namorado.",
   ],
 };
