@@ -1330,6 +1330,29 @@
   filter: drop-shadow(0 14px 24px rgba(62,52,43,0.4));
 }
 .boxe__bag:active { transform: scale(0.96); }
+
+/* Duas luvas: uma de cada lado, para os dois dedões no celular */
+.boxe__gloves {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 6% 10%;
+}
+.boxe__glove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: clamp(3.4rem, 20vw, 5.5rem);
+  line-height: 1;
+  padding: 10px;
+  filter: drop-shadow(0 12px 20px rgba(62,52,43,0.4));
+}
+.boxe__glove--r { transform: scaleX(-1); }
+.boxe__glove:active { filter: drop-shadow(0 6px 12px rgba(62,52,43,0.5)); }
 .boxe__pop {
   position: absolute;
   bottom: 38%;

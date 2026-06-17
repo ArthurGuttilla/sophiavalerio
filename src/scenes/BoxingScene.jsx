@@ -17,7 +17,6 @@ export default function BoxingScene({ d, onBack }) {
   const [hits, setHits] = useState(0);
   const [time, setTime] = useState(ROUND_MS / 1000);
   const [pops, setPops] = useState([]); // efeitos de impacto
-  const [whack, setWhack] = useState(0); // retriggera a animação do saco
   const timers = useRef([]);
 
   function start() {
@@ -37,12 +36,12 @@ export default function BoxingScene({ d, onBack }) {
 
   useEffect(() => () => timers.current.forEach((t) => { clearTimeout(t); clearInterval(t); }), []);
 
-  function punch() {
+  function punch(side) {
     if (state !== "playing") return;
     setHits((h) => h + 1);
-    setWhack((w) => w + 1);
     const id = Date.now() + Math.random();
-    const x = 30 + Math.random() * 40;
+    const base = side === "l" ? 22 : 62;
+    const x = base + Math.random() * 16;
     setPops((p) => [...p, { id, x, emoji: Math.random() < 0.25 ? "❤️" : "💥" }]);
     const t = setTimeout(() => setPops((p) => p.filter((x) => x.id !== id)), 650);
     timers.current.push(t);
@@ -92,16 +91,26 @@ export default function BoxingScene({ d, onBack }) {
             )}
 
             {state === "playing" && (
-              <motion.button
-                className="boxe__bag"
-                onClick={punch}
-                aria-label="socar"
-                animate={reduce ? {} : { rotate: [0, -6, 5, 0], scale: [1, 0.94, 1] }}
-                transition={{ duration: 0.18 }}
-                key={whack}
-              >
-                🥊
-              </motion.button>
+              <div className="boxe__gloves">
+                <motion.button
+                  className="boxe__glove boxe__glove--l"
+                  onClick={() => punch("l")}
+                  aria-label="socar com a esquerda"
+                  whileTap={reduce ? {} : { scale: 0.82, rotate: -14 }}
+                  transition={{ duration: 0.12 }}
+                >
+                  🥊
+                </motion.button>
+                <motion.button
+                  className="boxe__glove boxe__glove--r"
+                  onClick={() => punch("r")}
+                  aria-label="socar com a direita"
+                  whileTap={reduce ? {} : { scale: 0.82, rotate: 14 }}
+                  transition={{ duration: 0.12 }}
+                >
+                  🥊
+                </motion.button>
+              </div>
             )}
 
             {state === "done" && (
