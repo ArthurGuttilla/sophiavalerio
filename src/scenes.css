@@ -1220,22 +1220,47 @@
 }
 
 /* ============================================================
-   Gallery scene (vários itens de mídia)
+   Gallery scene — carrossel horizontal de mídias
    ============================================================ */
 .gallery {
   margin: var(--space-4) auto 0;
-  width: min(94vw, 520px);
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-muted) transparent;
+  padding-bottom: 10px;
+}
+.gallery::-webkit-scrollbar { height: 6px; }
+.gallery::-webkit-scrollbar-thumb { background: var(--color-muted); border-radius: 6px; }
+.gallery__item {
+  margin: 0;
+  flex: 0 0 auto;
+  width: clamp(240px, 78vw, 300px);
+  scroll-snap-align: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
 }
-.gallery__item { margin: 0; }
 .gallery__item .exp__photo-img,
 .gallery__item .exp__video-el {
   width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
   border-radius: 14px;
   display: block;
   box-shadow: 0 16px 40px -22px rgba(0, 0, 0, 0.5);
+  background: var(--color-surface);
+}
+.gallery__item .exp__photo-ph,
+.gallery__item .exp__video-ph {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  height: auto;
 }
 .gallery__cap {
   margin-top: 8px;
