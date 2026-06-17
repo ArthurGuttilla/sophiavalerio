@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
 } from "../components/expParts.jsx";
@@ -50,6 +50,7 @@ function MediaItem({ item, rise, delay }) {
 // Dia com vários itens de mídia (fotos e vídeo) em coluna.
 export default function GalleryScene({ d, onBack }) {
   const rise = useRise();
+  const reduce = useReducedMotion();
   const items = d.gallery || [];
 
   return (
@@ -60,6 +61,32 @@ export default function GalleryScene({ d, onBack }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
+      {d.junina && (
+        <div className="junina" aria-hidden="true">
+          <div className="junina__flags">
+            {Array.from({ length: 14 }).map((_, i) => (
+              <span key={i} className={`junina__flag junina__flag--${i % 4}`} />
+            ))}
+          </div>
+          {!reduce && (
+            <div className="junina__floats">
+              {["🎈", "🌽", "🔥", "✨", "🎉", "🇧🇷"].map((e, i) => (
+                <motion.span
+                  key={i}
+                  className="junina__float"
+                  style={{ left: `${8 + i * 15}%` }}
+                  initial={{ y: "10vh", opacity: 0 }}
+                  animate={{ y: "-110vh", opacity: [0, 0.7, 0.7, 0] }}
+                  transition={{ duration: 12 + i * 2, delay: i * 1.5, repeat: Infinity, ease: "linear" }}
+                >
+                  {e}
+                </motion.span>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       <ExpBack onClick={onBack} />
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />

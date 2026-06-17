@@ -1343,3 +1343,69 @@
   margin: 0;
 }
 .boxe__quip { margin: 0; font-size: 0.95rem; color: var(--color-secondary); max-width: 28ch; }
+
+/* ============================================================
+   Boarding pass (03/06)
+   ============================================================ */
+.boarding { position: relative; margin: var(--space-4) auto var(--space-2); width: min(94vw, 460px); }
+.boarding__plane { position: absolute; top: -18px; left: 0; font-size: 1.4rem; }
+.boarding__card {
+  border: 1px solid var(--color-muted);
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--color-surface), #efe7d6);
+  padding: 18px 20px;
+  box-shadow: 0 16px 40px -24px rgba(62,52,43,0.6);
+}
+.boarding__head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--color-accent); border-bottom: 1px dashed var(--color-muted);
+  padding-bottom: 10px; margin-bottom: 12px;
+}
+.boarding__route { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.boarding__code { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600; color: var(--color-text); }
+.boarding__dots { color: var(--color-accent); letter-spacing: 2px; }
+.boarding__row {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 12px;
+  margin-top: 14px; font-family: var(--font-ui); font-size: 0.9rem; color: var(--color-text);
+}
+.boarding__row small { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+.boarding__status em { font-style: normal; color: var(--color-accent); }
+
+/* ============================================================
+   Countdown reset (12/06)
+   ============================================================ */
+.reset { margin: var(--space-6) auto; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.reset__label { font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent); }
+.reset__num {
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: clamp(4rem, 22vw, 7rem); line-height: 1; color: var(--color-secondary);
+}
+.reset__msg { font-family: var(--font-serif); font-style: italic; font-size: 1.1rem; color: var(--color-text); }
+
+/* ============================================================
+   Wine toast (18/05)
+   ============================================================ */
+.wine { position: relative; margin: var(--space-6) auto; height: 120px; display: flex; align-items: center; justify-content: center; }
+.wine__glass { font-size: clamp(3rem, 14vw, 4.5rem); line-height: 1; }
+.wine__spark { position: absolute; font-size: 1.6rem; top: 8px; }
+
+/* ============================================================
+   Festa junina backdrop (13/06)
+   ============================================================ */
+.junina { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.junina__flags { position: absolute; top: 0; left: -2%; width: 104%; display: flex; justify-content: space-between; }
+.junina__flag {
+  width: 0; height: 0;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 20px solid var(--color-muted);
+  opacity: 0.8;
+  transform: translateY(0);
+}
+.junina__flag--0 { border-top-color: #c98a5e; }
+.junina__flag--1 { border-top-color: #8e8468; }
+.junina__flag--2 { border-top-color: #a6584b; }
+.junina__flag--3 { border-top-color: #6a5c4c; }
+.junina__floats { position: absolute; inset: 0; }
+.junina__float { position: absolute; bottom: 0; font-size: 1.6rem; }

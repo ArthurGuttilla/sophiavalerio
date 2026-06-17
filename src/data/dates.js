@@ -160,6 +160,7 @@ export const dates = [
     kicker: "Saudade",
     title: "Conversas olho no olho",
     motif: "dust",
+    scene: "wine",
     summary: "Mais um convite, e o nosso gosto por vinho seco.",
     story: [
       "Mais um convite, porque eu já não aguentava ficar sem as longas conversas olhando no fundo dos seus olhos.",
@@ -352,6 +353,8 @@ export const dates = [
     kicker: "A distância",
     title: "Decolando, pousei",
     motif: "stars",
+    scene: "boarding",
+    boardingPass: { from: "embarque", to: "você", passenger: "Arthur & Sophia" },
     summary: "O começo de um hiato, e a mensagem que mudou o sentido de voar.",
     story: [
       "O começo de um hiato, a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
@@ -543,6 +546,7 @@ export const dates = [
     kicker: "No mesmo barco",
     title: "A surpresa foi minha",
     motif: "hearts",
+    scene: "reset",
     summary: "Adiantei o voo. A prioridade, agora, era você.",
     story: [
       "Dessa vez, a surpresa foi minha. Adiantei o meu voo porque eu queria te ver: ver a Copa do Mundo com você, conhecer suas amigas, ir numa primeira festa junina contigo só pra te dar um beijo, mesmo depois de comer o churrasco todo.",
@@ -559,6 +563,7 @@ export const dates = [
     title: "Finalmente encontrei",
     motif: "hearts",
     scene: "gallery",
+    junina: true,
     summary: "A noite mais marcante: suas amigas, as primeiras fotos, a volta de mãos dadas.",
     gallery: [
       { type: "photo", src: "media/images/2026-06-13-foto1.jpeg" },

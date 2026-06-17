@@ -15,6 +15,9 @@ import AnniversaryScene from "./AnniversaryScene.jsx";
 import ReunionScene from "./ReunionScene.jsx";
 import GalleryScene from "./GalleryScene.jsx";
 import BoxingScene from "./BoxingScene.jsx";
+import BoardingScene from "./BoardingScene.jsx";
+import ResetScene from "./ResetScene.jsx";
+import WineScene from "./WineScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -34,6 +37,9 @@ export const SCENES = {
   reunion: ReunionScene,
   gallery: GalleryScene,
   boxing: BoxingScene,
+  boarding: BoardingScene,
+  reset: ResetScene,
+  wine: WineScene,
   game: GameScene,
   market: (props) => <AmbientScene {...props} preset="market" />,
   coffee: (props) => <AmbientScene {...props} preset="coffee" />,
