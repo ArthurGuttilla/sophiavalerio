@@ -546,7 +546,7 @@ export const dates = [
     summary: "Adiantei o voo. A prioridade, agora, era você.",
     story: [
       "Dessa vez, a surpresa foi minha. Adiantei o meu voo porque eu queria te ver: ver a Copa do Mundo com você, conhecer suas amigas, ir numa primeira festa junina contigo só pra te dar um beijo, mesmo depois de comer o churrasco todo.",
-      "Eu já tinha feito tudo o que precisava no Rio, visto quem queria e precisava ver. A minha volta no domingo era mais sobre curtir a minha própria companhia por lá e ver o jogo do Brasil com os amigos locais que eu já tinha encontrado. Mas, sinceramente, as obrigações estavam cumpridas. Agora era sobre escolhas e prioridades, e, quando fechei a viagem, elas já eram outras. Senti que era você que eu queria priorizar. Resetaríamos o countdown de novo, antes da hora.",
+      "Eu já tinha feito tudo o que precisava no Rio, visto quem queria e precisava ver. A minha volta no domingo era mais sobre curtir a minha própria companhia por lá e ver o jogo do Brasil com os amigos locais. Mas, sinceramente, as obrigações estavam cumpridas. Agora era sobre escolhas e prioridades, e, na época que fechei a viagem, elas eram outras. Senti que era você que eu queria priorizar. Resetaríamos o countdown de novo, antes da hora.",
       "Dia 12 é Dia dos Namorados, e abrir o Instagram e ver tanta foto de casal foi uma tortura. Eu te admiti: “a vontade de gritar ao mundo é forte”. Por sorte, você também precisava “conter essa vontade por um curto tempo”. Estamos no mesmo barco, os dois com o feeling de que tudo vai dar certo.",
       "E você me marcou com uma foto do Enzo e da Ana, “pra eu já ir me familiarizando”.",
     ],
