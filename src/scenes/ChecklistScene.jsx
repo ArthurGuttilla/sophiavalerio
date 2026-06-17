@@ -155,7 +155,7 @@ export default function ChecklistScene({ d, onBack }) {
             animate={{ opacity: allDone ? 1 : 0, y: allDone ? 0 : 6 }}
             transition={{ duration: 0.5 }}
           >
-            Quase tudo. E o que faltou? A gente nem liga. Você. 🤍
+            Quase tudo. O que faltou a gente nem considera. Você é do jeitinho que eu pensei. 🤍
           </motion.p>
         </motion.div>
 
