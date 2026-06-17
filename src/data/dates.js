@@ -412,9 +412,9 @@ export const dates = [
     summary: "Meu primeiro presente, um disco gravado e a lista que você cumpriu.",
     // Itens da minha listinha — a cena marca um a um.
     checklist: [
-      "Inteligente",
-      "Ambiciosa",
-      "Linda",
+      "Inteligente, estudiosa",
+      "Ambiciosa nos desejos pessoais e profissionais",
+      "Linda, por dentro e por fora",
       "Valoriza uma vida saudável",
       { text: "Ser vegana/vegetariana", met: false },
       "Uma mulher que se valoriza",
