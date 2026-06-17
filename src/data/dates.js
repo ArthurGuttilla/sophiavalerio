@@ -532,9 +532,8 @@ export const dates = [
     summary: "Organizar a viagem, a abertura da Copa e perguntas sem resposta.",
     story: [
       "Passei o dia organizando a nossa viagem: estadia, carro, cardápio e programação. Tudo no capricho, sem usar IA, porque isso merecia a minha atenção de verdade. E, claro, vendo a abertura da Copa. Essas eram as minhas prioridades do dia, hahah.",
-      "Mas também foi um dia de uma conversa difícil. Muito difícil. Meu coração apertou, fiquei apreensivo, por coisas que eu não entendia, mas que me magoavam.",
-      "Não vou acordar ao seu lado? Não vamos conversar sobre as estrelas antes de dormir? Não vou fazer cafuné até o sono bater? Como ficam as viagens com amigos? E a viagem para a formatura do meu irmão, em que eu queria tanto a sua companhia? São experiências que eu quero ter e colecionar ao lado da pessoa mais especial da minha vida.",
-      "O quanto isso não atrapalha a nossa construção? O quanto não restringe? O quanto não pode acabar criando distância? Foram perguntas que surgiram e me fizeram chorar. Muito. E como ter tudo isso, nos respeitando? Eu, sinceramente, não tinha uma resposta.",
+      "Mas também foi um dia de uma conversa difícil. Muito difícil. Meu coração apertou, fiquei apreensivo, por coisas que eu não entendia.",
+      "Eu, sinceramente, não tinha uma resposta de como colecionar experiências que eu quero ter ao lado da pessoa mais especial da minha vida.",
     ],
   },
   {
