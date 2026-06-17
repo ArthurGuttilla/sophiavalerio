@@ -1282,3 +1282,64 @@
 .checklist__item.is-unmet .checklist__box { background: #a6584b; border-color: #a6584b; }
 .checklist__cross { color: var(--color-bg); font-size: 0.9rem; line-height: 1; }
 .checklist__item.is-unmet .checklist__label { color: var(--color-secondary); }
+
+/* ============================================================
+   Boxing scene (15/06) — joguinho de socos
+   ============================================================ */
+.boxe { margin: var(--space-6) auto 0; width: min(94vw, 460px); }
+.boxe__hud {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+.boxe__ring {
+  position: relative;
+  height: clamp(280px, 70vw, 320px);
+  border-radius: 16px;
+  border: 1px solid var(--color-muted);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(212,199,176,0.35), transparent 65%),
+    var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.boxe__overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  font-family: var(--font-ui);
+  color: var(--color-secondary);
+  max-width: 30ch;
+}
+.boxe__bag {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: clamp(5rem, 26vw, 8rem);
+  line-height: 1;
+  user-select: none;
+  filter: drop-shadow(0 14px 24px rgba(62,52,43,0.4));
+}
+.boxe__bag:active { transform: scale(0.96); }
+.boxe__pop {
+  position: absolute;
+  bottom: 38%;
+  font-size: 1.8rem;
+  pointer-events: none;
+}
+.boxe__result {
+  font-family: var(--font-wordmark);
+  font-size: 2.2rem;
+  color: var(--color-text);
+  margin: 0;
+}
+.boxe__quip { margin: 0; font-size: 0.95rem; color: var(--color-secondary); max-width: 28ch; }
