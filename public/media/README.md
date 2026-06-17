@@ -1,69 +1,53 @@
-# Mídia (imagens e vídeos das datas)
+# Mídia do site (fotos, vídeos e áudio)
 
-Suba aqui os arquivos que serão usados nas experiências de cada data.
+Os arquivos ficam em `public/media/` e são publicados junto com o site.
+**O site já está conectado aos nomes abaixo** — é só subir o arquivo com o
+**nome exato** e ele aparece sozinho. Enquanto o arquivo não existir, a
+página mostra um placeholder elegante (nada quebra).
 
-## Onde colocar
+## Pastas
 
-- **Imagens** → `public/media/images/`
-- **Vídeos** → `public/media/videos/`
-- **Áudio (música de fundo)** → `public/media/audio/`
-
-## Música de fundo das datas
-
-Algumas datas tocam uma música de fundo suave. O caminho já está
-referenciado no código (`src/data/dates.js`, campo `bgAudio`). Basta
-subir o arquivo MP3 com o nome exato:
-
-| Data | Arquivo esperado | Música |
-|------|------------------|--------|
-| 25/04 | `public/media/audio/my-funny-valentine.mp3` | My Funny Valentine — Frank Sinatra |
-| 27/04 | `public/media/audio/cornfield-chase.mp3` | Cornfield Chase — Hans Zimmer |
-
-Enquanto o arquivo não existir, a página funciona normalmente — só não
-toca o som. A música começa após o primeiro toque/clique na página
-(navegadores bloqueiam autoplay), e há um botão discreto de ligar/desligar.
-
-> ⚠️ Direitos autorais: use apenas arquivos que você tem direito de usar.
-
-## Como referenciar no código
-
-Tudo dentro de `public/` é servido na raiz do site. Como o build usa
-caminhos relativos (`base: "./"`), **use caminhos relativos com `import.meta.env.BASE_URL`**
-ou caminhos relativos simples a partir da raiz publicada.
-
-A forma mais segura, que funciona tanto local quanto no GitHub Pages
-(em subpath), é montar a URL assim:
-
-```js
-const src = `${import.meta.env.BASE_URL}media/images/seu-arquivo.jpg`;
+```
+public/media/
+  images/   → fotos (.jpg)
+  videos/   → vídeos (.mp4)
+  audio/    → áudios (.mp3)
 ```
 
-Exemplo num objeto de data em `src/data/dates.js`:
+## Convenção de nomes
 
-```js
-{
-  id: "primeiro-date",
-  // ...
-  photo: "media/images/cora.jpg",       // relativo a public/
-  video: "media/videos/abraco.mp4",
-}
-```
+`AAAA-MM-DD-descricao.ext` (data da memória + descrição curta, tudo minúsculo,
+sem espaços nem acentos).
 
-E no componente da cena:
+## Arquivos que o site espera hoje
 
-```jsx
-<img src={`${import.meta.env.BASE_URL}${d.photo}`} alt="" />
-<video src={`${import.meta.env.BASE_URL}${d.video}`} controls playsInline />
-```
+| Data  | Tipo  | Caminho exato (suba com este nome) |
+|-------|-------|------------------------------------|
+| 21/05 | foto  | `public/media/images/2026-05-21-primeira-foto.jpg` |
+| 23/05 | vídeo | `public/media/videos/2026-05-23-video-da-paz.mp4` |
+| 04/06 | áudio | `public/media/audio/2026-06-04-minha-voz.mp3` |
+| 08/06 | foto  | `public/media/images/2026-06-08-reencontro.jpg` |
 
-## Formatos recomendados
+> Use exatamente essas extensões (`.jpg`, `.mp4`, `.mp3`). Se o seu arquivo
+> for `.jpeg`/`.png`/`.heic`, renomeie/converta para `.jpg` antes de subir.
 
-- **Imagens:** `.webp` ou `.jpg` (otimizadas; idealmente < 500 KB cada).
-- **Vídeos:** `.mp4` (H.264) para máxima compatibilidade; mantenha curtos
-  e comprimidos para carregar rápido.
+## Como subir (pelo navegador, sem terminal)
 
-## Importante
+1. No GitHub, entre na pasta certa (ex.: `public/media/images`).
+2. **Add file → Upload files**, arraste o arquivo (com o nome exato da tabela).
+3. **Commit changes** no branch `main`.
+4. O deploy roda sozinho; em ~1–2 min a mídia aparece no site.
 
-O GitHub Pages tem limite prático de tamanho de repositório. Para vídeos
-grandes, prefira hospedar fora (ex.: link do YouTube/Vimeo) e referenciar
-por link, em vez de subir o arquivo aqui.
+## Formatos e tamanhos recomendados
+
+- **Fotos:** `.jpg`, lado maior ~1600px, < 500 KB se possível.
+- **Vídeos:** `.mp4` (H.264), curtos e comprimidos. Para vídeos grandes,
+  prefira hospedar no YouTube e me pedir para embutir por link.
+- **Áudio:** `.mp3`, 128–192 kbps.
+
+## Adicionar mídia a uma data nova
+
+Cada data em `src/data/dates.js` aceita os campos:
+`photo` / `photoPlaceholder`, `video` / `videoPlaceholder`,
+`audio` / `audioLabel`. Aponte para `media/.../arquivo.ext` (sem a barra
+inicial) e pronto.

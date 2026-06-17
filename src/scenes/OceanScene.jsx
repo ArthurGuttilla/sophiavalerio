@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpStory, ExpFoot, ExpPhoto,
 } from "../components/expParts.jsx";
 
 // Underwater: rising bubbles, drifting light rays, and a few sea creatures
@@ -127,23 +127,7 @@ export default function OceanScene({ d, onBack }) {
         <ExpHeader d={d} rise={rise} />
         <ExpStory d={d} rise={rise} />
 
-        {(d.photo || d.photoPlaceholder) && (
-          <motion.figure className="exp__photo" {...rise(0.5)}>
-            {d.photo ? (
-              <img
-                className="exp__photo-img"
-                src={`${import.meta.env.BASE_URL}${d.photo}`}
-                alt={d.photoPlaceholder || ""}
-                loading="lazy"
-              />
-            ) : (
-              <div className="exp__photo-ph">
-                <span className="exp__photo-icon" aria-hidden="true">📷</span>
-                <span className="exp__photo-text">{d.photoPlaceholder}</span>
-              </div>
-            )}
-          </motion.figure>
-        )}
+        <ExpPhoto d={d} rise={rise} delay={0.5} />
 
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
       </article>

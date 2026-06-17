@@ -191,7 +191,7 @@ export const dates = [
     scene: "ocean",
     // Primeira foto que tirei dela. Suba em public/media/images/ e troque
     // `photo` pelo caminho (ex.: "media/images/21-05.jpg").
-    photo: null,
+    photo: "media/images/2026-05-21-primeira-foto.jpg",
     photoPlaceholder: "a primeira foto que tirei de você",
     summary: "Exposição na Casa Bradesco e o tempo que voa com você.",
     story: [
@@ -210,7 +210,7 @@ export const dates = [
     motif: "dust",
     // Para incluir o vídeo no futuro: coloque o arquivo em
     // public/media/videos/ e troque o caminho abaixo (ex.: "media/videos/paz.mp4").
-    video: null,
+    video: "media/videos/2026-05-23-video-da-paz.mp4",
     videoPlaceholder: "o vídeo que você me mandou vai morar aqui",
     summary: "Um vídeo seu que me trouxe uma paz rara.",
     story: [
@@ -380,7 +380,7 @@ export const dates = [
     // Áudio: você pediu para gravar sua voz recitando as palavras. Suba o
     // arquivo em public/media/audio/ e troque `audio` pelo caminho
     // (ex.: "media/audio/fazer-dar-certo.mp3"). Enquanto null, mostra placeholder.
-    audio: null,
+    audio: "media/audio/2026-06-04-minha-voz.mp3",
     audioLabel: "minha voz, como você pediu, para ouvir olho no olho",
     // Os quatro temperamentos (cena bespoke).
     temperaments: [
@@ -495,7 +495,7 @@ export const dates = [
       { from: "me", text: "No final, eu comecei a achar boa a distância dessa viagem. Foi importante sentir alguns sentimentos, em outras condições, entender como reagimos… sentir falta também é combustível." },
     ],
     // Foto do reencontro. Suba em public/media/images/ e troque `photo`.
-    photo: null,
+    photo: "media/images/2026-06-08-reencontro.jpg",
     photoPlaceholder: "o nosso reencontro vai morar aqui",
     photoBefore: 2, // a foto entra antes deste parágrafo
     story: [

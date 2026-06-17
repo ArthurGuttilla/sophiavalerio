@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  useRise, ExpBack, ExpHeader, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpFoot, ExpPhoto,
 } from "../components/expParts.jsx";
 
 // Dia 08/06 — o reencontro: uma troca curta de mensagens, a narrativa do
@@ -37,16 +37,7 @@ export default function ReunionScene({ d, onBack }) {
   }, [shown, typing]);
 
   const photoBlock = (d.photo || d.photoPlaceholder) && (
-    <figure className="exp__photo">
-      {d.photo ? (
-        <img className="exp__photo-img" src={`${import.meta.env.BASE_URL}${d.photo}`} alt={d.photoPlaceholder || ""} loading="lazy" />
-      ) : (
-        <div className="exp__photo-ph">
-          <span className="exp__photo-icon" aria-hidden="true">📷</span>
-          <span className="exp__photo-text">{d.photoPlaceholder}</span>
-        </div>
-      )}
-    </figure>
+    <ExpPhoto d={d} rise={rise} delay={0.5} />
   );
 
   return (

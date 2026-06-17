@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 export const EASE = [0.22, 1, 0.36, 1];
@@ -90,12 +91,21 @@ export function ExpMedia({ d, rise, delay }) {
 
 export function ExpVideo({ d, rise, delay }) {
   // Vídeo real (quando o arquivo existir) ou um placeholder elegante.
+  // Se o arquivo ainda não foi enviado (erro ao carregar), cai no placeholder.
+  const [failed, setFailed] = useState(false);
   if (!d.video && !d.videoPlaceholder) return null;
-  const src = d.video ? `${import.meta.env.BASE_URL}${d.video}` : null;
+  const src = d.video && !failed ? `${import.meta.env.BASE_URL}${d.video}` : null;
   return (
     <motion.div className="exp__video" {...rise(delay)}>
       {src ? (
-        <video className="exp__video-el" src={src} controls playsInline preload="metadata" />
+        <video
+          className="exp__video-el"
+          src={src}
+          controls
+          playsInline
+          preload="metadata"
+          onError={() => setFailed(true)}
+        />
       ) : (
         <div className="exp__video-ph">
           <span className="exp__video-ph-icon" aria-hidden="true">▶</span>
@@ -103,6 +113,32 @@ export function ExpVideo({ d, rise, delay }) {
         </div>
       )}
     </motion.div>
+  );
+}
+
+// Foto da data: mostra a imagem real; se o arquivo ainda não existir
+// (onError), cai automaticamente no placeholder elegante.
+export function ExpPhoto({ d, rise, delay }) {
+  const [failed, setFailed] = useState(false);
+  if (!d.photo && !d.photoPlaceholder) return null;
+  const src = d.photo && !failed ? `${import.meta.env.BASE_URL}${d.photo}` : null;
+  return (
+    <motion.figure className="exp__photo" {...rise(delay)}>
+      {src ? (
+        <img
+          className="exp__photo-img"
+          src={src}
+          alt={d.photoPlaceholder || ""}
+          loading="lazy"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <div className="exp__photo-ph">
+          <span className="exp__photo-icon" aria-hidden="true">📷</span>
+          <span className="exp__photo-text">{d.photoPlaceholder}</span>
+        </div>
+      )}
+    </motion.figure>
   );
 }
 

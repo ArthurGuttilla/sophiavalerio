@@ -15,6 +15,7 @@ export default function PromiseScene({ d, onBack }) {
 
   const [shown, setShown] = useState(reduce ? msgs.length : 0);
   const [typing, setTyping] = useState(false);
+  const [audioFailed, setAudioFailed] = useState(false);
   const timers = useRef([]);
   const threadRef = useRef(null);
 
@@ -41,7 +42,7 @@ export default function PromiseScene({ d, onBack }) {
     if (el) el.scrollTop = el.scrollHeight;
   }, [shown, typing]);
 
-  const audioSrc = d.audio ? `${import.meta.env.BASE_URL}${d.audio}` : null;
+  const audioSrc = d.audio && !audioFailed ? `${import.meta.env.BASE_URL}${d.audio}` : null;
 
   return (
     <motion.main
@@ -88,7 +89,13 @@ export default function PromiseScene({ d, onBack }) {
         {/* Áudio: minha voz recitando as palavras (ou placeholder) */}
         <motion.div className="voicenote" {...rise(0.45)}>
           {audioSrc ? (
-            <audio className="voicenote__player" src={audioSrc} controls preload="metadata" />
+            <audio
+              className="voicenote__player"
+              src={audioSrc}
+              controls
+              preload="metadata"
+              onError={() => setAudioFailed(true)}
+            />
           ) : (
             <div className="voicenote__ph">
               <span className="voicenote__icon" aria-hidden="true">🎙️</span>
