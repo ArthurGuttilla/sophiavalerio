@@ -1,18 +1,49 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   useRise, ExpBack, ExpHeader, ExpFoot,
 } from "../components/expParts.jsx";
 
 // Dia 04/06 — a decisão de "fazer dar certo": conversa que aparece aos
-// poucos, um áudio com a minha voz (placeholder até o arquivo existir), as
-// quatro caixas de temperamento e os destaques do dia.
+// poucos (a minha 1ª mensagem é um áudio com a minha voz), as quatro caixas
+// de temperamento e os destaques do dia.
 export default function PromiseScene({ d, onBack }) {
   const rise = useRise();
   const reduce = useReducedMotion();
   const temps = d.temperaments || [];
+  const msgs = d.chat || [];
 
+  // Índice da primeira mensagem minha (vira áudio).
+  const firstMeIdx = msgs.findIndex((m) => m.from === "me");
+
+  const [shown, setShown] = useState(reduce ? msgs.length : 0);
+  const [typing, setTyping] = useState(false);
   const [audioFailed, setAudioFailed] = useState(false);
+  const timers = useRef([]);
+  const threadRef = useRef(null);
+
+  useEffect(() => {
+    if (reduce) return;
+    let t = 700;
+    msgs.forEach((_, i) => {
+      timers.current.push(setTimeout(() => setTyping(true), t));
+      t += 1200;
+      timers.current.push(
+        setTimeout(() => {
+          setTyping(false);
+          setShown(i + 1);
+        }, t)
+      );
+      t += 700;
+    });
+    return () => timers.current.forEach(clearTimeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduce]);
+
+  useEffect(() => {
+    const el = threadRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [shown, typing]);
 
   const audioSrc = d.audio && !audioFailed ? `${import.meta.env.BASE_URL}${d.audio}` : null;
 
@@ -28,7 +59,7 @@ export default function PromiseScene({ d, onBack }) {
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
 
-        {/* Conversa: no lugar do texto, a minha voz como mensagem de áudio */}
+        {/* Conversa: aparece aos poucos; a minha 1ª mensagem é um áudio */}
         <motion.div className="chat" {...rise(0.3)}>
           <div className="chat__bar">
             <span className="chat__avatar" aria-hidden="true">S</span>
@@ -37,22 +68,45 @@ export default function PromiseScene({ d, onBack }) {
               <span className="chat__status">online</span>
             </span>
           </div>
-          <div className="chat__thread">
-            <div className="chat__msg chat__msg--me chat__msg--audio">
-              {audioSrc ? (
-                <audio
-                  className="chat__audio"
-                  src={audioSrc}
-                  controls
-                  preload="metadata"
-                  onError={() => setAudioFailed(true)}
-                />
-              ) : (
-                <span className="chat__voiceph">
-                  <span aria-hidden="true">🎙️</span> {d.audioLabel}
-                </span>
-              )}
-            </div>
+          <div className="chat__thread" ref={threadRef}>
+            {msgs.slice(0, shown).map((m, i) => {
+              const isFirstMe = i === firstMeIdx;
+              return (
+                <motion.div
+                  key={i}
+                  className={`chat__msg chat__msg--${m.from === "me" ? "me" : "her"} ${isFirstMe ? "chat__msg--audio" : ""}`}
+                  initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {isFirstMe ? (
+                    audioSrc ? (
+                      <audio
+                        className="chat__audio"
+                        src={audioSrc}
+                        controls
+                        preload="metadata"
+                        onError={() => setAudioFailed(true)}
+                      />
+                    ) : (
+                      <span className="chat__voiceph">
+                        <span aria-hidden="true">🎙️</span> {d.audioLabel}
+                      </span>
+                    )
+                  ) : (
+                    <>
+                      <span className="chat__text">{m.text}</span>
+                      <span className="chat__time">{m.time}</span>
+                    </>
+                  )}
+                </motion.div>
+              );
+            })}
+            {typing && (
+              <div className="chat__msg chat__msg--her chat__msg--typing">
+                <span className="chat__dots" aria-hidden="true"><i /><i /><i /></span>
+              </div>
+            )}
           </div>
         </motion.div>
 
