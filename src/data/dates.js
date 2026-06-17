@@ -191,7 +191,7 @@ export const dates = [
     scene: "ocean",
     // Primeira foto que tirei dela. Suba em public/media/images/ e troque
     // `photo` pelo caminho (ex.: "media/images/21-05.jpg").
-    photo: "media/images/2026-05-21-primeira-foto.jpg",
+    photo: "media/images/2026-05-21-primeira-foto.jpeg",
     photoPlaceholder: "a primeira foto que tirei de você",
     summary: "Exposição na Casa Bradesco e o tempo que voa com você.",
     story: [
@@ -495,7 +495,7 @@ export const dates = [
       { from: "me", text: "No final, eu comecei a achar boa a distância dessa viagem. Foi importante sentir alguns sentimentos, em outras condições, entender como reagimos… sentir falta também é combustível." },
     ],
     // Foto do reencontro. Suba em public/media/images/ e troque `photo`.
-    photo: "media/images/2026-06-08-reencontro.jpg",
+    photo: "media/images/2026-06-08-reencontro.jpeg",
     photoPlaceholder: "o nosso reencontro vai morar aqui",
     photoBefore: 2, // a foto entra antes deste parágrafo
     story: [
@@ -534,6 +534,25 @@ export const dates = [
       "Mas também foi um dia de uma conversa difícil. Muito difícil. Meu coração apertou, fiquei apreensivo, por coisas que eu não entendia, mas que me magoavam.",
       "Não vou acordar ao seu lado? Não vamos conversar sobre as estrelas antes de dormir? Não vou fazer cafuné até o sono bater? Como ficam as viagens com amigos? E a viagem para a formatura do meu irmão, em que eu queria tanto a sua companhia? São experiências que eu quero ter e colecionar ao lado da pessoa mais especial da minha vida.",
       "O quanto isso não atrapalha a nossa construção? O quanto não restringe? O quanto não pode acabar criando distância? Foram perguntas que surgiram e me fizeram chorar. Muito. E como ter tudo isso, nos respeitando? Eu, sinceramente, não tinha uma resposta.",
+    ],
+  },
+  {
+    id: "dia-treze",
+    day: 13, month: 6, year: 2026,
+    dateLabel: "13 de junho de 2026",
+    kicker: "Em breve",
+    title: "13 de junho",
+    motif: "hearts",
+    scene: "gallery",
+    summary: "Esse dia ainda vai ganhar as suas palavras.",
+    // Conteúdo virá depois; a mídia já está conectada.
+    gallery: [
+      { type: "photo", src: "media/images/2026-06-13-foto1.jpeg" },
+      { type: "video", src: "media/videos/2026-06-13-video1.mp4" },
+      { type: "photo", src: "media/images/2026-06-13-foto2.jpeg" },
+    ],
+    story: [
+      "Em breve, esse dia ganha o texto que merece.",
     ],
   },
 ];
