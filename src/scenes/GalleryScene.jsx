@@ -63,15 +63,16 @@ export default function GalleryScene({ d, onBack }) {
       <ExpBack onClick={onBack} />
       <article className="exp__inner">
         <ExpHeader d={d} rise={rise} />
-        <ExpStory d={d} rise={rise} />
 
         <div className="gallery">
           {items.map((item, i) => (
-            <MediaItem key={i} item={item} rise={rise} delay={0.45 + i * 0.12} />
+            <MediaItem key={i} item={item} rise={rise} delay={0.3 + i * 0.1} />
           ))}
         </div>
 
-        <ExpFoot rise={rise} delay={0.45 + items.length * 0.12 + 0.2} onBack={onBack} />
+        <ExpStory d={d} rise={rise} base={0.5} />
+
+        <ExpFoot rise={rise} delay={0.9} onBack={onBack} />
       </article>
     </motion.main>
   );
