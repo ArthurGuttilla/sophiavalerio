@@ -1362,8 +1362,8 @@
   color: var(--color-accent); border-bottom: 1px dashed var(--color-muted);
   padding-bottom: 10px; margin-bottom: 12px;
 }
-.boarding__route { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.boarding__code { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600; color: var(--color-text); }
+.boarding__route { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.boarding__code { font-family: var(--font-serif); font-size: clamp(1.15rem, 5vw, 1.5rem); font-weight: 600; color: var(--color-text); line-height: 1.1; }
 .boarding__dots { color: var(--color-accent); letter-spacing: 2px; }
 .boarding__row {
   display: flex; justify-content: space-between; align-items: flex-end; gap: 12px;

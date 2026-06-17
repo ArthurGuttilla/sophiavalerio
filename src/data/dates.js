@@ -354,7 +354,7 @@ export const dates = [
     title: "Decolando, pousei",
     motif: "stars",
     scene: "boarding",
-    boardingPass: { from: "embarque", to: "você", passenger: "Arthur & Sophia" },
+    boardingPass: { from: "Belo Horizonte", to: "Sophia", passenger: "Arthur Guttilla" },
     summary: "O começo de um hiato, e a mensagem que mudou o sentido de voar.",
     story: [
       "O começo de um hiato, a maior distância desde o dia em que te vi pela primeira vez. Duas viagens em sequência, doze noites longe, sem poder te olhar nos olhos.",
