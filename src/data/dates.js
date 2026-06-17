@@ -555,7 +555,7 @@ export const dates = [
     id: "dia-treze",
     day: 13, month: 6, year: 2026,
     dateLabel: "13 de junho de 2026",
-    kicker: "A festa junina",
+    kicker: "Copa Junina",
     title: "Finalmente encontrei",
     motif: "hearts",
     scene: "gallery",
