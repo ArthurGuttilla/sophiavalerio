@@ -18,7 +18,7 @@ export const secretDate = {
   intro: "Você acabou de relembrar algumas das datas mais marcantes até agora.",
   finale: [
     "As palavras não possuem apenas um valor descritivo. Elas prescrevem. Não só dão contorno ao que já existe, mas definem, direcionam, criam novas realidades. Uma palavra certa faz algo ser, com um novo sentido, com uma nova dinâmica.",
-    "Não estamos há dois meses nos conhecendo. Conhecer implica optar: gosto ou não gosto. Prefiro dizer que há dois meses estamos construindo. Construir aceita a realidade e acolhe a imperfeição humana. Os dias em que eu gosto mais, os dias em que gosto menos.",
-    "Construir implica uma escolha. E eu te escolho, com todos os detalhes.",
+    "Não estamos há {dias} dias nos conhecendo. Conhecer implica optar: gosto ou não gosto. Prefiro dizer que há dois meses estamos construindo. Construir aceita a realidade e acolhe a imperfeição humana. Os dias em que eu gosto mais, os dias em que gosto menos.",
+    "Construir implica uma escolha. E eu te escolhi, com todos os detalhes, por todos esses dias.",
   ],
 };

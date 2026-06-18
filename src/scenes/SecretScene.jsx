@@ -19,6 +19,12 @@ export default function SecretScene({ d, onBack }) {
 
   const SHAKE_TARGET = 6;
 
+  // Dias entre hoje e 06 de abril de 2026 (mês 3 = abril, base 0).
+  const daysSince = Math.max(
+    0,
+    Math.floor((Date.now() - new Date(2026, 3, 6).getTime()) / 86400000)
+  );
+
   // Detecção de chacoalhada: acelerômetro + giroscópio (rotationRate).
   useEffect(() => {
     function onMotion(e) {
@@ -231,7 +237,7 @@ export default function SecretScene({ d, onBack }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.4 + i * 0.5 }}
                 >
-                  {p}
+                  {p.replace("{dias}", daysSince)}
                 </motion.p>
               ))}
             </div>
