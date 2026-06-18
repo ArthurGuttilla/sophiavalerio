@@ -518,6 +518,30 @@
 }
 .exp__spotify iframe { display: block; border-radius: 12px; }
 
+/* Vídeo do YouTube embutido (16:9 responsivo) */
+.exp__yt {
+  margin-top: var(--space-5);
+  width: 100%;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.exp__yt-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -28px rgba(0, 0, 0, 0.7);
+}
+.exp__yt-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .exp__foot {
   margin-top: var(--space-8);
   display: flex;
