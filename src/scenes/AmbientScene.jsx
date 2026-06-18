@@ -10,8 +10,8 @@ const PRESETS = {
   market: {
     cls: "amb--market",
     floats: ["🥬", "🍅", "🥕", "🌿", "🫑", "🥦", "🍋", "🌽"],
-    centerpiece: ["🧺", "Feira da manhã"],
-    caption: "do orgânico ao caseiro, comida feita com cuidado",
+    centerpiece: ["🧺"],
+    caption: "",
   },
   coffee: {
     cls: "amb--coffee",
@@ -89,10 +89,14 @@ export default function AmbientScene({ d, onBack, preset }) {
           >
             {cfg.centerpiece[0]}
           </motion.span>
-          <figcaption className="amb__cap">
-            <span className="amb__cap-title">{cfg.centerpiece[1]}</span>
-            <span className="amb__cap-sub">{cfg.caption}</span>
-          </figcaption>
+          {(cfg.centerpiece[1] || cfg.caption) && (
+            <figcaption className="amb__cap">
+              {cfg.centerpiece[1] && (
+                <span className="amb__cap-title">{cfg.centerpiece[1]}</span>
+              )}
+              {cfg.caption && <span className="amb__cap-sub">{cfg.caption}</span>}
+            </figcaption>
+          )}
         </motion.figure>
 
         <ExpStory d={d} rise={rise} base={0.45} />
