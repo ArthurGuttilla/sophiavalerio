@@ -22,8 +22,8 @@ const PRESETS = {
   italian: {
     cls: "amb--italian",
     floats: ["🍕", "🕯️", "🍷", "🌙", "✦", "🍅"],
-    centerpiece: ["🍕", "Cantina à luz de velas"],
-    caption: "pizza, vinho e o brilho quente das velas",
+    centerpiece: ["🍕", "Pizza à luz de velas e um vinho"],
+    caption: "",
   },
 };
 
