@@ -172,7 +172,10 @@ export default function SecretScene({ d, onBack }) {
             >
               💐
             </motion.button>
-            <p className="secret__hint">Toque no buquê… {6 - taps}x</p>
+            <p className="secret__hint secret__hint--count">
+              Mas todo dia teremos a oportunidade de tornar uma nova data especial.
+              Como o dia <span className="secret__count">{6 - taps}</span> é. Toque no buquê.
+            </p>
           </div>
         )}
 
@@ -184,6 +187,7 @@ export default function SecretScene({ d, onBack }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <span className="secret__bouquet secret__bouquet--still" aria-hidden="true">💐</span>
             <p className="secret__question">Quer namorar comigo?</p>
             <div className="secret__buttons">
               <button className="btn secret__yes" onClick={() => setPhase("yes")}>
