@@ -142,6 +142,25 @@ export function ExpPhoto({ d, rise, delay }) {
   );
 }
 
+// Player de vídeo/música do YouTube (16:9 responsivo), igual ao usado no 27/04.
+export function ExpYoutube({ videoId, rise, delay }) {
+  if (!videoId) return null;
+  return (
+    <motion.div className="exp__yt" {...rise(delay)}>
+      <div className="exp__yt-frame">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}`}
+          title="música"
+          loading="lazy"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          allowFullScreen
+        />
+      </div>
+    </motion.div>
+  );
+}
+
 export function ExpFoot({ rise, delay }) {
   return (
     <motion.div className="exp__foot" {...rise(delay)}>

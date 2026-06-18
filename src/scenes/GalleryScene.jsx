@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpStory, ExpYoutube, ExpFoot,
 } from "../components/expParts.jsx";
 
 // Um item de mídia (foto ou vídeo) com fallback automático: se o arquivo
@@ -97,7 +97,22 @@ export default function GalleryScene({ d, onBack }) {
           ))}
         </div>
 
-        <ExpStory d={d} rise={rise} base={0.5} />
+        {/* Texto. Se houver `youtube` + `youtubeAfter`, injeta o player
+            logo após o parágrafo indicado; senão, renderiza o texto normal. */}
+        {d.youtube && Number.isInteger(d.youtubeAfter) ? (
+          <div className="exp__story">
+            {d.story.map((p, i) => (
+              <motion.div key={i}>
+                <motion.p {...rise(0.5 + i * 0.12)}>{p}</motion.p>
+                {i === d.youtubeAfter && (
+                  <ExpYoutube videoId={d.youtube} rise={rise} delay={0.5 + i * 0.12 + 0.1} />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        ) : (
+          <ExpStory d={d} rise={rise} base={0.5} />
+        )}
 
         <ExpFoot rise={rise} delay={0.9} onBack={onBack} />
       </article>

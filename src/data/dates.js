@@ -567,6 +567,8 @@ export const dates = [
     motif: "hearts",
     scene: "gallery",
     junina: true,
+    youtube: "bn-MBUt0mc0",
+    youtubeAfter: 3,
     summary: "A noite mais marcante: suas amigas, as primeiras fotos, a volta de mãos dadas.",
     gallery: [
       { type: "photo", src: "media/images/2026-06-13-foto1.jpeg" },
