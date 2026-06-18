@@ -520,7 +520,7 @@
 
 /* Vídeo do YouTube embutido (16:9 responsivo) */
 .exp__yt {
-  margin-top: var(--space-5);
+  margin-top: var(--space-7);
   width: 100%;
   max-width: 560px;
   margin-left: auto;
