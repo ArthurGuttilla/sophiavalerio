@@ -39,7 +39,7 @@ export const dates = [
     bgYoutubeLabel: "My Funny Valentine, Frank Sinatra",
     summary: "Jazz, Sinatra, bossa nova, o mesmo gosto.",
     story: [
-      "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, bossa nova. Comecei a ouvir a sua playlist e era como entrar um pouco dentro da sua cabeça.",
+      "Descobrimos que ouvíamos o mesmo mundo: jazz, Frank Sinatra, clássicas, bossa nova. Música de qualidade.",
       "Tem algo de íntimo em dividir música.",
     ],
     quote: "julgar é inerente ao homem rs",
