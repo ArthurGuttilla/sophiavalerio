@@ -93,6 +93,7 @@ export const dates = [
     summary: "Nosso 'pseudo-date', te vi pela primeira vez ao vivo.",
     story: [
       "Na SOHO House SP, nosso “pseudo-date”. Foi o dia em que te vi ao vivo pela primeira vez, e em que percebemos que aquilo poderia ser algo a mais.",
+      "Foi nesse dia que você me encantou: a beleza, a inteligência, os valores. E quando comecei a te olhar diferente.",
       "Você me recomendou “Em Busca de Sentido”, o primeiro de muitos livros. E foi o dia em que eu me encantei, sem volta.",
     ],
     quote: "The salvation of man is through love and in love.",
