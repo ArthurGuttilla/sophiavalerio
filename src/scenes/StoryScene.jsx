@@ -14,6 +14,7 @@ const FRAMES = [
     tag: "o acaso",
     big: "você\ndeslizou\naté aqui",
     small: "Sem querer, o algoritmo nos apresentou.",
+    img: "media/images/2026-04-06-stories2.jpeg",
   },
   {
     tag: "06 de abril",
@@ -111,12 +112,30 @@ export default function StoryScene({ d, onBack }) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={i}
-                className="story__frame"
+                className={`story__frame ${frame.img ? "story__frame--img" : ""}`}
                 initial={{ opacity: 0, scale: reduce ? 1 : 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: reduce ? 1 : 0.98 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
+                {frame.img && (
+                  <span className="story__media" aria-hidden="true">
+                    <img
+                      className="story__img"
+                      src={frame.img}
+                      alt=""
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        const ph = e.currentTarget.nextElementSibling;
+                        if (ph) ph.style.display = "flex";
+                      }}
+                    />
+                    <span className="story__img-ph" style={{ display: "none" }}>
+                      📷 foto em breve
+                    </span>
+                    <span className="story__scrim" />
+                  </span>
+                )}
                 <span className="story__tag">{frame.tag}</span>
                 <h2 className="story__big">{frame.big}</h2>
                 <p className="story__small">{frame.small}</p>
