@@ -122,7 +122,9 @@ export default function SecretScene({ d, onBack }) {
     >
       <ExpBack onClick={onBack} />
       <article className="exp__inner secret">
-        <motion.p className="secret__intro" {...rise(0.1)}>{d.intro}</motion.p>
+        {phase !== "ask" && phase !== "yes" && (
+          <motion.p className="secret__intro" {...rise(0.1)}>{d.intro}</motion.p>
+        )}
 
         {/* Caixa misteriosa */}
         {phase === "box" && (
