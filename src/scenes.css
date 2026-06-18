@@ -1473,6 +1473,87 @@
 }
 .boxe__quip { margin: 0; font-size: 0.95rem; color: var(--color-secondary); max-width: 28ch; }
 
+/* ---- Guitar Hero das luvas (15/06) ---- */
+.ghero { margin: var(--space-6) auto 0; width: min(94vw, 460px); }
+.ghero__hud {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+.ghero__board {
+  position: relative;
+  height: clamp(340px, 86vw, 420px);
+  border-radius: 16px;
+  border: 1px solid var(--color-muted);
+  background:
+    radial-gradient(circle at 50% 30%, rgba(212,199,176,0.28), transparent 65%),
+    var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+.ghero__lane {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+}
+.ghero__lane--l { left: 0; border-right: 1px dashed rgba(62,52,43,0.18); }
+.ghero__lane--r { right: 0; }
+.ghero__hitline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 84%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.7;
+}
+.ghero__note {
+  position: absolute;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  line-height: 1;
+  transform: translateX(-50%);
+  pointer-events: none;
+  filter: drop-shadow(0 6px 10px rgba(62,52,43,0.3));
+}
+.ghero__note--l { left: 25%; }
+.ghero__note--r { left: 75%; }
+.ghero__gloves {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 5% 3%;
+  pointer-events: none;
+  z-index: 3;
+}
+.ghero__gloves .boxe__glove {
+  pointer-events: auto;
+  font-size: clamp(3rem, 17vw, 4.8rem);
+}
+.ghero__pop {
+  position: absolute;
+  top: 74%;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1.4rem;
+  pointer-events: none;
+  z-index: 4;
+}
+.ghero__pop--l { left: 25%; }
+.ghero__pop--r { left: 75%; }
+.ghero__pop.is-good { color: #2f7d4f; }
+.ghero__pop.is-bad { color: #c0443f; }
+
 /* ============================================================
    Boarding pass (03/06)
    ============================================================ */

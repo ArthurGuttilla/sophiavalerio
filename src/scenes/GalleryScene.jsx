@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  useRise, ExpBack, ExpHeader, ExpStory, ExpYoutube, ExpFoot,
+  useRise, ExpBack, ExpHeader, ExpStory, ExpFoot,
 } from "../components/expParts.jsx";
+import YoutubeAuto from "../components/YoutubeAuto.jsx";
 
 // Um item de mídia (foto ou vídeo) com fallback automático: se o arquivo
 // ainda não existir, mostra um placeholder elegante no lugar.
@@ -97,15 +98,19 @@ export default function GalleryScene({ d, onBack }) {
           ))}
         </div>
 
-        {/* Texto. Se houver `youtube` + `youtubeAfter`, injeta o player
-            logo após o parágrafo indicado; senão, renderiza o texto normal. */}
+        {/* Texto. Se houver `youtube` + `youtubeAfter`, injeta o player de
+            áudio (chip discreto) logo após o parágrafo indicado. */}
         {d.youtube && Number.isInteger(d.youtubeAfter) ? (
           <div className="exp__story">
             {d.story.map((p, i) => (
               <motion.div key={i}>
                 <motion.p {...rise(0.5 + i * 0.12)}>{p}</motion.p>
                 {i === d.youtubeAfter && (
-                  <ExpYoutube videoId={d.youtube} rise={rise} delay={0.5 + i * 0.12 + 0.1} />
+                  <YoutubeAuto
+                    videoId={d.youtube}
+                    start={d.youtubeStart || 0}
+                    label={d.youtubeLabel || "tocar a música"}
+                  />
                 )}
               </motion.div>
             ))}
