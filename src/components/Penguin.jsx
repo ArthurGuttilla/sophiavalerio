@@ -18,8 +18,8 @@ export default function Penguin({ id, onCollect }) {
   const [gone, setGone] = useState(false);
 
   const h = hash(id);
-  const left = 12 + (h % 70); // 12%..82%
-  const top = 34 + ((h >> 8) % 48); // 34%..82%
+  const left = 14 + (h % 68); // 14%..82%
+  const top = 34 + ((h >>> 11) % 44); // 34%..78% (faixa segura, longe do topo)
 
   function grab() {
     if (burst) return;
