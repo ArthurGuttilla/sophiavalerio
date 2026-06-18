@@ -136,6 +136,47 @@
   color: var(--color-secondary);
   font-size: 1rem;
 }
+.home__pengs {
+  margin: 8px 0 0;
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--color-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.home__pengs.is-full {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+/* ── Pinguim coletável (sobre as telas das datas) ──────────── */
+.penguin {
+  position: fixed;
+  z-index: 60;
+  transform: translate(-50%, -50%);
+}
+.penguin__btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font-size: clamp(2.2rem, 9vw, 3rem);
+  line-height: 1;
+  padding: 6px;
+  filter: drop-shadow(0 6px 10px rgba(62, 52, 43, 0.35));
+}
+.penguin__pop {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--color-text);
+  white-space: nowrap;
+  text-shadow: 0 2px 10px rgba(246, 242, 234, 0.8);
+}
 
 /* ── Horizontal timeline ───────────────────────────────────── */
 .timeline {
