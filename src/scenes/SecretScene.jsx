@@ -136,7 +136,7 @@ export default function SecretScene({ d, onBack }) {
             >
               🎁
             </motion.button>
-            <p className="secret__hint">Chacoalhe o celular para abrir (ou toque na caixa).</p>
+            <p className="secret__hint">Chacoalhe o celular para abrir.</p>
             <div className="secret__bar" aria-hidden="true">
               <span style={{ width: `${(shake / SHAKE_TARGET) * 100}%` }} />
             </div>
