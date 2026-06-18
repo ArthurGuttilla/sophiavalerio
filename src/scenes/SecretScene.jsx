@@ -190,7 +190,6 @@ export default function SecretScene({ d, onBack }) {
             transition={{ duration: 0.6 }}
           >
             <span className="secret__bouquet secret__bouquet--still" aria-hidden="true">💐</span>
-            <p className="secret__question">Quer namorar comigo?</p>
             <div className="secret__buttons">
               <button className="btn secret__yes" onClick={() => setPhase("yes")}>
                 Sim
