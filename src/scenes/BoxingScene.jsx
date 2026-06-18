@@ -141,7 +141,7 @@ export default function BoxingScene({ d, onBack }) {
                     style={{ top: `${n.y}%` }}
                     aria-hidden="true"
                   >
-                    {n.type === "fight" ? "🥊" : "❤️"}
+                    {n.type === "fight" ? "🗯️" : "❤️"}
                   </span>
                 ))}
 
@@ -186,7 +186,7 @@ export default function BoxingScene({ d, onBack }) {
             {status === "idle" && (
               <div className="boxe__overlay">
                 <p>
-                  Soque a briga 🥊 com a luva quando ela descer na trilha (+1).
+                  Soque a briga 🗯️ com a luva quando ela descer na trilha (+1).
                   Mas nunca acerte o coração ❤️ (-3), deixe ele passar. 15 segundos!
                 </p>
                 <button className="btn" onClick={start}>subir no ringue</button>
