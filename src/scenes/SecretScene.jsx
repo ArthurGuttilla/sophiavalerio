@@ -13,25 +13,46 @@ export default function SecretScene({ d, onBack }) {
   const [taps, setTaps] = useState(0); // toques no buquê
   const [noPos, setNoPos] = useState({ x: 58, y: 0 }); // posição do "Não" (%)
   const motionOn = useRef(false);
-  const lastMag = useRef(null);
+  const lastAcc = useRef(null);
+  const lastShake = useRef(0);
+  const handlerRef = useRef(null);
 
   const SHAKE_TARGET = 6;
 
-  // Detecção de chacoalhada (acelerômetro).
+  // Detecção de chacoalhada: acelerômetro + giroscópio (rotationRate).
   useEffect(() => {
     function onMotion(e) {
+      const now = Date.now();
+      let shook = false;
+
       const a = e.accelerationIncludingGravity || e.acceleration;
-      if (!a) return;
-      const mag = (a.x || 0) + (a.y || 0) + (a.z || 0);
-      if (lastMag.current !== null) {
-        const delta = Math.abs(mag - lastMag.current);
-        if (delta > 14) bump();
+      if (a) {
+        const cur = { x: a.x || 0, y: a.y || 0, z: a.z || 0 };
+        if (lastAcc.current) {
+          const d =
+            Math.abs(cur.x - lastAcc.current.x) +
+            Math.abs(cur.y - lastAcc.current.y) +
+            Math.abs(cur.z - lastAcc.current.z);
+          if (d > 13) shook = true;
+        }
+        lastAcc.current = cur;
       }
-      lastMag.current = mag;
+
+      const r = e.rotationRate;
+      if (r) {
+        const mag =
+          Math.abs(r.alpha || 0) + Math.abs(r.beta || 0) + Math.abs(r.gamma || 0);
+        if (mag > 220) shook = true; // giro rápido (giroscópio)
+      }
+
+      if (shook && now - lastShake.current > 250) {
+        lastShake.current = now;
+        bump();
+      }
     }
-    window.__svMotion = onMotion;
+    handlerRef.current = onMotion;
     return () => {
-      if (motionOn.current) window.removeEventListener("devicemotion", onMotion);
+      window.removeEventListener("devicemotion", onMotion);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -60,12 +81,12 @@ export default function SecretScene({ d, onBack }) {
         const DME = window.DeviceMotionEvent;
         if (DME && typeof DME.requestPermission === "function") {
           const res = await DME.requestPermission();
-          if (res === "granted" && window.__svMotion) {
-            window.addEventListener("devicemotion", window.__svMotion);
+          if (res === "granted" && handlerRef.current) {
+            window.addEventListener("devicemotion", handlerRef.current);
             motionOn.current = true;
           }
-        } else if (window.__svMotion) {
-          window.addEventListener("devicemotion", window.__svMotion);
+        } else if (handlerRef.current) {
+          window.addEventListener("devicemotion", handlerRef.current);
           motionOn.current = true;
         }
       } catch {
@@ -115,7 +136,7 @@ export default function SecretScene({ d, onBack }) {
             >
               🎁
             </motion.button>
-            <p className="secret__hint">Chacoalhe o celular para abrir.</p>
+            <p className="secret__hint">Chacoalhe o celular para abrir (ou toque na caixa).</p>
             <div className="secret__bar" aria-hidden="true">
               <span style={{ width: `${(shake / SHAKE_TARGET) * 100}%` }} />
             </div>
