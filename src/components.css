@@ -225,6 +225,7 @@
   flex: 0 0 auto;
   width: clamp(220px, 70vw, 280px);
   scroll-snap-align: center;
+  scroll-snap-stop: always;
   padding-top: 22px;
 }
 

@@ -178,7 +178,7 @@ function Calendar() {
     drag.current.captured = false;
   }
   // ── Pager de toque (celular): cada swipe avança/volta exatamente uma data.
-  const touch = useRef({ x: 0, y: 0 });
+  const touch = useRef({ x: 0, y: 0, index: 0 });
 
   // Distância entre o início de um cartão e o próximo (largura + gap).
   function itemStride(el) {
@@ -187,8 +187,12 @@ function Calendar() {
     return items[1].offsetLeft - items[0].offsetLeft;
   }
   function onTouchStart(e) {
+    const el = trackRef.current;
     const t = e.touches[0];
-    touch.current = { x: t.clientX, y: t.clientY };
+    // Guarda o índice ANTES do swipe; o scroll nativo move durante o gesto,
+    // então ler o índice no fim faria pular dois cartões.
+    const index = el ? Math.round(el.scrollLeft / itemStride(el)) : 0;
+    touch.current = { x: t.clientX, y: t.clientY, index };
   }
   function onTouchEnd(e) {
     const el = trackRef.current;
@@ -199,8 +203,8 @@ function Calendar() {
     // Só conta como swipe horizontal de verdade.
     if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy)) return;
     const stride = itemStride(el);
-    const current = Math.round(el.scrollLeft / stride);
-    const target = current + (dx < 0 ? 1 : -1);
+    const max = Math.round((el.scrollWidth - el.clientWidth) / stride);
+    const target = Math.max(0, Math.min(max, touch.current.index + (dx < 0 ? 1 : -1)));
     el.scrollTo({ left: target * stride, behavior: reduce ? "auto" : "smooth" });
   }
 
