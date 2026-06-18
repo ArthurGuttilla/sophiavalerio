@@ -129,7 +129,7 @@ export default function StoryScene({ d, onBack }) {
                   <span className="story__media" aria-hidden="true">
                     <img
                       className="story__img"
-                      src={frame.img}
+                      src={`${import.meta.env.BASE_URL}${frame.img}`}
                       alt=""
                       onError={(e) => {
                         e.currentTarget.style.display = "none";
