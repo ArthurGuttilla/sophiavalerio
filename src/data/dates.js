@@ -596,7 +596,7 @@ export const dates = [
     scene: "boxing",
     summary: "Nosso combinado: brigou? Três minutos de luva, sem perder o amor.",
     story: [
-      "Combinamos uma regra nossa: quando a gente brigar, vale resolver com três minutos de luta de luva, sem perder o amor nem a amizade.",
+      "Combinamos que quando a briga vier, se a conversa não resolver, vale resolver com três minutos de luta (com luva!), sem perder o amor nem a amizade.",
       "Foi um dia de conquistas, para nós dois. E a gente vai comemorar não só dessa vez, mas em muitos outros momentos da vida. Até quando vier o primeiro contrato de US$ 1MM.",
       "Você também me trouxe mais perspectivas da sua visão de mundo, pra eu te entender só um pouco mais.",
     ],
