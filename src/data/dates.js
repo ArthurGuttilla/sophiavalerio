@@ -63,6 +63,7 @@ export const dates = [
     bgYoutube: "7GlsxNI4LVI",
     bgYoutubeStart: 42,
     bgYoutubeLabel: "Interestelar, Hans Zimmer",
+    youtube: "L_8t2VlwK4w",
     summary: "O mesmo filme favorito e a beleza do Hans Zimmer.",
     story: [
       "Interestelar, o mesmo filme favorito. Descobrir isso foi como achar que a gente já tinha assistido à vida pela mesma janela, mesmo antes de se conhecer.",

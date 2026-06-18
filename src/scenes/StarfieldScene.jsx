@@ -144,6 +144,20 @@ export default function StarfieldScene({ d, onBack }) {
         {d.bgYoutube && (
           <YoutubeAuto videoId={d.bgYoutube} start={d.bgYoutubeStart || 0} label={d.bgYoutubeLabel} />
         )}
+        {d.youtube && (
+          <motion.div className="exp__yt" {...rise(0.4)}>
+            <div className="exp__yt-frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${d.youtube}`}
+                title="vídeo"
+                loading="lazy"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowFullScreen
+              />
+            </div>
+          </motion.div>
+        )}
         <ExpQuote d={d} rise={rise} delay={quoteDelay} />
         <ExpMedia d={d} rise={rise} delay={quoteDelay + 0.15} />
         <ExpFoot rise={rise} delay={quoteDelay + 0.3} onBack={onBack} />
