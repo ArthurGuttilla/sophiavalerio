@@ -397,7 +397,7 @@ export const dates = [
     temperamentNote:
       "Eu sou de águas calmas, fleumático, com uma fagulha de sanguíneo. Você vive no encontro entre a determinação intensa do colérico, sem nunca conhecer a indecisão, e tem a alma melancólica de quem ama a ordem das coisas. Onde eu acalmo, você acende. É assim que a gente se completa.",
     story: [
-      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar: estava escolhendo fazer dar certo, todo dia.",
+      "Nos primeiros minutos do dia, a sua mensagem: a aura entregando o que a cara não conseguia esconder. E eu quis te tranquilizar: estava escolhendo fazer dar certo, todo dia. Você pediu para ouvir isso de novo, ao vivo. Deixo aqui um áudio para que você possa ouvir, na minha voz, quantas vezes quiser.",
       "Tivemos também uma conversa longa sobre os nossos temperamentos: entender como cada um funciona e como, mesmo diferentes, a gente se encaixa.",
       "Estava no casamento do meu amigo Fe, e chorei muito. Talvez eu estivesse mais sensível que o normal, e a culpa é toda sua. Celebrar o amor é sempre algo lindo. Ainda mais quando você vive uma paixão.",
       "E nasceu uma promessa nova, dessas que eu pretendo cumprir sempre: não durmo sem te dar boa noite.",
