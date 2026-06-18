@@ -534,11 +534,12 @@ export const dates = [
     kicker: "Vulnerável",
     title: "Uma conversa difícil",
     motif: "dust",
+    scene: "ball",
     summary: "Organizar a viagem, a abertura da Copa e perguntas sem resposta.",
     story: [
       "Passei o dia organizando a nossa viagem: estadia, carro, cardápio e programação. Tudo no capricho, sem usar IA, porque isso merecia a minha atenção de verdade. E, claro, vendo a abertura da Copa. Essas eram as minhas prioridades do dia, hahah.",
       "Mas também foi um dia de uma conversa difícil. Muito difícil. Meu coração apertou, fiquei apreensivo, por coisas que eu não entendia.",
-      "Eu, sinceramente, não tinha uma resposta de como colecionar experiências que eu quero ter ao lado da pessoa mais especial da minha vida.",
+      "Eu, sinceramente, não tinha uma resposta de como colecionar experiências que eu quero ter ao lado da pessoa mais especial da minha vida. Mas eu sabia que eu estava aberto, disposto a ceder, respeitando minha individualidade.",
     ],
   },
   {

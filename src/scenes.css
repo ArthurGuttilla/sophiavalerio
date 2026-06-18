@@ -908,6 +908,73 @@
 }
 
 /* ============================================================
+   Bola interativa (11/06)
+   ============================================================ */
+.ballstage {
+  position: relative;
+  width: min(94vw, 420px);
+  height: clamp(200px, 38vh, 280px);
+  margin: var(--space-4) auto 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(246, 242, 234, 0.08), transparent),
+    linear-gradient(180deg, #2f4a32, #21381f);
+  box-shadow: inset 0 0 0 1px rgba(246, 242, 234, 0.08),
+    0 20px 50px -28px rgba(0, 0, 0, 0.7);
+  touch-action: none;
+}
+/* linha central do "gramado" */
+.ballstage__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(246, 242, 234, 0.16);
+}
+.ballstage__line::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 84px;
+  height: 84px;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(246, 242, 234, 0.16);
+  border-radius: 50%;
+}
+.ballstage__ball {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  font-size: 46px;
+  line-height: 56px;
+  text-align: center;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  will-change: transform;
+  z-index: 2;
+  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.35));
+}
+.ballstage__ball:active { cursor: grabbing; }
+.ballstage__hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(246, 242, 234, 0.6);
+  pointer-events: none;
+}
+
+/* ============================================================
    YouTube — player oculto, com selo discreto (chip)
    ============================================================ */
 .ytauto {
