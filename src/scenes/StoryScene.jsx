@@ -11,15 +11,21 @@ const FRAMES = [
     small: "Um aluno meu.",
   },
   {
+    tag: "um clique",
+    img: "media/images/2026-04-06-stories2.jpeg",
+    small: "esse momento ficou guardado.",
+    photo: true,
+  },
+  {
     tag: "o acaso",
     big: "você\ndeslizou\naté aqui",
     small: "Sem querer, o algoritmo nos apresentou.",
-    img: "media/images/2026-04-06-stories2.jpeg",
   },
   {
     tag: "06 de abril",
     big: "você\nme\nseguiu",
     small: "E foi assim que a gente se conheceu.",
+    follow: true,
   },
   {
     tag: "depois disso",
@@ -28,6 +34,7 @@ const FRAMES = [
   },
 ];
 const FRAME_MS = 4800;
+const SEGUIR_INDEX = FRAMES.findIndex((f) => f.follow);
 
 export default function StoryScene({ d, onBack }) {
   const rise = useRise();
@@ -43,14 +50,14 @@ export default function StoryScene({ d, onBack }) {
     if (reduce || paused) return;
     timer.current = setTimeout(() => {
       setI((v) => Math.min(v + 1, FRAMES.length - 1));
-      if (i === 2) setFollowing(true); // flip on the "seguir" frame
+      if (i === SEGUIR_INDEX) setFollowing(true); // flip on the "seguir" frame
     }, FRAME_MS);
     return () => clearTimeout(timer.current);
   }, [i, paused, reduce]);
 
   const next = () => {
     setI((v) => Math.min(v + 1, FRAMES.length - 1));
-    if (i >= 2) setFollowing(true);
+    if (i >= SEGUIR_INDEX) setFollowing(true);
   };
   const prev = () => setI((v) => Math.max(v - 1, 0));
 
@@ -112,7 +119,7 @@ export default function StoryScene({ d, onBack }) {
             <AnimatePresence mode="wait">
               <motion.div
                 key={i}
-                className={`story__frame ${frame.img ? "story__frame--img" : ""}`}
+                className={`story__frame ${frame.photo ? "story__frame--photo" : ""}`}
                 initial={{ opacity: 0, scale: reduce ? 1 : 1.04 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: reduce ? 1 : 0.98 }}
@@ -136,9 +143,9 @@ export default function StoryScene({ d, onBack }) {
                     <span className="story__scrim" />
                   </span>
                 )}
-                <span className="story__tag">{frame.tag}</span>
-                <h2 className="story__big">{frame.big}</h2>
-                <p className="story__small">{frame.small}</p>
+                {frame.tag && <span className="story__tag">{frame.tag}</span>}
+                {frame.big && <h2 className="story__big">{frame.big}</h2>}
+                {frame.small && <p className="story__small">{frame.small}</p>}
               </motion.div>
             </AnimatePresence>
           </div>
