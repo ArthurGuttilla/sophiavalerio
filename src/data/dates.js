@@ -320,7 +320,7 @@ export const dates = [
     title: "A declaração",
     motif: "hearts",
     scene: "chat",
-    summary: "Por mensagem, ela abriu uma porta: se apaixonar é bom demais.",
+    summary: "Ela abriu mais uma porta: se apaixonar é bom demais.",
     // Conversa exibida na cena de chat (in/out = recebida/enviada).
     chat: [
       { from: "her", time: "14:35", text: "Não, mas acho que eu fiquei meio animadinha depois de ontem e por isso não consegui voltar a dormir 🫢😅😅😅" },
