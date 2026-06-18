@@ -8,16 +8,13 @@ const FRAMES = [
   {
     tag: "@arthurguttilla",
     big: "um stories\nqualquer",
-    small: "Um aluno meu.",
+    small: "de um aluno meu.",
   },
   {
-    tag: "um clique",
     img: "media/images/2026-04-06-stories2.jpeg",
-    small: "esse momento ficou guardado.",
     photo: true,
   },
   {
-    tag: "o acaso",
     big: "você\ndeslizou\naté aqui",
     small: "Sem querer, o algoritmo nos apresentou.",
   },
@@ -43,8 +40,18 @@ export default function StoryScene({ d, onBack }) {
   const [following, setFollowing] = useState(false);
   const [paused, setPaused] = useState(false);
   const timer = useRef(null);
+  const storyRef = useRef(null);
 
   const isLast = i >= FRAMES.length - 1;
+
+  // Quando o último stories termina, rola um pouco para revelar o texto.
+  useEffect(() => {
+    if (!isLast) return;
+    const t = setTimeout(() => {
+      storyRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 700);
+    return () => clearTimeout(t);
+  }, [isLast]);
 
   useEffect(() => {
     if (reduce || paused) return;
@@ -153,6 +160,7 @@ export default function StoryScene({ d, onBack }) {
 
         {isLast && (
           <motion.div
+            ref={storyRef}
             className="story__story"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
