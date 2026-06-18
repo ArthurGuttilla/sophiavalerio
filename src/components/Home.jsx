@@ -5,6 +5,7 @@ import Motif from "./Motif.jsx";
 import { dates } from "../data/dates.js";
 import { secretDate } from "../data/secret.js";
 import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
+import { penguinCount, allPenguins, markAllPenguins, PENGUIN_TOTAL } from "../penguins.js";
 import { PASSWORD_HASH, hashPassword } from "../config.js";
 
 const MONTHS = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
@@ -65,12 +66,14 @@ function Calendar() {
   // `tick` força re-render quando o easter egg libera tudo.
   const [, setTick] = useState(0);
   const seen = getSeen();
-  const secretUnlocked = allSeen(seen);
+  const pengs = penguinCount();
+  const secretUnlocked = allSeen(seen) && allPenguins();
 
-  // Easter egg: 3 cliques na palavra "coração" liberam todas as datas.
+  // Easter egg: 3 cliques na palavra "coração" liberam tudo (datas + pinguins).
   const heartTaps = useRef(0);
   function unlockAll() {
     markAllSeen();
+    markAllPenguins();
     setTick((t) => t + 1);
   }
   function tapHeart() {
@@ -275,6 +278,14 @@ function Calendar() {
         >
           Deslize pela linha do tempo e relembre nossa história
         </motion.p>
+        <motion.p
+          className={`home__pengs ${pengs >= PENGUIN_TOTAL ? "is-full" : ""}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          🐧 {pengs}/{PENGUIN_TOTAL} pinguins coletados
+        </motion.p>
       </header>
 
       <div className="timeline">
@@ -365,7 +376,7 @@ function Calendar() {
                   <span className="datecard__kicker">Surpresa</span>
                   <span className="datecard__title">Uma data secreta</span>
                   <span className="datecard__summary">
-                    Veja todas as datas para revelar.
+                    Veja todas as datas e colete os 10 🐧 ({pengs}/{PENGUIN_TOTAL}) para revelar.
                   </span>
                 </span>
                 <span className="datecard__arrow" aria-hidden="true">🔒</span>

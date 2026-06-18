@@ -5,6 +5,8 @@ import Motif from "./Motif.jsx";
 import { getDate } from "../data/dates.js";
 import { secretDate, SECRET_ID } from "../data/secret.js";
 import { canAccess, markSeen, allSeen } from "../progress.js";
+import { PENGUIN_DATES, hasPenguin, allPenguins } from "../penguins.js";
+import Penguin from "./Penguin.jsx";
 import {
   useRise, ExpBack, ExpHeader, ExpStory, ExpQuote, ExpMedia, ExpVideo, ExpFoot,
 } from "./expParts.jsx";
@@ -44,7 +46,8 @@ export default function Experience() {
   const d = isSecret ? secretDate : getDate(id);
 
   // Guarda de acesso: bloqueia deep-link para data ainda trancada.
-  const allowed = isSecret ? allSeen() : d ? canAccess(id) : false;
+  // A secreta exige ver todas as datas E coletar os 10 pinguins.
+  const allowed = isSecret ? allSeen() && allPenguins() : d ? canAccess(id) : false;
 
   // Marca a data como vista (libera a próxima) ao abrir.
   useEffect(() => {
@@ -55,6 +58,12 @@ export default function Experience() {
 
   const onBack = () => navigate("/home");
   const Scene = d.scene && SCENES[d.scene];
+  const showPenguin = !isSecret && PENGUIN_DATES.includes(id) && !hasPenguin(id);
 
-  return Scene ? <Scene d={d} onBack={onBack} /> : <DefaultExperience d={d} onBack={onBack} />;
+  return (
+    <>
+      {Scene ? <Scene d={d} onBack={onBack} /> : <DefaultExperience d={d} onBack={onBack} />}
+      {showPenguin && <Penguin id={id} />}
+    </>
+  );
 }
