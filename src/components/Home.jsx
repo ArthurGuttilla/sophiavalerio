@@ -67,10 +67,18 @@ function Calendar() {
   const seen = getSeen();
   const secretUnlocked = allSeen(seen);
 
-  // Clicar em "dias" no título libera todas as datas de uma vez.
+  // Easter egg: 3 cliques na palavra "coração" liberam todas as datas.
+  const heartTaps = useRef(0);
   function unlockAll() {
     markAllSeen();
     setTick((t) => t + 1);
+  }
+  function tapHeart() {
+    heartTaps.current += 1;
+    if (heartTaps.current >= 3) {
+      heartTaps.current = 0;
+      unlockAll();
+    }
   }
 
   // ── Timeline horizontal: rolagem por botões, roda do mouse e arraste.
@@ -136,6 +144,9 @@ function Calendar() {
   function onPointerDown(e) {
     const el = trackRef.current;
     if (!el) return;
+    // No celular deixamos a rolagem nativa + o "pager" de toque cuidarem;
+    // o arraste manual abaixo é só para mouse.
+    if (e.pointerType === "touch") return;
     // NÃO captura o ponteiro aqui — senão o clique não chega ao cartão.
     drag.current = {
       down: true,
@@ -166,6 +177,33 @@ function Calendar() {
     drag.current.down = false;
     drag.current.captured = false;
   }
+  // ── Pager de toque (celular): cada swipe avança/volta exatamente uma data.
+  const touch = useRef({ x: 0, y: 0 });
+
+  // Distância entre o início de um cartão e o próximo (largura + gap).
+  function itemStride(el) {
+    const items = el.querySelectorAll(".cal__item");
+    if (items.length < 2) return el.clientWidth;
+    return items[1].offsetLeft - items[0].offsetLeft;
+  }
+  function onTouchStart(e) {
+    const t = e.touches[0];
+    touch.current = { x: t.clientX, y: t.clientY };
+  }
+  function onTouchEnd(e) {
+    const el = trackRef.current;
+    if (!el) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touch.current.x;
+    const dy = t.clientY - touch.current.y;
+    // Só conta como swipe horizontal de verdade.
+    if (Math.abs(dx) < 30 || Math.abs(dx) < Math.abs(dy)) return;
+    const stride = itemStride(el);
+    const current = Math.round(el.scrollLeft / stride);
+    const target = current + (dx < 0 ? 1 : -1);
+    el.scrollTo({ left: target * stride, behavior: reduce ? "auto" : "smooth" });
+  }
+
   // Evita que o "arrastar" dispare o clique de abrir a data.
   function guardClick(fn) {
     return () => {
@@ -200,7 +238,22 @@ function Calendar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          Diário do coração
+          Diário do{" "}
+          <span
+            className="home__unlock"
+            role="button"
+            tabIndex={0}
+            onClick={tapHeart}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                tapHeart();
+              }
+            }}
+            title="❤"
+          >
+            coração
+          </span>
         </motion.p>
         <motion.h1
           className="home__title"
@@ -208,22 +261,7 @@ function Calendar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
         >
-          A construção nos{" "}
-          <span
-            className="home__unlock"
-            role="button"
-            tabIndex={0}
-            onClick={unlockAll}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                unlockAll();
-              }
-            }}
-            title="liberar todas"
-          >
-            detalhes
-          </span>
+          A construção nos detalhes
         </motion.h1>
         <motion.p
           className="home__sub"
@@ -231,7 +269,7 @@ function Calendar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Deslize pela linha do tempo nas datas da nossa história
+          Deslize pela linha do tempo e relembre nossa história
         </motion.p>
       </header>
 
@@ -255,6 +293,8 @@ function Calendar() {
           onPointerMove={onPointerMove}
           onPointerUp={onPointerUp}
           onPointerCancel={onPointerUp}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           {dates.map((d, i) => {
             const unlocked = isUnlocked(i, seen);

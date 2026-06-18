@@ -255,6 +255,11 @@
   .cal { padding-left: 16px; padding-right: 16px; }
 }
 
+/* No celular: trava o snap em uma data por vez. */
+@media (pointer: coarse) {
+  .cal { scroll-snap-type: x mandatory; }
+}
+
 .datecard {
   width: 100%;
   height: 100%;
