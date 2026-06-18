@@ -215,7 +215,7 @@ export const dates = [
     // public/media/videos/ e troque o caminho abaixo (ex.: "media/videos/paz.mp4").
     video: "media/videos/2026-05-23-video-da-paz.mp4?v=2",
     videoPlaceholder: "o vídeo que você me mandou vai morar aqui",
-    summary: "Um vídeo seu que me trouxe uma paz rara.",
+    summary: "No meio de um fim de semana agitado, você me acalmou.",
     story: [
       "Você me mandou um vídeo seu. Foi um vídeo que me trouxe uma sensação de paz tão grande que eu estranhei. Ali entendi que era um sentimento mais do que pontual.",
       "No meio de um fim de semana agitado, cheio de aniversários importantes, você acalmou. Aniversário de um dos meus melhores amigos, de uma das minhas melhores amigas e da minha mãe. E, em todos, eu falei de você. Com paz.",
