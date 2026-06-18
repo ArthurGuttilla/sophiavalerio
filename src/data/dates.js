@@ -80,7 +80,6 @@ export const dates = [
     summary: "Um café que mudou o rumo das coisas.",
     story: [
       "O primeiro convite. Um café, simples, despretensioso e, ainda assim, o tipo de pergunta que muda o rumo das coisas.",
-      "Foi nesse dia que você me encantou: a beleza, a inteligência, os valores. E quando comecei a te olhar diferente.",
       "Eu não sabia para onde aquilo ia. Só sabia que queria mais um pouco da sua companhia.",
     ],
   },
