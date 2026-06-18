@@ -230,7 +230,7 @@ export const dates = [
     title: "Jejum, jogos e a morte",
     motif: "stars",
     scene: "game",
-    summary: "Jejum, jogos de tabuleiro e conversas sobre a morte.",
+    summary: "Falar da finitude e descobrir o quanto a vida importa.",
     story: [
       "Descobrimos que o jejum faz parte da rotina dos dois, que amamos jogos de tabuleiro e conversas reflexivas e filosóficas sobre a morte.",
       "Falar da finitude com alguém é, no fundo, falar do quanto a vida importa. Poucas pessoas aguentam essa conversa. Você abraça.",
