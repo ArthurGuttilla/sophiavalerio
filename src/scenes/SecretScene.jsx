@@ -174,7 +174,7 @@ export default function SecretScene({ d, onBack }) {
             </motion.button>
             <p className="secret__hint secret__hint--count">
               Mas todo dia teremos a oportunidade de tornar uma nova data especial.
-              Como o dia <span className="secret__count">{6 - taps}</span> é. Toque no buquê.
+              Como o dia <span className="secret__count">{6 - taps}</span> é.
             </p>
           </div>
         )}
