@@ -219,7 +219,7 @@ export const dates = [
     story: [
       "Você me mandou um vídeo seu. Foi um vídeo que me trouxe uma sensação de paz tão grande que eu estranhei. Ali entendi que era um sentimento mais do que pontual.",
       "No meio de um fim de semana agitado, cheio de aniversários importantes, você acalmou. Aniversário de um dos meus melhores amigos, de uma das minhas melhores amigas e da minha mãe. E, em todos, eu falei de você. Com paz.",
-      "Tem gente que agita; você acalma. E descobrir isso foi entender que a sua presença é também um lugar de descanso.",
+      "Entendi que a sua presença podia ser um lugar de acalanto.",
     ],
   },
   {
