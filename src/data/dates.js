@@ -569,6 +569,7 @@ export const dates = [
     junina: true,
     youtube: "bn-MBUt0mc0",
     youtubeAfter: 3,
+    youtubeLabel: "Dominguinhos, a trilha daquela volta",
     summary: "A noite mais marcante: suas amigas, as primeiras fotos, a volta de mãos dadas.",
     gallery: [
       { type: "photo", src: "media/images/2026-06-13-foto1.jpeg" },
