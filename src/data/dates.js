@@ -307,7 +307,7 @@ export const dates = [
     story: [
       "Na véspera, eu revia uma análise de Matrix, filme que eu amo, justamente a parte sobre a complementaridade entre Neo e Trinity. Lembro de pensar “que casalzão”. No dia seguinte, sem testar nenhum outro look, só senti que era pra ir all black, depois de anos sem usar, com um sobretudo que eu não tocava fazia mais de um ano.",
       "Aí eu te vejo: all black, igualzinha. Me arrepiei. Veio na hora a análise do filme e a imagem dos dois. Matrix fala tanto sobre escolhas, sair da zona de conforto, complementaridade e encarar a realidade como ela é, que, bobo como talvez seja, foi a primeira vez na vida em que eu duvidei se era só coincidência.",
-      "Um jantar tipicamente italiano: pizza da Broto, em Pinheiros. Olho no olho, velas na mesa, e depois nossas primeiras taças de vinho juntos no Varal Bar.",
+      "Um jantar tipicamente italiano: pizza (Broto, em Pinheiros). Olho no olho, velas na mesa, e depois nossas primeiras taças de vinho juntos no Varal Bar.",
       "E mais um beijo, sem a pressa do primeiro, dessa vez. O tipo de beijo de quem já sabe que quer ficar.",
       "Mas a melhor sensação veio na volta: abraçadinhos no Uber, você deitada no meu colo. Perguntei se você estava com sono, e a resposta me trouxe paz: “estou só aproveitando o momento”.",
     ],
