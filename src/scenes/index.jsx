@@ -19,6 +19,7 @@ import BoardingScene from "./BoardingScene.jsx";
 import ResetScene from "./ResetScene.jsx";
 import WineScene from "./WineScene.jsx";
 import SecretScene from "./SecretScene.jsx";
+import BallScene from "./BallScene.jsx";
 
 // Registry: a date's `scene` field maps to one of these bespoke experiences.
 // Dates without a `scene` fall back to the default layout.
@@ -42,6 +43,7 @@ export const SCENES = {
   reset: ResetScene,
   wine: WineScene,
   secret: SecretScene,
+  ball: BallScene,
   game: GameScene,
   market: (props) => <AmbientScene {...props} preset="market" />,
   coffee: (props) => <AmbientScene {...props} preset="coffee" />,
