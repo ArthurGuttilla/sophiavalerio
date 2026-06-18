@@ -284,7 +284,7 @@ function Calendar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          🐧 {pengs}/{PENGUIN_TOTAL} pinguins coletados
+          🐧 {pengs}/{PENGUIN_TOTAL}
         </motion.p>
       </header>
 
