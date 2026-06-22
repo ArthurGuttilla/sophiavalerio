@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { dates } from "../data/dates.js";
-import { secretDate, tripDate } from "../data/secret.js";
+import { secretDate, tripDate, officialDate } from "../data/secret.js";
 import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
 import { penguinCount, allPenguins, markAllPenguins, PENGUIN_TOTAL } from "../penguins.js";
 import { PASSWORD_HASH, hashPassword } from "../config.js";
@@ -401,6 +401,29 @@ function Calendar() {
                   <span className="datecard__kicker">{tripDate.kicker}</span>
                   <span className="datecard__title">{tripDate.title}</span>
                   <span className="datecard__summary">{tripDate.summary}</span>
+                </span>
+                <span className="datecard__arrow" aria-hidden="true">→</span>
+              </button>
+            </motion.li>
+          )}
+
+          {/* Dia 20/06 — o primeiro dia oficial. */}
+          {secretUnlocked && (
+            <motion.li variants={card} className="cal__item">
+              <span className="cal__node cal__node--secret" aria-hidden="true" />
+              <button
+                className="datecard datecard--secret"
+                onClick={guardClick(() => navigate(`/data/${officialDate.id}`))}
+                aria-label={`${officialDate.dateLabel}, ${officialDate.title}`}
+              >
+                <span className="datecard__chip">
+                  <span className="datecard__day">20</span>
+                  <span className="datecard__mon">jun</span>
+                </span>
+                <span className="datecard__body">
+                  <span className="datecard__kicker">{officialDate.kicker}</span>
+                  <span className="datecard__title">{officialDate.title}</span>
+                  <span className="datecard__summary">{officialDate.summary}</span>
                 </span>
                 <span className="datecard__arrow" aria-hidden="true">→</span>
               </button>
