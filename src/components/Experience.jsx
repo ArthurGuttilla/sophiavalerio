@@ -3,7 +3,7 @@ import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { getDate } from "../data/dates.js";
-import { secretDate, SECRET_ID, tripDate, TRIP_ID } from "../data/secret.js";
+import { secretDate, SECRET_ID, tripDate, TRIP_ID, officialDate, OFFICIAL_ID } from "../data/secret.js";
 import { canAccess, markSeen, allSeen } from "../progress.js";
 import { PENGUIN_DATES, hasPenguin, allPenguins } from "../penguins.js";
 import Penguin from "./Penguin.jsx";
@@ -45,8 +45,15 @@ export default function Experience() {
   // datas E coletar os 10 pinguins.
   const isSecret = id === SECRET_ID;
   const isTrip = id === TRIP_ID;
-  const isPostFinal = isSecret || isTrip;
-  const d = isSecret ? secretDate : isTrip ? tripDate : getDate(id);
+  const isOfficial = id === OFFICIAL_ID;
+  const isPostFinal = isSecret || isTrip || isOfficial;
+  const d = isSecret
+    ? secretDate
+    : isTrip
+    ? tripDate
+    : isOfficial
+    ? officialDate
+    : getDate(id);
 
   // Guarda de acesso: bloqueia deep-link para data ainda trancada.
   const allowed = isPostFinal ? allSeen() && allPenguins() : d ? canAccess(id) : false;
