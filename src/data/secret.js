@@ -66,6 +66,8 @@ export const officialDate = {
   scene: "trip",
   summary: "O café, o diário, o sim, e 24h abraçados.",
   photos: [
+    { type: "video", file: "media/videos/2026-06-20-video1" },
+    { type: "video", file: "media/videos/2026-06-20-video2" },
     { file: "media/images/2026-06-20-1" },
     { file: "media/images/2026-06-20-2" },
     { file: "media/images/2026-06-20-3" },
@@ -78,8 +80,6 @@ export const officialDate = {
     { file: "media/images/2026-06-20-10" },
     { file: "media/images/2026-06-20-11" },
     { file: "media/images/2026-06-20-12" },
-    { type: "video", file: "media/videos/2026-06-20-video1" },
-    { type: "video", file: "media/videos/2026-06-20-video2" },
   ],
   story: [
     "Eu acordei cedo, dormi pouco, porque queria te surpreender da forma linda que você merece. Fui buscar as flores que escondi no carro, preparei e embelezei a mesa para o nosso café, e não só a refeição, mas o café moído por nós. Você ainda não sabia a importância desse café, mas eu sabia.",
