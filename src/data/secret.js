@@ -34,10 +34,10 @@ export const tripDate = {
   id: TRIP_ID,
   dateLabel: "19 de junho de 2026",
   kicker: "A nossa viagem",
-  title: "Finalmente, esse dia chegou",
+  title: "Finalmente, a viagem",
   motif: "hearts",
   scene: "trip",
-  summary: "O dia da viagem: estrada, lareira e quase um 'eu te amo'.",
+  summary: "Flores surpresa, 4h de estrada e madrugada na lareira.",
   photos: [
     { file: "media/images/2026-06-19-viagem", caption: "a nossa viagem" },
     { file: "media/images/2026-06-19-carro", caption: "a estrada" },
