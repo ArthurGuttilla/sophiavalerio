@@ -1,7 +1,8 @@
 // ─────────────────────────────────────────────────────────────
-//  A DATA SECRETA — 20 de junho de 2026
-//  Só é liberada depois que TODAS as datas regulares forem vistas.
-//  Cena interativa: chacoalhar para abrir, buquê, 6 toques, e o pedido.
+//  A DATA SECRETA — sem data explícita
+//  Só é liberada depois que TODAS as datas regulares forem vistas
+//  e os 10 pinguins coletados.
+//  Cena interativa: chacoalhar para abrir, buquê, contagem, e o pedido.
 //  Rota: /#/data/secreta
 // ─────────────────────────────────────────────────────────────
 
@@ -9,7 +10,7 @@ export const SECRET_ID = "secreta";
 
 export const secretDate = {
   id: SECRET_ID,
-  dateLabel: "20 de junho de 2026",
+  dateLabel: "",
   kicker: "Surpresa",
   title: "Algo só nosso",
   motif: "hearts",
