@@ -41,7 +41,6 @@ export const tripDate = {
   photos: [
     { file: "media/images/2026-06-19-viagem", caption: "a nossa viagem" },
     { file: "media/images/2026-06-19-carro", caption: "a estrada" },
-    { file: "media/images/2026-06-19-lareira", caption: "a lareira" },
     { file: "media/images/2026-06-19-vinho", caption: "o vinho" },
   ],
   story: [
