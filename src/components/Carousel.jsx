@@ -20,10 +20,9 @@ function Slide({ file, caption, delay, rise }) {
       ) : (
         <div className="carousel__ph">
           <span className="carousel__ph-icon" aria-hidden="true">📷</span>
-          <span className="carousel__ph-text">{caption || "foto em breve"}</span>
+          <span className="carousel__ph-text">foto em breve</span>
         </div>
       )}
-      {caption && <figcaption className="carousel__cap">{caption}</figcaption>}
     </motion.figure>
   );
 }
