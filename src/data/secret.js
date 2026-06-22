@@ -38,7 +38,7 @@ export const tripDate = {
   motif: "hearts",
   scene: "trip",
   summary: "O dia da viagem: estrada, lareira e quase um 'eu te amo'.",
-  photo: "media/images/2026-06-19-viagem.jpeg",
+  photo: "media/images/2026-06-19-viagem.jpg",
   photoPlaceholder: "um registro da nossa viagem",
   story: [
     "Finalmente esse dia chegou. O dia da nossa viagem. Minha manhã foi corrida no trabalho, tudo atrasou, mas eu não podia estar cansado, porque teria dias incríveis ao seu lado. Saindo das mentorias, corri buscar as flores surpresas, corri fechar a mala, o carro atrasou para chegar em casa, o portão travou, mas nada podia estragar esse momento.",
