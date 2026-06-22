@@ -3,7 +3,7 @@ import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import { getDate } from "../data/dates.js";
-import { secretDate, SECRET_ID } from "../data/secret.js";
+import { secretDate, SECRET_ID, tripDate, TRIP_ID } from "../data/secret.js";
 import { canAccess, markSeen, allSeen } from "../progress.js";
 import { PENGUIN_DATES, hasPenguin, allPenguins } from "../penguins.js";
 import Penguin from "./Penguin.jsx";
@@ -41,18 +41,20 @@ export default function Experience() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Data secreta: só acessível depois que todas as regulares foram vistas.
+  // Datas pós-final (secreta e viagem): liberadas só depois de ver todas as
+  // datas E coletar os 10 pinguins.
   const isSecret = id === SECRET_ID;
-  const d = isSecret ? secretDate : getDate(id);
+  const isTrip = id === TRIP_ID;
+  const isPostFinal = isSecret || isTrip;
+  const d = isSecret ? secretDate : isTrip ? tripDate : getDate(id);
 
   // Guarda de acesso: bloqueia deep-link para data ainda trancada.
-  // A secreta exige ver todas as datas E coletar os 10 pinguins.
-  const allowed = isSecret ? allSeen() && allPenguins() : d ? canAccess(id) : false;
+  const allowed = isPostFinal ? allSeen() && allPenguins() : d ? canAccess(id) : false;
 
   // Marca a data como vista (libera a próxima) ao abrir.
   useEffect(() => {
-    if (d && allowed && !isSecret) markSeen(id);
-  }, [id, d, allowed, isSecret]);
+    if (d && allowed && !isPostFinal) markSeen(id);
+  }, [id, d, allowed, isPostFinal]);
 
   if (!d || !allowed) return <Navigate to="/home" replace />;
 
