@@ -38,8 +38,12 @@ export const tripDate = {
   motif: "hearts",
   scene: "trip",
   summary: "O dia da viagem: estrada, lareira e quase um 'eu te amo'.",
-  photo: "media/images/2026-06-19-viagem.jpg",
-  photoPlaceholder: "um registro da nossa viagem",
+  photos: [
+    { file: "media/images/2026-06-19-viagem", caption: "a nossa viagem" },
+    { file: "media/images/2026-06-19-carro", caption: "a estrada" },
+    { file: "media/images/2026-06-19-lareira", caption: "a lareira" },
+    { file: "media/images/2026-06-19-vinho", caption: "o vinho" },
+  ],
   story: [
     "Finalmente esse dia chegou. O dia da nossa viagem. Minha manhã foi corrida no trabalho, tudo atrasou, mas eu não podia estar cansado, porque teria dias incríveis ao seu lado. Saindo das mentorias, corri buscar as flores surpresas, corri fechar a mala, o carro atrasou para chegar em casa, o portão travou, mas nada podia estragar esse momento.",
     "Te busquei em casa, a cidade parada para o jogo do Brasil e Haiti. Te entreguei um presente, um cartão com este site. Você decidiu registrar esses momentos desde o primeiro segundo, para assistirmos daqui a um ano. Demoramos para sair de SP, pegamos 4h de estrada, mas, como sempre, passou voando ao seu lado: conversando, trabalhando, se ajudando, se ouvindo, cantando bossa nova.",
