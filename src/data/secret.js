@@ -77,6 +77,7 @@ export const officialDate = {
     { file: "media/images/2026-06-20-9" },
     { file: "media/images/2026-06-20-10" },
     { file: "media/images/2026-06-20-11" },
+    { file: "media/images/2026-06-20-12" },
     { type: "video", file: "media/videos/2026-06-20-video1" },
     { type: "video", file: "media/videos/2026-06-20-video2" },
   ],
