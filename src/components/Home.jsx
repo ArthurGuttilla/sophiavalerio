@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
+import CallRanking from "./CallRanking.jsx";
 import { dates } from "../data/dates.js";
 import { secretDate, tripDate, officialDate } from "../data/secret.js";
 import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
@@ -439,6 +440,8 @@ function Calendar() {
           ›
         </button>
       </div>
+
+      <CallRanking />
 
       <footer className="home__foot">
         <p className="signoff">feito com amor por Arthur&nbsp;🤍</p>

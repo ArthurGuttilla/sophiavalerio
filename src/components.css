@@ -211,6 +211,93 @@
   color: var(--color-secondary);
 }
 
+/* ── Ranking de ligações (abaixo da timeline) ──────────────── */
+.ranking {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 460px;
+  margin: var(--space-7) auto 0;
+  padding: 0 var(--space-3);
+}
+.ranking__title {
+  margin: 0 0 var(--space-3);
+  text-align: center;
+  font-family: var(--font-wordmark);
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  color: var(--color-text);
+  font-weight: 500;
+}
+.ranking__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ranking__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+}
+.ranking__row--1 {
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 30px -20px rgba(62, 52, 43, 0.6);
+}
+.ranking__pos {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-bg);
+  background: var(--color-muted);
+}
+.ranking__row--1 .ranking__pos { background: #c9a227; }
+.ranking__row--2 .ranking__pos { background: #9fa3ab; }
+.ranking__row--3 .ranking__pos { background: #b5773f; }
+.ranking__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ranking__date {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  color: var(--color-text);
+}
+.ranking__media {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--color-secondary);
+}
+.ranking__dur {
+  flex: 0 0 auto;
+  font-family: var(--font-wordmark);
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+.ranking__foot {
+  margin: var(--space-3) 0 0;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-secondary);
+}
+
 /* ── Pinguim coletável (sobre as telas das datas) ──────────── */
 .penguin {
   position: fixed;
