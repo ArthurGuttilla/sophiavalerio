@@ -11,4 +11,11 @@ export const places = [
     review: "restaurante do nosso primeiro date",
     closed: true,
   },
+  {
+    name: "Café Longão",
+    lat: -23.5442,
+    lng: -46.6448,
+    review: "lugar do primeiro beijo",
+    closed: true,
+  },
 ];
