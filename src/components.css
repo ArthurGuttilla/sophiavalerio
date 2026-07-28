@@ -242,11 +242,12 @@
   color: var(--color-secondary);
 }
 .ranking__total-value {
-  font-family: var(--font-wordmark);
-  font-weight: 600;
-  font-size: clamp(3rem, 16vw, 4.4rem);
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 11vw, 3.4rem);
+  letter-spacing: -0.02em;
   line-height: 1;
-  color: var(--color-accent);
+  color: var(--color-text);
 }
 .ranking__total-sub {
   font-family: var(--font-ui);
@@ -256,10 +257,10 @@
 .ranking__title {
   margin: 0 0 var(--space-3);
   text-align: center;
-  font-family: var(--font-wordmark);
-  font-size: clamp(1.3rem, 5vw, 1.7rem);
-  color: var(--color-text);
-  font-weight: 500;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+  color: var(--color-secondary);
+  font-weight: 600;
 }
 .ranking__list {
   list-style: none;
@@ -318,10 +319,11 @@
 }
 .ranking__dur {
   flex: 0 0 auto;
-  font-family: var(--font-wordmark);
-  font-size: 1.5rem;
-  color: var(--color-accent);
-  font-weight: 500;
+  font-family: var(--font-ui);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
 .ranking__foot {
   margin: var(--space-3) 0 0;
