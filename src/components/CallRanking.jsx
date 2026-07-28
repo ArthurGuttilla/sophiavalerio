@@ -11,7 +11,13 @@ export default function CallRanking() {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
-      <h2 className="ranking__title">📞 As 5 ligações mais longas</h2>
+      <div className="ranking__total">
+        <span className="ranking__total-label">tempo em ligação</span>
+        <span className="ranking__total-value">{callTotals.value}</span>
+        <span className="ranking__total-sub">📞 {callTotals.period}</span>
+      </div>
+
+      <h2 className="ranking__title">As 5 ligações mais longas</h2>
       <ol className="ranking__list">
         {callRanking.map((c) => (
           <li key={c.rank} className={`ranking__row ranking__row--${c.rank}`}>
@@ -24,9 +30,6 @@ export default function CallRanking() {
           </li>
         ))}
       </ol>
-      <p className="ranking__foot">
-        {callTotals.period} · {callTotals.total}
-      </p>
     </motion.section>
   );
 }
