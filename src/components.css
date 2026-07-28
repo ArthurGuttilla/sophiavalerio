@@ -366,6 +366,101 @@
   color: var(--color-secondary);
 }
 
+/* ── Mapa dos nossos lugares (abaixo do ranking) ───────────── */
+.placesmap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 460px;
+  margin: var(--space-7) auto 0;
+  padding: 0 var(--space-3);
+}
+.placesmap__title {
+  margin: 0 0 var(--space-3);
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+.placesmap__map {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  width: 100%;
+  height: clamp(260px, 60vw, 340px);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--color-muted);
+  box-shadow: 0 16px 40px -26px rgba(62, 52, 43, 0.6);
+}
+.placepin__emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: block;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
+}
+.mappopup { font-family: var(--font-ui); text-align: left; }
+.mappopup__name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+.mappopup__review {
+  margin-top: 2px;
+  font-style: italic;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+}
+.mappopup__closed {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
+.placesmap__legend {
+  margin: 10px 0 0;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-secondary);
+}
+.placesmap__list {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.placesmap__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-muted);
+}
+.placesmap__pin { flex: 0 0 auto; font-size: 1.2rem; line-height: 1.4; }
+.placesmap__info { display: flex; flex-direction: column; min-width: 0; }
+.placesmap__name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+.placesmap__review {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+}
+.placesmap__closed {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+
 /* ── Pinguim coletável (sobre as telas das datas) ──────────── */
 .penguin {
   position: fixed;
