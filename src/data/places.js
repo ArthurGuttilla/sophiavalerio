@@ -18,4 +18,11 @@ export const places = [
     review: "lugar do primeiro beijo",
     closed: true,
   },
+  {
+    name: "Insalata",
+    lat: -23.5665,
+    lng: -46.6680,
+    review: "palco de conversas importantes e agente de uma mudança no cardápio",
+    closed: true,
+  },
 ];
