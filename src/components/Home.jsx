@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import Motif from "./Motif.jsx";
 import CallRanking from "./CallRanking.jsx";
 import Milestones from "./Milestones.jsx";
+import PlacesMap from "./PlacesMap.jsx";
 import { dates } from "../data/dates.js";
 import { secretDate, tripDate, officialDate } from "../data/secret.js";
 import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
@@ -445,6 +446,8 @@ function Calendar() {
       <Milestones />
 
       <CallRanking />
+
+      <PlacesMap />
 
       <footer className="home__foot">
         <p className="signoff">feito com amor por Arthur&nbsp;🤍</p>
