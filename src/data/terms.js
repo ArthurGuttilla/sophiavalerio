@@ -52,13 +52,13 @@ export const termsClauses = [
   {
     h: "Cláusula 8 — Da vigência e das atualizações",
     p: [
-      "Este termo é por prazo indeterminado e se renova automaticamente todo dia. Alterações só por acordo entre as duas partes, preferencialmente discutidas de madrugada, deitados, com muito nhenhenhe.",
+      "Este termo é por prazo indeterminado e se renova automaticamente todo dia. Pode ser revisado diariamente, com a inclusão de novas cláusulas mediante acordo mútuo entre as partes, preferencialmente discutidas deitados, com muito nhenhenhe.",
     ],
   },
   {
     h: "Cláusula 9 — Da resolução de conflitos",
     p: [
-      "Briga não passa da meia-noite sem pelo menos uma tentativa de conversa. É vedado o uso do silêncio como arma. Fica instituído o direito de pedir desculpa primeiro sem que isso conte como derrota.",
+      "Briga não passa da hora de dormir sem pelo menos uma tentativa de conversa. É vedado o uso do silêncio como arma. Fica instituído o direito de pedir desculpa primeiro sem que isso conte como derrota.",
     ],
   },
   {
