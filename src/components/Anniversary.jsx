@@ -11,7 +11,7 @@ function getConfig(day) {
       key: "saindo",
       emojis: ["⭐", "✨", "🌟"],
       title: "Dia 6 🌟",
-      message: `Sophia e Arthur estão saindo há ${formatSince(2026, 3, 6)}.`,
+      message: `Sophia e Arthur estão saindo há ${formatSince(2026, 4, 6)}.`,
     };
   }
   if (day === 20) {
