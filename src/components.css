@@ -441,12 +441,72 @@
 .miles__num {
   font-family: var(--font-ui);
   font-weight: 800;
-  font-size: 1.35em;
+  font-size: 1.12em;
   color: var(--color-text);
   letter-spacing: -0.01em;
   cursor: help;
   border-bottom: 1px dashed var(--color-accent);
   padding-bottom: 1px;
+}
+
+/* ── Comemoração mensal (dia 06 / dia 20) ──────────────────── */
+.anniv {
+  position: fixed;
+  inset: 0;
+  z-index: 2500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.anniv__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 16, 12, 0.5);
+  backdrop-filter: blur(2px);
+}
+.anniv__rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.anniv__drop {
+  position: absolute;
+  top: 0;
+  line-height: 1;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25));
+}
+.anniv__card {
+  position: relative;
+  z-index: 1;
+  width: min(88vw, 380px);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  background: var(--color-bg);
+  border-radius: 20px;
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.anniv__emoji { font-size: 3rem; line-height: 1; }
+.anniv__title {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+.anniv__message {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--color-text);
 }
 
 /* ── Ranking de ligações (abaixo da timeline) ──────────────── */

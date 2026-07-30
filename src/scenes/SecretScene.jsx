@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useRise, ExpBack, ExpFoot } from "../components/expParts.jsx";
+import { formatSince } from "../dateUtils.js";
 
 // Fases: box (chacoalhar) -> grow (buquê cresce) -> count (6 toques) ->
 //        ask (Sim / Não fujão) -> yes (casal + texto)
@@ -19,11 +20,8 @@ export default function SecretScene({ d, onBack }) {
 
   const SHAKE_TARGET = 6;
 
-  // Dias entre hoje e 06 de abril de 2026 (mês 3 = abril, base 0).
-  const daysSince = Math.max(
-    0,
-    Math.floor((Date.now() - new Date(2026, 3, 6).getTime()) / 86400000)
-  );
+  // Tempo (anos, meses e dias) desde 06 de abril de 2026 (mês 3 = abril, base 0).
+  const tempoJuntos = formatSince(2026, 3, 6);
 
   // Detecção de chacoalhada: acelerômetro + giroscópio (rotationRate).
   useEffect(() => {
@@ -237,7 +235,7 @@ export default function SecretScene({ d, onBack }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.4 + i * 0.5 }}
                 >
-                  {p.replace("{dias}", daysSince)}
+                  {p.replace("{tempo}", tempoJuntos)}
                 </motion.p>
               ))}
             </div>

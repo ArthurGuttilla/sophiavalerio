@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
+import { formatSince } from "../dateUtils.js";
 
-// Marcos: dias desde cada data-base até hoje (recalculado ao abrir a página).
+// Marcos: tempo (anos, meses e dias) desde cada data-base até hoje.
 const BASES = [
   { verb: "conversando", y: 2026, m: 3, d: 6, label: "06 de abril de 2026" },   // 06/04
   { verb: "se encontrando", y: 2026, m: 4, d: 6, label: "06 de maio de 2026" }, // 06/05
   { verb: "namorando", y: 2026, m: 5, d: 20, label: "20 de junho de 2026" },    // 20/06
 ];
-
-function daysSince(y, m, d) {
-  return Math.max(0, Math.floor((Date.now() - new Date(y, m, d).getTime()) / 86400000));
-}
 
 export default function Milestones() {
   return (
@@ -24,9 +21,9 @@ export default function Milestones() {
         <p className="miles__line" key={b.verb}>
           há{" "}
           <span className="miles__num" title={`desde ${b.label}`}>
-            {daysSince(b.y, b.m, b.d)}
+            {formatSince(b.y, b.m, b.d)}
           </span>{" "}
-          dias {b.verb}
+          {b.verb}
         </p>
       ))}
     </motion.section>
