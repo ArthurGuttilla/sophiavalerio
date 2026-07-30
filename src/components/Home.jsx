@@ -6,6 +6,7 @@ import CallRanking from "./CallRanking.jsx";
 import Milestones from "./Milestones.jsx";
 import PlacesMap from "./PlacesMap.jsx";
 import Terms from "./Terms.jsx";
+import Anniversary from "./Anniversary.jsx";
 import { dates } from "../data/dates.js";
 import { secretDate, tripDate, officialDate } from "../data/secret.js";
 import { getSeen, isUnlocked, allSeen, markAllSeen } from "../progress.js";
@@ -241,6 +242,7 @@ function Calendar() {
       transition={{ duration: 0.4 }}
     >
       <Motif variant="sparkle" />
+      <Anniversary />
 
       <header className="home__head">
         <motion.p
