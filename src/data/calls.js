@@ -9,9 +9,9 @@ export const callRanking = [
   { rank: 5, date: "30 de junho", dur: "2h09", full: "02:09:09", media: "vídeo" },
 ];
 
-// Soma total (21:20:18 + 03:11:08 = 24:31:26).
+// Soma total (24:31:26 + 00:10:22 = 24:41:48).
 export const callTotals = {
-  value: "24h31",
-  full: "24:31:26",
-  period: "de 08/06 a 27/07",
+  value: "24h41",
+  full: "24:41:48",
+  period: "de 08/06 a 29/07",
 };
